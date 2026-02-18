@@ -1,9 +1,0 @@
-symbol,name,description,market,strategy_type,active
-ESTrend,ES Trend Following,S&P 500 E-mini futures trend following strategy,ES,Trend,true
-ESORB,ES Opening Range Breakout,S&P 500 E-mini futures opening range breakout strategy,ES,ORB,true
-NQTrend,NQ Trend Following,NASDAQ-100 E-mini futures trend following strategy,NQ,Trend,true
-NQORB,NQ Opening Range Breakout,NASDAQ-100 E-mini futures opening range breakout strategy,NQ,ORB,true
-CLTrend,CL Trend Following,Crude Oil futures trend following strategy,CL,Trend,true
-BTCTrend,BTC Trend Following,Bitcoin futures trend following strategy,BTC,Trend,true
-GCTrend,GC Trend Following,Gold futures trend following strategy,GC,Trend,true
-YMORB,YM Opening Range Breakout,Dow Jones E-mini futures opening range breakout strategy,YM,ORB,true

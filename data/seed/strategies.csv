@@ -1,9 +1,0 @@
-id,name,description,symbol,type
-1,ES Trend,S&P 500 E-mini futures trend following strategy,ES,intraday
-2,ES Opening Range Breakout,S&P 500 E-mini futures opening range breakout strategy,ES,intraday
-3,NQ Trend,NASDAQ-100 E-mini futures trend following strategy,NQ,intraday
-4,NQ Opening Range Breakout,NASDAQ-100 E-mini futures opening range breakout strategy,NQ,intraday
-5,CL Trend,Crude Oil futures trend following strategy,CL,intraday
-6,BTC Trend,Bitcoin futures trend following strategy,BTC,intraday
-7,GC Trend,Gold futures trend following strategy,GC,intraday
-8,YM Opening Range Breakout,Dow Jones E-mini futures opening range breakout strategy,YM,intraday
