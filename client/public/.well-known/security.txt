@@ -1,0 +1,10 @@
+# Security Policy for STS Futures
+# https://sts-futures.com
+
+Contact: mailto:security@sts-futures.com
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://sts-futures.com/.well-known/security.txt
+
+# We appreciate responsible disclosure of security vulnerabilities.
+# Please report any security issues to the contact above.

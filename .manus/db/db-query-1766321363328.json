@@ -1,0 +1,22 @@
+{
+  "query": "SELECT \n  s.symbol,\n  s.name,\n  COUNT(t.id) as trade_count,\n  SUM(t.pnl) / 100 as total_pnl_dollars,\n  SUM(CASE WHEN t.pnl > 0 THEN t.pnl ELSE 0 END) / 100 as gross_profit,\n  SUM(CASE WHEN t.pnl < 0 THEN ABS(t.pnl) ELSE 0 END) / 100 as gross_loss,\n  SUM(CASE WHEN t.pnl > 0 THEN 1 ELSE 0 END) as winning_trades,\n  SUM(CASE WHEN t.pnl < 0 THEN 1 ELSE 0 END) as losing_trades,\n  MIN(t.entryDate) as first_trade,\n  MAX(t.exitDate) as last_trade\nFROM strategies s\nLEFT JOIN trades t ON s.id = t.strategyId\nWHERE s.symbol = 'ESTrend'\nGROUP BY s.id, s.symbol, s.name;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT \n  s.symbol,\n  s.name,\n  COUNT(t.id) as trade_count,\n  SUM(t.pnl) / 100 as total_pnl_dollars,\n  SUM(CASE WHEN t.pnl > 0 THEN t.pnl ELSE 0 END) / 100 as gross_profit,\n  SUM(CASE WHEN t.pnl < 0 THEN ABS(t.pnl) ELSE 0 END) / 100 as gross_loss,\n  SUM(CASE WHEN t.pnl > 0 THEN 1 ELSE 0 END) as winning_trades,\n  SUM(CASE WHEN t.pnl < 0 THEN 1 ELSE 0 END) as losing_trades,\n  MIN(t.entryDate) as first_trade,\n  MAX(t.exitDate) as last_trade\nFROM strategies s\nLEFT JOIN trades t ON s.id = t.strategyId\nWHERE s.symbol = 'ESTrend'\nGROUP BY s.id, s.symbol, s.name;",
+  "rows": [
+    {
+      "symbol": "ESTrend",
+      "name": "ES Trend Following",
+      "trade_count": "977",
+      "total_pnl_dollars": "106253.2500",
+      "gross_profit": "328278.2500",
+      "gross_loss": "222025.0000",
+      "winning_trades": "502",
+      "losing_trades": "475",
+      "first_trade": "2011-01-12 20:25:00",
+      "last_trade": "2099-12-31 11:00:00"
+    }
+  ],
+  "messages": [],
+  "stdout": "symbol\tname\ttrade_count\ttotal_pnl_dollars\tgross_profit\tgross_loss\twinning_trades\tlosing_trades\tfirst_trade\tlast_trade\nESTrend\tES Trend Following\t977\t106253.2500\t328278.2500\t222025.0000\t502\t475\t2011-01-12 20:25:00\t2099-12-31 11:00:00\n",
+  "stderr": "",
+  "execution_time_ms": 62
+}

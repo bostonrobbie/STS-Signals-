@@ -1,0 +1,17 @@
+{
+  "query": "\nINSERT INTO users (openId, email, passwordHash, name, role, loginMethod, subscriptionTier, onboardingCompleted, createdAt, updatedAt, lastSignedIn) \nVALUES (\n  'admin_openid_123456789',\n  'admin@intradaydash.com',\n  '$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcg7b3XeKeUxWdeS86E36P4/KFm',\n  'Admin',\n  'admin',\n  'password',\n  'premium',\n  1,\n  NOW(),\n  NOW(),\n  NOW()\n) ON DUPLICATE KEY UPDATE role = 'admin', subscriptionTier = 'premium', onboardingCompleted = 1;\n\nSELECT id, email, name, role, subscriptionTier FROM users WHERE email = 'admin@intradaydash.com';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute \nINSERT INTO users (openId, email, passwordHash, name, role, loginMethod, subscriptionTier, onboardingCompleted, createdAt, updatedAt, lastSignedIn) \nVALUES (\n  'admin_openid_123456789',\n  'admin@intradaydash.com',\n  '$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcg7b3XeKeUxWdeS86E36P4/KFm',\n  'Admin',\n  'admin',\n  'password',\n  'premium',\n  1,\n  NOW(),\n  NOW(),\n  NOW()\n) ON DUPLICATE KEY UPDATE role = 'admin', subscriptionTier = 'premium', onboardingCompleted = 1;\n\nSELECT id, email, name, role, subscriptionTier FROM users WHERE email = 'admin@intradaydash.com';\n",
+  "rows": [
+    {
+      "id": "18870002",
+      "email": "admin@intradaydash.com",
+      "name": "Admin",
+      "role": "admin",
+      "subscriptionTier": "premium"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\tname\trole\tsubscriptionTier\n18870002\tadmin@intradaydash.com\tAdmin\tadmin\tpremium\n",
+  "stderr": "",
+  "execution_time_ms": 67
+}

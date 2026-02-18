@@ -1,0 +1,50 @@
+{
+  "query": "SELECT id, name, email, role, subscriptionTier, createdAt FROM users WHERE email LIKE '%testsubscriber%' OR email LIKE '%finaltest%' ORDER BY createdAt DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, name, email, role, subscriptionTier, createdAt FROM users WHERE email LIKE '%testsubscriber%' OR email LIKE '%finaltest%' ORDER BY createdAt DESC LIMIT 5;",
+  "rows": [
+    {
+      "id": "18960005",
+      "name": "Test Subscriber Account",
+      "email": "testsubscriber20260202@example.com",
+      "role": "user",
+      "subscriptionTier": "free",
+      "createdAt": "2026-02-03 01:56:59"
+    },
+    {
+      "id": "18960004",
+      "name": "Final Test User",
+      "email": "finaltest20260202@example.com",
+      "role": "user",
+      "subscriptionTier": "free",
+      "createdAt": "2026-02-03 01:55:44"
+    },
+    {
+      "id": "18960001",
+      "name": "Test Subscriber",
+      "email": "testsubscriber@example.com",
+      "role": "user",
+      "subscriptionTier": "free",
+      "createdAt": "2026-02-03 00:40:51"
+    },
+    {
+      "id": "18930008",
+      "name": "Final Test",
+      "email": "finaltest999@example.com",
+      "role": "user",
+      "subscriptionTier": "free",
+      "createdAt": "2026-02-02 16:45:56"
+    },
+    {
+      "id": "18900004",
+      "name": "Test User Final",
+      "email": "finaltest29jan2026@example.com",
+      "role": "user",
+      "subscriptionTier": "free",
+      "createdAt": "2026-01-29 20:32:08"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\temail\trole\tsubscriptionTier\tcreatedAt\n18960005\tTest Subscriber Account\ttestsubscriber20260202@example.com\tuser\tfree\t2026-02-03 01:56:59\n18960004\tFinal Test User\tfinaltest20260202@example.com\tuser\tfree\t2026-02-03 01:55:44\n18960001\tTest Subscriber\ttestsubscriber@example.com\tuser\tfree\t2026-02-03 00:40:51\n18930008\tFinal Test\tfinaltest999@example.com\tuser\tfree\t2026-02-02 16:45:56\n18900004\tTest User Final\tfinaltest29jan2026@example.com\tuser\tfree\t2026-01-29 20:32:08\n",
+  "stderr": "",
+  "execution_time_ms": 122
+}

@@ -1,0 +1,58 @@
+{
+  "query": "SELECT id, name, symbol, microToMiniRatio FROM strategies ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, name, symbol, microToMiniRatio FROM strategies ORDER BY id;",
+  "rows": [
+    {
+      "id": "9",
+      "name": "ES Trend Following",
+      "symbol": "ESTrend",
+      "microToMiniRatio": "10"
+    },
+    {
+      "id": "10",
+      "name": "ES Opening Range Breakout",
+      "symbol": "ESORB",
+      "microToMiniRatio": "10"
+    },
+    {
+      "id": "11",
+      "name": "NQ Trend Following",
+      "symbol": "NQTrend",
+      "microToMiniRatio": "10"
+    },
+    {
+      "id": "12",
+      "name": "NQ Opening Range Breakout",
+      "symbol": "NQORB",
+      "microToMiniRatio": "10"
+    },
+    {
+      "id": "13",
+      "name": "CL Trend Following",
+      "symbol": "CLTrend",
+      "microToMiniRatio": "10"
+    },
+    {
+      "id": "14",
+      "name": "BTC Trend Following",
+      "symbol": "BTCTrend",
+      "microToMiniRatio": "50"
+    },
+    {
+      "id": "15",
+      "name": "GC Trend Following",
+      "symbol": "GCTrend",
+      "microToMiniRatio": "10"
+    },
+    {
+      "id": "16",
+      "name": "YM Opening Range Breakout",
+      "symbol": "YMORB",
+      "microToMiniRatio": "10"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tsymbol\tmicroToMiniRatio\n9\tES Trend Following\tESTrend\t10\n10\tES Opening Range Breakout\tESORB\t10\n11\tNQ Trend Following\tNQTrend\t10\n12\tNQ Opening Range Breakout\tNQORB\t10\n13\tCL Trend Following\tCLTrend\t10\n14\tBTC Trend Following\tBTCTrend\t50\n15\tGC Trend Following\tGCTrend\t10\n16\tYM Opening Range Breakout\tYMORB\t10\n",
+  "stderr": "",
+  "execution_time_ms": 100
+}

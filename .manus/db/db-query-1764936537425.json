@@ -1,0 +1,40 @@
+{
+  "query": "SELECT id, strategyId, entryDate, exitDate FROM trades ORDER BY id LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, strategyId, entryDate, exitDate FROM trades ORDER BY id LIMIT 5;",
+  "rows": [
+    {
+      "id": "90001",
+      "strategyId": "1",
+      "entryDate": "2010-11-04 11:30:00",
+      "exitDate": "2010-11-04 16:50:00"
+    },
+    {
+      "id": "90002",
+      "strategyId": "1",
+      "entryDate": "2010-11-18 11:30:00",
+      "exitDate": "2010-11-18 16:50:00"
+    },
+    {
+      "id": "90003",
+      "strategyId": "1",
+      "entryDate": "2010-11-24 11:30:00",
+      "exitDate": "2010-11-24 16:50:00"
+    },
+    {
+      "id": "90004",
+      "strategyId": "1",
+      "entryDate": "2010-12-01 11:30:00",
+      "exitDate": "2010-12-01 16:50:00"
+    },
+    {
+      "id": "90005",
+      "strategyId": "1",
+      "entryDate": "2010-12-02 11:30:00",
+      "exitDate": "2010-12-02 16:50:00"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tstrategyId\tentryDate\texitDate\n90001\t1\t2010-11-04 11:30:00\t2010-11-04 16:50:00\n90002\t1\t2010-11-18 11:30:00\t2010-11-18 16:50:00\n90003\t1\t2010-11-24 11:30:00\t2010-11-24 16:50:00\n90004\t1\t2010-12-01 11:30:00\t2010-12-01 16:50:00\n90005\t1\t2010-12-02 11:30:00\t2010-12-02 16:50:00\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

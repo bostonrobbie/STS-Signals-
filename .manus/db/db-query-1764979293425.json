@@ -1,0 +1,50 @@
+{
+  "query": "SELECT s.symbol, s.name, COUNT(t.id) as trade_count \nFROM strategies s \nLEFT JOIN trades t ON s.id = t.strategyId \nGROUP BY s.id, s.symbol, s.name \nORDER BY s.symbol;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT s.symbol, s.name, COUNT(t.id) as trade_count \nFROM strategies s \nLEFT JOIN trades t ON s.id = t.strategyId \nGROUP BY s.id, s.symbol, s.name \nORDER BY s.symbol;",
+  "rows": [
+    {
+      "symbol": "BTCTrend",
+      "name": "BTC Trend Following",
+      "trade_count": "829"
+    },
+    {
+      "symbol": "CLTrend",
+      "name": "CL Trend Following",
+      "trade_count": "2356"
+    },
+    {
+      "symbol": "ESORB",
+      "name": "ES Opening Range Breakout",
+      "trade_count": "826"
+    },
+    {
+      "symbol": "ESTrend",
+      "name": "ES Trend Following",
+      "trade_count": "887"
+    },
+    {
+      "symbol": "GCTrend",
+      "name": "GC Trend Following",
+      "trade_count": "693"
+    },
+    {
+      "symbol": "NQORB",
+      "name": "NQ Opening Range Breakout",
+      "trade_count": "1455"
+    },
+    {
+      "symbol": "NQTrend",
+      "name": "NQ Trend Following",
+      "trade_count": "1343"
+    },
+    {
+      "symbol": "YMORB",
+      "name": "YM Opening Range Breakout",
+      "trade_count": "994"
+    }
+  ],
+  "messages": [],
+  "stdout": "symbol\tname\ttrade_count\nBTCTrend\tBTC Trend Following\t829\nCLTrend\tCL Trend Following\t2356\nESORB\tES Opening Range Breakout\t826\nESTrend\tES Trend Following\t887\nGCTrend\tGC Trend Following\t693\nNQORB\tNQ Opening Range Breakout\t1455\nNQTrend\tNQ Trend Following\t1343\nYMORB\tYM Opening Range Breakout\t994\n",
+  "stderr": "",
+  "execution_time_ms": 76
+}

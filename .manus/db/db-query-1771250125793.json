@@ -1,0 +1,50 @@
+{
+  "query": "SELECT entryPrice, exitPrice, pnl, pnlPercent, direction, quantity FROM trades LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT entryPrice, exitPrice, pnl, pnlPercent, direction, quantity FROM trades LIMIT 5;",
+  "rows": [
+    {
+      "entryPrice": "177700",
+      "exitPrice": "177400",
+      "pnl": "-15400",
+      "pnlPercent": "-1700",
+      "direction": "Long",
+      "quantity": "1"
+    },
+    {
+      "entryPrice": "179325",
+      "exitPrice": "179625",
+      "pnl": "14600",
+      "pnlPercent": "1600",
+      "direction": "Long",
+      "quantity": "1"
+    },
+    {
+      "entryPrice": "180350",
+      "exitPrice": "180050",
+      "pnl": "-15400",
+      "pnlPercent": "-1700",
+      "direction": "Long",
+      "quantity": "1"
+    },
+    {
+      "entryPrice": "182050",
+      "exitPrice": "182375",
+      "pnl": "15850",
+      "pnlPercent": "1700",
+      "direction": "Long",
+      "quantity": "1"
+    },
+    {
+      "entryPrice": "177025",
+      "exitPrice": "176475",
+      "pnl": "-27900",
+      "pnlPercent": "-3200",
+      "direction": "Long",
+      "quantity": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "entryPrice\texitPrice\tpnl\tpnlPercent\tdirection\tquantity\n177700\t177400\t-15400\t-1700\tLong\t1\n179325\t179625\t14600\t1600\tLong\t1\n180350\t180050\t-15400\t-1700\tLong\t1\n182050\t182375\t15850\t1700\tLong\t1\n177025\t176475\t-27900\t-3200\tLong\t1\n",
+  "stderr": "",
+  "execution_time_ms": 62
+}

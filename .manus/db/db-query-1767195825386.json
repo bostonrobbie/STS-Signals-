@@ -1,0 +1,18 @@
+{
+  "query": "SELECT id, strategyId, status, tradeId, createdAt, isTest \nFROM webhook_logs \nWHERE DATE(createdAt) = CURDATE() \nORDER BY createdAt DESC \nLIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, strategyId, status, tradeId, createdAt, isTest \nFROM webhook_logs \nWHERE DATE(createdAt) = CURDATE() \nORDER BY createdAt DESC \nLIMIT 20;",
+  "rows": [
+    {
+      "id": "2220001",
+      "strategyId": "14",
+      "status": "success",
+      "tradeId": "NULL",
+      "createdAt": "2025-12-31 15:35:01",
+      "isTest": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tstrategyId\tstatus\ttradeId\tcreatedAt\tisTest\n2220001\t14\tsuccess\tNULL\t2025-12-31 15:35:01\t0\n",
+  "stderr": "",
+  "execution_time_ms": 389
+}

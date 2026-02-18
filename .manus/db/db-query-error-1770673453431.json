@@ -1,0 +1,8 @@
+{
+  "query": "SELECT u.id, u.email, u.role, u.stripe_customer_id, u.stripe_subscription_id FROM users u WHERE u.email = 'rgorham369@gmail.com';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT u.id, u.email, u.role, u.stripe_customer_id, u.stripe_subscription_id FROM users u WHERE u.email = 'rgorham369@gmail.com';",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'u.stripe_customer_id' in 'field list'"
+  ]
+}

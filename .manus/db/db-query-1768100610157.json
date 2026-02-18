@@ -1,0 +1,40 @@
+{
+  "query": "SELECT t.id, t.pnl, t.quantity, s.symbol FROM trades t JOIN strategies s ON t.strategyId = s.id WHERE s.symbol = 'NQTrendLeveraged' ORDER BY t.exitDate DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT t.id, t.pnl, t.quantity, s.symbol FROM trades t JOIN strategies s ON t.strategyId = s.id WHERE s.symbol = 'NQTrendLeveraged' ORDER BY t.exitDate DESC LIMIT 5;",
+  "rows": [
+    {
+      "id": "2588828",
+      "pnl": "-3904380",
+      "quantity": "18",
+      "symbol": "NQTrendLeveraged"
+    },
+    {
+      "id": "2588827",
+      "pnl": "-1888380",
+      "quantity": "18",
+      "symbol": "NQTrendLeveraged"
+    },
+    {
+      "id": "2588826",
+      "pnl": "532620",
+      "quantity": "18",
+      "symbol": "NQTrendLeveraged"
+    },
+    {
+      "id": "2588825",
+      "pnl": "4285620",
+      "quantity": "18",
+      "symbol": "NQTrendLeveraged"
+    },
+    {
+      "id": "2588824",
+      "pnl": "28620",
+      "quantity": "18",
+      "symbol": "NQTrendLeveraged"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tpnl\tquantity\tsymbol\n2588828\t-3904380\t18\tNQTrendLeveraged\n2588827\t-1888380\t18\tNQTrendLeveraged\n2588826\t532620\t18\tNQTrendLeveraged\n2588825\t4285620\t18\tNQTrendLeveraged\n2588824\t28620\t18\tNQTrendLeveraged\n",
+  "stderr": "",
+  "execution_time_ms": 67
+}

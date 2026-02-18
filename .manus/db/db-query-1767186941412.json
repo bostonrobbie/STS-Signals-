@@ -1,0 +1,78 @@
+{
+  "query": "SELECT COLUMN_NAME, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'users' AND TABLE_SCHEMA = DATABASE() ORDER BY ORDINAL_POSITION",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT COLUMN_NAME, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'users' AND TABLE_SCHEMA = DATABASE() ORDER BY ORDINAL_POSITION",
+  "rows": [
+    {
+      "COLUMN_NAME": "id",
+      "COLUMN_TYPE": "int(11)"
+    },
+    {
+      "COLUMN_NAME": "openId",
+      "COLUMN_TYPE": "varchar(64)"
+    },
+    {
+      "COLUMN_NAME": "name",
+      "COLUMN_TYPE": "text"
+    },
+    {
+      "COLUMN_NAME": "email",
+      "COLUMN_TYPE": "varchar(320)"
+    },
+    {
+      "COLUMN_NAME": "loginMethod",
+      "COLUMN_TYPE": "varchar(64)"
+    },
+    {
+      "COLUMN_NAME": "role",
+      "COLUMN_TYPE": "enum('user','admin')"
+    },
+    {
+      "COLUMN_NAME": "createdAt",
+      "COLUMN_TYPE": "timestamp"
+    },
+    {
+      "COLUMN_NAME": "updatedAt",
+      "COLUMN_TYPE": "timestamp"
+    },
+    {
+      "COLUMN_NAME": "lastSignedIn",
+      "COLUMN_TYPE": "timestamp"
+    },
+    {
+      "COLUMN_NAME": "subscriptionTier",
+      "COLUMN_TYPE": "enum('free','pro','premium')"
+    },
+    {
+      "COLUMN_NAME": "stripeCustomerId",
+      "COLUMN_TYPE": "varchar(255)"
+    },
+    {
+      "COLUMN_NAME": "stripeSubscriptionId",
+      "COLUMN_TYPE": "varchar(255)"
+    },
+    {
+      "COLUMN_NAME": "subscriptionStatus",
+      "COLUMN_TYPE": "varchar(50)"
+    },
+    {
+      "COLUMN_NAME": "onboardingCompleted",
+      "COLUMN_TYPE": "tinyint(1)"
+    },
+    {
+      "COLUMN_NAME": "onboardingDismissed",
+      "COLUMN_TYPE": "tinyint(1)"
+    },
+    {
+      "COLUMN_NAME": "startingCapital",
+      "COLUMN_TYPE": "int(11)"
+    },
+    {
+      "COLUMN_NAME": "contractSize",
+      "COLUMN_TYPE": "enum('mini','micro')"
+    }
+  ],
+  "messages": [],
+  "stdout": "COLUMN_NAME\tCOLUMN_TYPE\nid\tint(11)\nopenId\tvarchar(64)\nname\ttext\nemail\tvarchar(320)\nloginMethod\tvarchar(64)\nrole\tenum('user','admin')\ncreatedAt\ttimestamp\nupdatedAt\ttimestamp\nlastSignedIn\ttimestamp\nsubscriptionTier\tenum('free','pro','premium')\nstripeCustomerId\tvarchar(255)\nstripeSubscriptionId\tvarchar(255)\nsubscriptionStatus\tvarchar(50)\nonboardingCompleted\ttinyint(1)\nonboardingDismissed\ttinyint(1)\nstartingCapital\tint(11)\ncontractSize\tenum('mini','micro')\n",
+  "stderr": "",
+  "execution_time_ms": 457
+}

@@ -1,0 +1,18 @@
+{
+  "query": "SHOW COLUMNS FROM users LIKE '%contract%'",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SHOW COLUMNS FROM users LIKE '%contract%'",
+  "rows": [
+    {
+      "Field": "contractSize",
+      "Type": "enum('mini','micro')",
+      "Null": "NO",
+      "Key": "",
+      "Default": "micro",
+      "Extra": ""
+    }
+  ],
+  "messages": [],
+  "stdout": "Field\tType\tNull\tKey\tDefault\tExtra\ncontractSize\tenum('mini','micro')\tNO\t\tmicro\t\n",
+  "stderr": "",
+  "execution_time_ms": 427
+}

@@ -1,0 +1,8 @@
+{
+  "query": "SELECT DATE(exitDate) as trade_date, DAYNAME(DATE(exitDate)) as day_name, COUNT(*) as trade_count, SUM(pnl)/100 as total_pnl FROM trades WHERE DAYOFWEEK(exitDate) = 7 GROUP BY DATE(exitDate) ORDER BY DATE(exitDate) DESC LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT DATE(exitDate) as trade_date, DAYNAME(DATE(exitDate)) as day_name, COUNT(*) as trade_count, SUM(pnl)/100 as total_pnl FROM trades WHERE DAYOFWEEK(exitDate) = 7 GROUP BY DATE(exitDate) ORDER BY DATE(exitDate) DESC LIMIT 10;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1055 (42000) at line 1: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'jFmY8c2b9B6TEBRxmcJws8.trades.exitDate' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by"
+  ]
+}

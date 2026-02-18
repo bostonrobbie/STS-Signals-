@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS `paper_accounts` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `userId` int NOT NULL,\n  `name` varchar(100) NOT NULL,\n  `balance` int NOT NULL DEFAULT 10000000,\n  `startingBalance` int NOT NULL DEFAULT 10000000,\n  `realizedPnl` int DEFAULT 0,\n  `totalTrades` int DEFAULT 0,\n  `winningTrades` int DEFAULT 0,\n  `losingTrades` int DEFAULT 0,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  CONSTRAINT `paper_accounts_id` PRIMARY KEY(`id`),\n  INDEX `idx_paper_accounts_user` (`userId`)\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute CREATE TABLE IF NOT EXISTS `paper_accounts` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `userId` int NOT NULL,\n  `name` varchar(100) NOT NULL,\n  `balance` int NOT NULL DEFAULT 10000000,\n  `startingBalance` int NOT NULL DEFAULT 10000000,\n  `realizedPnl` int DEFAULT 0,\n  `totalTrades` int DEFAULT 0,\n  `winningTrades` int DEFAULT 0,\n  `losingTrades` int DEFAULT 0,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  CONSTRAINT `paper_accounts_id` PRIMARY KEY(`id`),\n  INDEX `idx_paper_accounts_user` (`userId`)\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 419
+}

@@ -1,0 +1,15 @@
+{
+  "query": "SELECT COUNT(*) as count, MIN(entryDate) as earliest, MAX(exitDate) as latest FROM trades;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT COUNT(*) as count, MIN(entryDate) as earliest, MAX(exitDate) as latest FROM trades;",
+  "rows": [
+    {
+      "count": "9356",
+      "earliest": "2010-10-19 09:30:00",
+      "latest": "2025-10-10 16:45:00"
+    }
+  ],
+  "messages": [],
+  "stdout": "count\tearliest\tlatest\n9356\t2010-10-19 09:30:00\t2025-10-10 16:45:00\n",
+  "stderr": "",
+  "execution_time_ms": 118
+}

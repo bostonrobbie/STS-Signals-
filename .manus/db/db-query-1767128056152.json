@@ -1,0 +1,40 @@
+{
+  "query": "SELECT id, strategyId, direction, entryPrice, pnl, isTest, source, createdAt\nFROM trades \nWHERE DATE(createdAt) = CURDATE()\nAND isTest = 0\nAND source = 'webhook'\nORDER BY createdAt DESC\nLIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, strategyId, direction, entryPrice, pnl, isTest, source, createdAt\nFROM trades \nWHERE DATE(createdAt) = CURDATE()\nAND isTest = 0\nAND source = 'webhook'\nORDER BY createdAt DESC\nLIMIT 10;",
+  "rows": [
+    {
+      "id": "2190018",
+      "strategyId": "15",
+      "direction": "Short",
+      "entryPrice": "200000",
+      "pnl": "5000",
+      "isTest": "0",
+      "source": "webhook",
+      "createdAt": "2025-12-30 20:48:42"
+    },
+    {
+      "id": "2190017",
+      "strategyId": "11",
+      "direction": "Long",
+      "entryPrice": "1500000",
+      "pnl": "10000",
+      "isTest": "0",
+      "source": "webhook",
+      "createdAt": "2025-12-30 20:48:41"
+    },
+    {
+      "id": "2190016",
+      "strategyId": "9",
+      "direction": "Long",
+      "entryPrice": "450000",
+      "pnl": "5000",
+      "isTest": "0",
+      "source": "webhook",
+      "createdAt": "2025-12-30 20:48:41"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tstrategyId\tdirection\tentryPrice\tpnl\tisTest\tsource\tcreatedAt\n2190018\t15\tShort\t200000\t5000\t0\twebhook\t2025-12-30 20:48:42\n2190017\t11\tLong\t1500000\t10000\t0\twebhook\t2025-12-30 20:48:41\n2190016\t9\tLong\t450000\t5000\t0\twebhook\t2025-12-30 20:48:41\n",
+  "stderr": "",
+  "execution_time_ms": 66
+}

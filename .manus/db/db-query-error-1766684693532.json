@@ -1,0 +1,8 @@
+{
+  "query": "SELECT status, COUNT(*) as count, AVG(processingTimeMs) as avg_time_ms, MAX(processingTimeMs) as max_time_ms, error_message FROM webhook_logs GROUP BY status, error_message ORDER BY count DESC LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT status, COUNT(*) as count, AVG(processingTimeMs) as avg_time_ms, MAX(processingTimeMs) as max_time_ms, error_message FROM webhook_logs GROUP BY status, error_message ORDER BY count DESC LIMIT 20;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'error_message' in 'group statement'"
+  ]
+}

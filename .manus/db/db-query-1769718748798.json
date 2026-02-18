@@ -1,0 +1,50 @@
+{
+  "query": "SELECT id, email, name, subscriptionTier, subscriptionStatus, createdAt FROM users WHERE email LIKE '%example.com' ORDER BY id DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, email, name, subscriptionTier, subscriptionStatus, createdAt FROM users WHERE email LIKE '%example.com' ORDER BY id DESC LIMIT 5;",
+  "rows": [
+    {
+      "id": "18900004",
+      "email": "finaltest29jan2026@example.com",
+      "name": "Test User Final",
+      "subscriptionTier": "free",
+      "subscriptionStatus": "active",
+      "createdAt": "2026-01-29 20:32:08"
+    },
+    {
+      "id": "18900003",
+      "email": "test-20260129-153105@example.com",
+      "name": "Checkout Test V5",
+      "subscriptionTier": "free",
+      "subscriptionStatus": "active",
+      "createdAt": "2026-01-29 20:31:27"
+    },
+    {
+      "id": "18900002",
+      "email": "checkout-success-jan29@example.com",
+      "name": "Checkout Test V5",
+      "subscriptionTier": "free",
+      "subscriptionStatus": "active",
+      "createdAt": "2026-01-29 20:30:58"
+    },
+    {
+      "id": "18900001",
+      "email": "checkout-v5-jan29@example.com",
+      "name": "Checkout Test V5",
+      "subscriptionTier": "free",
+      "subscriptionStatus": "active",
+      "createdAt": "2026-01-29 20:30:30"
+    },
+    {
+      "id": "18630333",
+      "email": "finaltest@example.com",
+      "name": "finaltest",
+      "subscriptionTier": "free",
+      "subscriptionStatus": "active",
+      "createdAt": "2026-01-24 13:22:37"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\tname\tsubscriptionTier\tsubscriptionStatus\tcreatedAt\n18900004\tfinaltest29jan2026@example.com\tTest User Final\tfree\tactive\t2026-01-29 20:32:08\n18900003\ttest-20260129-153105@example.com\tCheckout Test V5\tfree\tactive\t2026-01-29 20:31:27\n18900002\tcheckout-success-jan29@example.com\tCheckout Test V5\tfree\tactive\t2026-01-29 20:30:58\n18900001\tcheckout-v5-jan29@example.com\tCheckout Test V5\tfree\tactive\t2026-01-29 20:30:30\n18630333\tfinaltest@example.com\tfinaltest\tfree\tactive\t2026-01-24 13:22:37\n",
+  "stderr": "",
+  "execution_time_ms": 57
+}

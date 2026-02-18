@@ -1,0 +1,8 @@
+{
+  "query": "SELECT us.id, us.user_id, us.strategy_id, s.name as strategy_name, s.active \nFROM user_subscriptions us \nLEFT JOIN strategies s ON us.strategy_id = s.id \nWHERE us.user_id = 1",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT us.id, us.user_id, us.strategy_id, s.name as strategy_name, s.active \nFROM user_subscriptions us \nLEFT JOIN strategies s ON us.strategy_id = s.id \nWHERE us.user_id = 1",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'us.strategy_id' in 'on clause'"
+  ]
+}

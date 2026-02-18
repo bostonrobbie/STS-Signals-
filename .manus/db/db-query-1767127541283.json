@@ -1,0 +1,18 @@
+{
+  "query": "SELECT DISTINCT ipAddress, COUNT(*) as count \nFROM webhook_logs \nWHERE DATE(createdAt) >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)\nGROUP BY ipAddress\nORDER BY count DESC\nLIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT DISTINCT ipAddress, COUNT(*) as count \nFROM webhook_logs \nWHERE DATE(createdAt) >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)\nGROUP BY ipAddress\nORDER BY count DESC\nLIMIT 20;",
+  "rows": [
+    {
+      "ipAddress": "::1",
+      "count": "594"
+    },
+    {
+      "ipAddress": "test-simulator",
+      "count": "40"
+    }
+  ],
+  "messages": [],
+  "stdout": "ipAddress\tcount\n::1\t594\ntest-simulator\t40\n",
+  "stderr": "",
+  "execution_time_ms": 58
+}

@@ -1,0 +1,8 @@
+{
+  "query": "\nALTER TABLE users \nADD COLUMN IF NOT EXISTS passwordHash VARCHAR(255),\nADD COLUMN IF NOT EXISTS rememberToken VARCHAR(255),\nADD COLUMN IF NOT EXISTS rememberTokenExpiresAt DATETIME,\nMODIFY COLUMN openId VARCHAR(64),\nMODIFY COLUMN email VARCHAR(320) NOT NULL UNIQUE,\nMODIFY COLUMN loginMethod VARCHAR(64) NOT NULL DEFAULT 'password';\n\nCREATE INDEX IF NOT EXISTS idx_users_email ON users(email);\nCREATE INDEX IF NOT EXISTS idx_users_role ON users(role);\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute \nALTER TABLE users \nADD COLUMN IF NOT EXISTS passwordHash VARCHAR(255),\nADD COLUMN IF NOT EXISTS rememberToken VARCHAR(255),\nADD COLUMN IF NOT EXISTS rememberTokenExpiresAt DATETIME,\nMODIFY COLUMN openId VARCHAR(64),\nMODIFY COLUMN email VARCHAR(320) NOT NULL UNIQUE,\nMODIFY COLUMN loginMethod VARCHAR(64) NOT NULL DEFAULT 'password';\n\nCREATE INDEX IF NOT EXISTS idx_users_email ON users(email);\nCREATE INDEX IF NOT EXISTS idx_users_role ON users(role);\n",
+  "returncode": 1,
+  "logs": [
+    "ERROR 8200 (HY000) at line 2: can't change column constraint (UNIQUE KEY)"
+  ]
+}

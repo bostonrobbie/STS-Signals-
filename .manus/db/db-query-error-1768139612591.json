@@ -1,0 +1,6 @@
+{
+  "query": "ALTER TABLE benchmarks ADD COLUMN symbol VARCHAR(10) NOT NULL DEFAULT 'SPY' AFTER id;\nALTER TABLE benchmarks DROP INDEX date;\nCREATE INDEX idx_benchmarks_symbol_date ON benchmarks(symbol, date);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute ALTER TABLE benchmarks ADD COLUMN symbol VARCHAR(10) NOT NULL DEFAULT 'SPY' AFTER id;\nALTER TABLE benchmarks DROP INDEX date;\nCREATE INDEX idx_benchmarks_symbol_date ON benchmarks(symbol, date);",
+  "returncode": 1,
+  "logs": ["ERROR 1091 (42000) at line 2: index date doesn't exist"]
+}

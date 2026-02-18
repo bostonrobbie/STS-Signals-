@@ -1,0 +1,30 @@
+{
+  "query": "SELECT COLUMN_NAME, DATA_TYPE, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'trades' AND COLUMN_NAME IN ('entryPrice', 'exitPrice', 'pnl', 'pnlPercent');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT COLUMN_NAME, DATA_TYPE, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'trades' AND COLUMN_NAME IN ('entryPrice', 'exitPrice', 'pnl', 'pnlPercent');",
+  "rows": [
+    {
+      "COLUMN_NAME": "entryPrice",
+      "DATA_TYPE": "int",
+      "COLUMN_TYPE": "int(11)"
+    },
+    {
+      "COLUMN_NAME": "exitPrice",
+      "DATA_TYPE": "int",
+      "COLUMN_TYPE": "int(11)"
+    },
+    {
+      "COLUMN_NAME": "pnl",
+      "DATA_TYPE": "int",
+      "COLUMN_TYPE": "int(11)"
+    },
+    {
+      "COLUMN_NAME": "pnlPercent",
+      "DATA_TYPE": "int",
+      "COLUMN_TYPE": "int(11)"
+    }
+  ],
+  "messages": [],
+  "stdout": "COLUMN_NAME\tDATA_TYPE\tCOLUMN_TYPE\nentryPrice\tint\tint(11)\nexitPrice\tint\tint(11)\npnl\tint\tint(11)\npnlPercent\tint\tint(11)\n",
+  "stderr": "",
+  "execution_time_ms": 108
+}

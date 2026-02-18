@@ -1,0 +1,70 @@
+{
+  "query": "SELECT id, strategyId, DATE(entryDate) as entryDay, DATE(exitDate) as exitDay FROM trades ORDER BY exitDate DESC LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, strategyId, DATE(entryDate) as entryDay, DATE(exitDate) as exitDay FROM trades ORDER BY exitDate DESC LIMIT 10;",
+  "rows": [
+    {
+      "id": "96860",
+      "strategyId": "5",
+      "entryDay": "2025-10-10",
+      "exitDay": "2025-10-10"
+    },
+    {
+      "id": "93040",
+      "strategyId": "3",
+      "entryDay": "2025-10-10",
+      "exitDay": "2025-10-10"
+    },
+    {
+      "id": "96859",
+      "strategyId": "5",
+      "entryDay": "2025-10-09",
+      "exitDay": "2025-10-09"
+    },
+    {
+      "id": "98360",
+      "strategyId": "7",
+      "entryDay": "2025-10-08",
+      "exitDay": "2025-10-08"
+    },
+    {
+      "id": "90879",
+      "strategyId": "1",
+      "entryDay": "2025-10-08",
+      "exitDay": "2025-10-08"
+    },
+    {
+      "id": "93039",
+      "strategyId": "3",
+      "entryDay": "2025-10-08",
+      "exitDay": "2025-10-08"
+    },
+    {
+      "id": "96858",
+      "strategyId": "5",
+      "entryDay": "2025-10-08",
+      "exitDay": "2025-10-08"
+    },
+    {
+      "id": "99356",
+      "strategyId": "8",
+      "entryDay": "2025-10-08",
+      "exitDay": "2025-10-08"
+    },
+    {
+      "id": "98359",
+      "strategyId": "7",
+      "entryDay": "2025-10-07",
+      "exitDay": "2025-10-07"
+    },
+    {
+      "id": "93038",
+      "strategyId": "3",
+      "entryDay": "2025-10-07",
+      "exitDay": "2025-10-07"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tstrategyId\tentryDay\texitDay\n96860\t5\t2025-10-10\t2025-10-10\n93040\t3\t2025-10-10\t2025-10-10\n96859\t5\t2025-10-09\t2025-10-09\n98360\t7\t2025-10-08\t2025-10-08\n90879\t1\t2025-10-08\t2025-10-08\n93039\t3\t2025-10-08\t2025-10-08\n96858\t5\t2025-10-08\t2025-10-08\n99356\t8\t2025-10-08\t2025-10-08\n98359\t7\t2025-10-07\t2025-10-07\n93038\t3\t2025-10-07\t2025-10-07\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

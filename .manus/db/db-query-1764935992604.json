@@ -1,0 +1,17 @@
+{
+  "query": "SELECT COUNT(*) as total, MIN(YEAR(entryDate)) as minYear, MAX(YEAR(exitDate)) as maxYear, COUNT(CASE WHEN YEAR(exitDate) < 2024 THEN 1 END) as before2024, COUNT(CASE WHEN YEAR(exitDate) >= 2024 THEN 1 END) as from2024 FROM trades;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT COUNT(*) as total, MIN(YEAR(entryDate)) as minYear, MAX(YEAR(exitDate)) as maxYear, COUNT(CASE WHEN YEAR(exitDate) < 2024 THEN 1 END) as before2024, COUNT(CASE WHEN YEAR(exitDate) >= 2024 THEN 1 END) as from2024 FROM trades;",
+  "rows": [
+    {
+      "total": "9356",
+      "minYear": "2010",
+      "maxYear": "2025",
+      "before2024": "7970",
+      "from2024": "1386"
+    }
+  ],
+  "messages": [],
+  "stdout": "total\tminYear\tmaxYear\tbefore2024\tfrom2024\n9356\t2010\t2025\t7970\t1386\n",
+  "stderr": "",
+  "execution_time_ms": 62
+}

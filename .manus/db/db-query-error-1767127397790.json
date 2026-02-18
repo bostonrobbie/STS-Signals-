@@ -1,0 +1,8 @@
+{
+  "query": "SELECT id, strategy_symbol, status, is_test, ip_address, timestamp,\n       SUBSTRING(payload, 1, 200) as payload_preview\nFROM webhook_logs \nWHERE DATE(timestamp) = CURDATE()\nORDER BY timestamp DESC\nLIMIT 30;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, strategy_symbol, status, is_test, ip_address, timestamp,\n       SUBSTRING(payload, 1, 200) as payload_preview\nFROM webhook_logs \nWHERE DATE(timestamp) = CURDATE()\nORDER BY timestamp DESC\nLIMIT 30;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'timestamp' in 'where clause'"
+  ]
+}

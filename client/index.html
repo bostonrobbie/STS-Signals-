@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <!-- Theme initialization - MUST run before any rendering -->
+    <script>
+      (function() {
+        // Clear ALL old theme keys from previous implementations
+        try {
+          localStorage.removeItem('theme');
+          localStorage.removeItem('theme_initialized');
+          localStorage.removeItem('theme_migration_v1');
+          localStorage.removeItem('theme_migration_v2');
+          localStorage.removeItem('theme_reset_v3');
+        } catch(e) {}
+        // Only apply dark if user explicitly chose it
+        var c = localStorage.getItem('theme_user_choice');
+        if (c === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Primary Meta Tags -->
+    <title>STS Futures | NQ Futures Trading Signals &amp; Performance Dashboard</title>
+    <meta name="title" content="STS Futures | NQ Futures Trading Signals & Performance Dashboard" />
+    <meta name="description" content="Systematic NQ futures trading signals backed by 15+ years of backtested data. Real-time alerts, full trade history, and professional risk analytics. $50/month, cancel anytime." />
+    <meta name="keywords" content="NQ futures trading, Nasdaq futures signals, systematic trading, algorithmic trading signals, futures trading dashboard, NQ trading strategy, backtested trading" />
+    <meta name="author" content="STS Futures" />
+    <meta name="google-site-verification" content="0Ao67K7Y1TBUHpRCtPtck0SCa7bY9kUiUOwEsXhjBm8" />
+    <meta name="publisher" content="STS Futures" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    <link rel="canonical" href="https://stsdashboard.com/" />
+    
+    <!-- Language and Locale -->
+    <meta name="language" content="English" />
+    <meta name="geo.region" content="US" />
+    <meta name="geo.placename" content="United States" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://stsdashboard.com/" />
+    <meta property="og:title" content="STS Futures | NQ Futures Trading Signals & Dashboard" />
+    <meta property="og:description" content="Systematic NQ futures trading signals with 15+ years of backtested data. Real-time alerts, trade history, and risk analytics on a professional dashboard. $50/month." />
+    <meta property="og:image" content="https://stsdashboard.com/portfolio-preview.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="STS Futures Dashboard showing NQ futures portfolio performance" />
+    <meta property="og:site_name" content="STS Futures" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://stsdashboard.com/" />
+    <meta name="twitter:title" content="STS Futures | NQ Futures Trading Signals & Dashboard" />
+    <meta name="twitter:description" content="Systematic NQ futures trading signals backed by 15+ years of data. Real-time alerts, full trade history, and professional risk analytics." />
+    <meta name="twitter:image" content="https://stsdashboard.com/portfolio-preview.webp" />
+    <meta name="twitter:image:alt" content="STS Futures NQ Trading Dashboard" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="application-name" content="STS Futures" />
+    <meta name="apple-mobile-web-app-title" content="STS Futures" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="msapplication-TileColor" content="#0f172a" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://api.manus.im" />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
+    
+    <!-- Prefetch likely navigation destinations -->
+    <link rel="prefetch" href="/overview" />
+    <link rel="prefetch" href="/pricing" />
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "STS Futures",
+      "alternateName": "Systematic Trading Strategies",
+      "url": "https://stsdashboard.com",
+      "description": "Systematic NQ futures trading signals platform with 15+ years of backtested performance data and real-time alerts.",
+      "foundingDate": "2024",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "availableLanguage": "English"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "STS Futures",
+      "url": "https://stsdashboard.com",
+      "description": "Systematic NQ futures trading signals with 15+ years of backtested data and a professional analytics dashboard."
+    }
+    </script>
+    
+    <!-- Structured Data - SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "STS Futures Trading Dashboard",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "description": "Web-based dashboard for NQ (Nasdaq-100) futures trading signals. View real-time alerts, 15+ years of trade history, equity curves, and risk-adjusted performance metrics.",
+      "offers": {
+        "@type": "Offer",
+        "price": "50",
+        "priceCurrency": "USD",
+        "priceValidUntil": "2026-12-31",
+        "description": "$50/month subscription with full access"
+      },
+      "featureList": [
+        "Real-time NQ futures trading signals",
+        "15+ Years of backtested trade history",
+        "Equity curves and drawdown analysis",
+        "Risk-adjusted metrics (Sharpe, Sortino, Calmar)",
+        "Portfolio analytics dashboard",
+        "Calendar P&L and trade-by-trade data",
+        "Email and dashboard notifications"
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is STS Futures?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "STS Futures is a web-based dashboard that provides systematic NQ (Nasdaq-100) futures trading signals backed by 15+ years of backtested data. Subscribers get real-time alerts, full trade history, equity curves, and professional risk analytics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What futures markets does STS Futures cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "STS Futures focuses on NQ (Nasdaq-100 E-mini) futures contracts. Signals are generated on an intraday basis, typically targeting moves that play out within the same trading day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does STS Futures cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "STS Futures costs $50 per month with full access to all signals, trade history, and analytics. You can cancel anytime. All sales are final."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are signals delivered?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All signals are delivered on the STS web-based dashboard in real time. No special software, Telegram, or Discord is required. Just log in from any web browser to see live signals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long has the trading data been backtested?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The NQ futures trading strategy has been backtested using over 15 years of historical market data, providing robust performance metrics including Sharpe ratio, Sortino ratio, maximum drawdown, win rate, and profit factor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I cancel my subscription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can cancel your subscription at any time from your account settings. Your access continues until the end of your current billing period. All sales are final."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stsdashboard.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pricing",
+          "item": "https://stsdashboard.com/pricing"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - Product/Service -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "STS Futures Trading Subscription",
+      "description": "Monthly subscription to the STS Futures dashboard providing NQ futures trading signals, 15+ years of trade history, and professional analytics.",
+      "image": "https://stsdashboard.com/portfolio-preview.webp",
+      "brand": {
+        "@type": "Brand",
+        "name": "STS Futures"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Monthly Subscription",
+        "price": "50",
+        "priceCurrency": "USD",
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock",
+        "url": "https://stsdashboard.com/pricing"
+      }
+    }
+    </script>
+  </head>
+
+  <body>
+    <!-- Noscript fallback for SEO -->
+    <noscript>
+      <div style="padding: 20px; text-align: center; background: #0f172a; color: #fff;">
+        <h1>STS Futures - NQ Futures Trading Signals</h1>
+        <p>Systematic NQ futures trading signals with 15+ years of backtested data.</p>
+        <p>Please enable JavaScript to use this application.</p>
+      </div>
+    </noscript>
+    
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script
+      defer
+      src="%VITE_ANALYTICS_ENDPOINT%/umami"
+      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+  </body>
+
+</html>

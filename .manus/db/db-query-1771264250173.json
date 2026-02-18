@@ -1,0 +1,9 @@
+{
+  "query": "ALTER TABLE notification_preferences \n  ADD COLUMN globalMute tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN muteTradeExecuted tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN muteTradeError tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN mutePositionOpened tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN mutePositionClosed tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN muteWebhookFailed tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN muteDailyDigest tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN emailEnabled tinyint NOT NULL DEFAULT 1,\n  ADD COLUMN emailAddress varchar(320) DEFAULT NULL,\n  ADD COLUMN inAppEnabled tinyint NOT NULL DEFAULT 1,\n  ADD COLUMN soundEnabled tinyint NOT NULL DEFAULT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute ALTER TABLE notification_preferences \n  ADD COLUMN globalMute tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN muteTradeExecuted tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN muteTradeError tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN mutePositionOpened tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN mutePositionClosed tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN muteWebhookFailed tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN muteDailyDigest tinyint NOT NULL DEFAULT 0,\n  ADD COLUMN emailEnabled tinyint NOT NULL DEFAULT 1,\n  ADD COLUMN emailAddress varchar(320) DEFAULT NULL,\n  ADD COLUMN inAppEnabled tinyint NOT NULL DEFAULT 1,\n  ADD COLUMN soundEnabled tinyint NOT NULL DEFAULT 1;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 3554
+}

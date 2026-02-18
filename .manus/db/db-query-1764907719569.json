@@ -1,0 +1,50 @@
+{
+  "query": "SELECT date, close FROM benchmarks ORDER BY date DESC LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT date, close FROM benchmarks ORDER BY date DESC LIMIT 10;",
+  "rows": [
+    {
+      "date": "2025-07-29 00:00:00",
+      "close": "640400"
+    },
+    {
+      "date": "2025-07-28 00:00:00",
+      "close": "645000"
+    },
+    {
+      "date": "2025-07-25 00:00:00",
+      "close": "640675"
+    },
+    {
+      "date": "2025-07-24 00:00:00",
+      "close": "640400"
+    },
+    {
+      "date": "2025-07-23 00:00:00",
+      "close": "634650"
+    },
+    {
+      "date": "2025-07-22 00:00:00",
+      "close": "634700"
+    },
+    {
+      "date": "2025-07-21 00:00:00",
+      "close": "633575"
+    },
+    {
+      "date": "2025-07-18 00:00:00",
+      "close": "634250"
+    },
+    {
+      "date": "2025-07-17 00:00:00",
+      "close": "629925"
+    },
+    {
+      "date": "2025-07-16 00:00:00",
+      "close": "627375"
+    }
+  ],
+  "messages": [],
+  "stdout": "date\tclose\n2025-07-29 00:00:00\t640400\n2025-07-28 00:00:00\t645000\n2025-07-25 00:00:00\t640675\n2025-07-24 00:00:00\t640400\n2025-07-23 00:00:00\t634650\n2025-07-22 00:00:00\t634700\n2025-07-21 00:00:00\t633575\n2025-07-18 00:00:00\t634250\n2025-07-17 00:00:00\t629925\n2025-07-16 00:00:00\t627375\n",
+  "stderr": "",
+  "execution_time_ms": 80
+}

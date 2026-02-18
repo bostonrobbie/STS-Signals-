@@ -1,0 +1,25 @@
+{
+  "query": "SELECT id, strategySymbol, status, errorMessage, payload, direction, entryPrice, exitPrice, pnl, createdAt FROM webhook_logs ORDER BY id DESC LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, strategySymbol, status, errorMessage, payload, direction, entryPrice, exitPrice, pnl, createdAt FROM webhook_logs ORDER BY id DESC LIMIT 20;",
+  "rows": [
+    {
+      "id": "2400001",
+      "strategySymbol": "NQTrend",
+      "status": "success",
+      "errorMessage": "NULL",
+      "payload": "{\"symbol\":\"NQTrend\",\"date\":\"2026-01-02T14:45:00Z\",\"data\":\"buy\",\"quantity\":\"1\",\"price\":\"25690.75\",\"entryPrice\":\"{{strategy.position_avg_price}}\",\"pnl\":\"{{strategy.order.profit}}\",\"token\":\"RobTradingDashWebhookToken32K\"}",
+      "direction": "Long",
+      "entryPrice": "2569075",
+      "exitPrice": "NULL",
+      "pnl": "NULL",
+      "createdAt": "2026-01-02 14:45:01"
+    }
+  ],
+  "messages": [
+    "2400002\tNQTrend\tfailed\tFailed query: insert into `trades` (`id`, `strategyId`, `entryDate`, `exitDate`, `direction`, `entryPrice`, `exitPrice`, `quantity`, `pnl`, `pnlPercent`, `commission`, `isTest`, `source`, `createdAt`) values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)",
+    "params: 11,2026-01-02 14:45:00.000,2026-01-02 15:15:00.000,Long,2569075,2560400,1,NaN,NaN,0,false,webhook\t{\"symbol\":\"NQTrend\",\"date\":\"2026-01-02T15:15:00Z\",\"data\":\"sell\",\"quantity\":\"1\",\"price\":\"25604.00\",\"entryPrice\":\"{{strategy.position_avg_price}}\",\"pnl\":\"{{strategy.order.profit}}\",\"token\":\"RobTradingDashWebhookToken32K\"}\tNULL\tNULL\tNULL\tNULL\t2026-01-02 15:15:01"
+  ],
+  "stdout": "id\tstrategySymbol\tstatus\terrorMessage\tpayload\tdirection\tentryPrice\texitPrice\tpnl\tcreatedAt\n2400002\tNQTrend\tfailed\tFailed query: insert into `trades` (`id`, `strategyId`, `entryDate`, `exitDate`, `direction`, `entryPrice`, `exitPrice`, `quantity`, `pnl`, `pnlPercent`, `commission`, `isTest`, `source`, `createdAt`) values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)\nparams: 11,2026-01-02 14:45:00.000,2026-01-02 15:15:00.000,Long,2569075,2560400,1,NaN,NaN,0,false,webhook\t{\"symbol\":\"NQTrend\",\"date\":\"2026-01-02T15:15:00Z\",\"data\":\"sell\",\"quantity\":\"1\",\"price\":\"25604.00\",\"entryPrice\":\"{{strategy.position_avg_price}}\",\"pnl\":\"{{strategy.order.profit}}\",\"token\":\"RobTradingDashWebhookToken32K\"}\tNULL\tNULL\tNULL\tNULL\t2026-01-02 15:15:01\n2400001\tNQTrend\tsuccess\tNULL\t{\"symbol\":\"NQTrend\",\"date\":\"2026-01-02T14:45:00Z\",\"data\":\"buy\",\"quantity\":\"1\",\"price\":\"25690.75\",\"entryPrice\":\"{{strategy.position_avg_price}}\",\"pnl\":\"{{strategy.order.profit}}\",\"token\":\"RobTradingDashWebhookToken32K\"}\tLong\t2569075\tNULL\tNULL\t2026-01-02 14:45:01\n",
+  "stderr": "",
+  "execution_time_ms": 406
+}

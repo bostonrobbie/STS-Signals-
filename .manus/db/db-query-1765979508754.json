@@ -1,0 +1,25 @@
+{
+  "query": "SELECT status, COUNT(*) as count, GROUP_CONCAT(DISTINCT SUBSTRING(errorMessage, 1, 50)) as errors FROM webhook_logs GROUP BY status;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT status, COUNT(*) as count, GROUP_CONCAT(DISTINCT SUBSTRING(errorMessage, 1, 50)) as errors FROM webhook_logs GROUP BY status;",
+  "rows": [
+    {
+      "status": "success",
+      "count": "175",
+      "errors": "NULL"
+    },
+    {
+      "status": "failed",
+      "count": "112",
+      "errors": "Unknown strategy: UNKNOWN_STRATEGY_XYZ,Unknown strategy symbol: ES,Unknown strategy symbol: UNKNOWN_SYMBOL_XYZ,Invalid or missing authentication token,Unknown strategy: UNKNOWN_SYMBOL_XYZ,Missing or invalid \"symbol\" or \"strategy\" field"
+    },
+    {
+      "status": "duplicate",
+      "count": "6",
+      "errors": "Duplicate trade detected"
+    }
+  ],
+  "messages": [],
+  "stdout": "status\tcount\terrors\nsuccess\t175\tNULL\nfailed\t112\tUnknown strategy: UNKNOWN_STRATEGY_XYZ,Unknown strategy symbol: ES,Unknown strategy symbol: UNKNOWN_SYMBOL_XYZ,Invalid or missing authentication token,Unknown strategy: UNKNOWN_SYMBOL_XYZ,Missing or invalid \"symbol\" or \"strategy\" field\nduplicate\t6\tDuplicate trade detected\n",
+  "stderr": "",
+  "execution_time_ms": 58
+}

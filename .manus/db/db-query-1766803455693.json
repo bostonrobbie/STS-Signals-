@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS `paper_trades` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `accountId` int NOT NULL,\n  `positionId` int,\n  `strategyId` int,\n  `symbol` varchar(20) NOT NULL,\n  `side` enum('BUY','SELL') NOT NULL,\n  `quantity` int NOT NULL,\n  `price` int NOT NULL,\n  `orderType` enum('MARKET','LIMIT','STOP') NOT NULL,\n  `pnl` int DEFAULT 0,\n  `commission` int DEFAULT 0,\n  `executedAt` datetime NOT NULL,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  CONSTRAINT `paper_trades_id` PRIMARY KEY(`id`),\n  INDEX `idx_paper_trades_account` (`accountId`),\n  INDEX `idx_paper_trades_position` (`positionId`),\n  INDEX `idx_paper_trades_executed` (`executedAt`)\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute CREATE TABLE IF NOT EXISTS `paper_trades` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `accountId` int NOT NULL,\n  `positionId` int,\n  `strategyId` int,\n  `symbol` varchar(20) NOT NULL,\n  `side` enum('BUY','SELL') NOT NULL,\n  `quantity` int NOT NULL,\n  `price` int NOT NULL,\n  `orderType` enum('MARKET','LIMIT','STOP') NOT NULL,\n  `pnl` int DEFAULT 0,\n  `commission` int DEFAULT 0,\n  `executedAt` datetime NOT NULL,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  CONSTRAINT `paper_trades_id` PRIMARY KEY(`id`),\n  INDEX `idx_paper_trades_account` (`accountId`),\n  INDEX `idx_paper_trades_position` (`positionId`),\n  INDEX `idx_paper_trades_executed` (`executedAt`)\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 211
+}

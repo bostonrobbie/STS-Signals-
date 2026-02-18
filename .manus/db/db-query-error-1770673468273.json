@@ -1,0 +1,24 @@
+{
+  "query": "DESCRIBE user_payment_subscriptions; SELECT * FROM user_payment_subscriptions WHERE user_id = 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute DESCRIBE user_payment_subscriptions; SELECT * FROM user_payment_subscriptions WHERE user_id = 1;",
+  "returncode": 1,
+  "logs": [
+    "Field\tType\tNull\tKey\tDefault\tExtra",
+    "id\tint(11)\tNO\tPRI\tNULL\tauto_increment",
+    "userId\tint(11)\tNO\tUNI\tNULL\t",
+    "tierId\tint(11)\tNO\tMUL\tNULL\t",
+    "status\tenum('active','past_due','cancelled','paused','trialing')\tNO\t\tactive\t",
+    "billingCycle\tenum('monthly','yearly')\tNO\t\tmonthly\t",
+    "currentPeriodStart\tdatetime\tYES\t\tNULL\t",
+    "currentPeriodEnd\tdatetime\tYES\t\tNULL\t",
+    "trialStart\tdatetime\tYES\t\tNULL\t",
+    "trialEnd\tdatetime\tYES\t\tNULL\t",
+    "stripeCustomerId\tvarchar(100)\tYES\t\tNULL\t",
+    "stripeSubscriptionId\tvarchar(100)\tYES\t\tNULL\t",
+    "cancelAtPeriodEnd\ttinyint(1)\tNO\t\t0\t",
+    "cancelledAt\tdatetime\tYES\t\tNULL\t",
+    "createdAt\ttimestamp\tNO\t\tCURRENT_TIMESTAMP\t",
+    "updatedAt\ttimestamp\tNO\t\tCURRENT_TIMESTAMP\tDEFAULT_GENERATED on update CURRENT_TIMESTAMP",
+    "ERROR 1054 (42S22) at line 1: Unknown column 'user_id' in 'where clause'"
+  ]
+}

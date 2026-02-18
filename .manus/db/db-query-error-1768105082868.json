@@ -1,0 +1,8 @@
+{
+  "query": "SELECT s.id, s.symbol, s.name, \n       COUNT(t.id) as trade_count,\n       SUM(t.pnl) / 100 as total_pnl_dollars,\n       MIN(t.pnl) / 100 as worst_trade_dollars,\n       MAX(t.pnl) / 100 as best_trade_dollars,\n       AVG(t.pnl_percent) / 10000 * 100 as avg_pnl_percent\nFROM strategies s\nLEFT JOIN trades t ON s.id = t.strategy_id\nWHERE s.symbol IN ('NQTrend', 'NQTrendLeveraged')\nGROUP BY s.id, s.symbol, s.name;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT s.id, s.symbol, s.name, \n       COUNT(t.id) as trade_count,\n       SUM(t.pnl) / 100 as total_pnl_dollars,\n       MIN(t.pnl) / 100 as worst_trade_dollars,\n       MAX(t.pnl) / 100 as best_trade_dollars,\n       AVG(t.pnl_percent) / 10000 * 100 as avg_pnl_percent\nFROM strategies s\nLEFT JOIN trades t ON s.id = t.strategy_id\nWHERE s.symbol IN ('NQTrend', 'NQTrendLeveraged')\nGROUP BY s.id, s.symbol, s.name;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 't.strategy_id' in 'on clause'"
+  ]
+}

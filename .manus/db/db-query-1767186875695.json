@@ -1,0 +1,78 @@
+{
+  "query": "SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'users' AND TABLE_SCHEMA = DATABASE()",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'users' AND TABLE_SCHEMA = DATABASE()",
+  "rows": [
+    {
+      "COLUMN_NAME": "id",
+      "DATA_TYPE": "int"
+    },
+    {
+      "COLUMN_NAME": "openId",
+      "DATA_TYPE": "varchar"
+    },
+    {
+      "COLUMN_NAME": "name",
+      "DATA_TYPE": "text"
+    },
+    {
+      "COLUMN_NAME": "email",
+      "DATA_TYPE": "varchar"
+    },
+    {
+      "COLUMN_NAME": "loginMethod",
+      "DATA_TYPE": "varchar"
+    },
+    {
+      "COLUMN_NAME": "role",
+      "DATA_TYPE": "enum"
+    },
+    {
+      "COLUMN_NAME": "createdAt",
+      "DATA_TYPE": "timestamp"
+    },
+    {
+      "COLUMN_NAME": "updatedAt",
+      "DATA_TYPE": "timestamp"
+    },
+    {
+      "COLUMN_NAME": "lastSignedIn",
+      "DATA_TYPE": "timestamp"
+    },
+    {
+      "COLUMN_NAME": "subscriptionTier",
+      "DATA_TYPE": "enum"
+    },
+    {
+      "COLUMN_NAME": "stripeCustomerId",
+      "DATA_TYPE": "varchar"
+    },
+    {
+      "COLUMN_NAME": "stripeSubscriptionId",
+      "DATA_TYPE": "varchar"
+    },
+    {
+      "COLUMN_NAME": "subscriptionStatus",
+      "DATA_TYPE": "varchar"
+    },
+    {
+      "COLUMN_NAME": "onboardingCompleted",
+      "DATA_TYPE": "tinyint"
+    },
+    {
+      "COLUMN_NAME": "onboardingDismissed",
+      "DATA_TYPE": "tinyint"
+    },
+    {
+      "COLUMN_NAME": "startingCapital",
+      "DATA_TYPE": "int"
+    },
+    {
+      "COLUMN_NAME": "contractSize",
+      "DATA_TYPE": "enum"
+    }
+  ],
+  "messages": [],
+  "stdout": "COLUMN_NAME\tDATA_TYPE\nid\tint\nopenId\tvarchar\nname\ttext\nemail\tvarchar\nloginMethod\tvarchar\nrole\tenum\ncreatedAt\ttimestamp\nupdatedAt\ttimestamp\nlastSignedIn\ttimestamp\nsubscriptionTier\tenum\nstripeCustomerId\tvarchar\nstripeSubscriptionId\tvarchar\nsubscriptionStatus\tvarchar\nonboardingCompleted\ttinyint\nonboardingDismissed\ttinyint\nstartingCapital\tint\ncontractSize\tenum\n",
+  "stderr": "",
+  "execution_time_ms": 398
+}

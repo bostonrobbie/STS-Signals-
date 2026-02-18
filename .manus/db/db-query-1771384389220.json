@@ -1,0 +1,73 @@
+{
+  "query": "SELECT id, symbol, name, market, active FROM strategies ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, symbol, name, market, active FROM strategies ORDER BY id;",
+  "rows": [
+    {
+      "id": "9",
+      "symbol": "ESTrend",
+      "name": "ES Trend Following",
+      "market": "ES",
+      "active": "0"
+    },
+    {
+      "id": "10",
+      "symbol": "ESORB",
+      "name": "ES Opening Range Breakout",
+      "market": "ES",
+      "active": "0"
+    },
+    {
+      "id": "11",
+      "symbol": "NQTrend",
+      "name": "NQ Triple Variant",
+      "market": "NQ",
+      "active": "1"
+    },
+    {
+      "id": "12",
+      "symbol": "NQORB",
+      "name": "NQ Opening Range Breakout",
+      "market": "NQ",
+      "active": "0"
+    },
+    {
+      "id": "13",
+      "symbol": "CLTrend",
+      "name": "CL Trend Following",
+      "market": "CL",
+      "active": "0"
+    },
+    {
+      "id": "14",
+      "symbol": "BTCTrend",
+      "name": "BTC Trend Following",
+      "market": "BTC",
+      "active": "0"
+    },
+    {
+      "id": "15",
+      "symbol": "GCTrend",
+      "name": "GC Trend Following",
+      "market": "GC",
+      "active": "0"
+    },
+    {
+      "id": "16",
+      "symbol": "YMORB",
+      "name": "YM Opening Range Breakout",
+      "market": "YM",
+      "active": "0"
+    },
+    {
+      "id": "30001",
+      "symbol": "NQTrendLeveraged",
+      "name": "NQ Trend (Leveraged)",
+      "market": "NQ",
+      "active": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tsymbol\tname\tmarket\tactive\n9\tESTrend\tES Trend Following\tES\t0\n10\tESORB\tES Opening Range Breakout\tES\t0\n11\tNQTrend\tNQ Triple Variant\tNQ\t1\n12\tNQORB\tNQ Opening Range Breakout\tNQ\t0\n13\tCLTrend\tCL Trend Following\tCL\t0\n14\tBTCTrend\tBTC Trend Following\tBTC\t0\n15\tGCTrend\tGC Trend Following\tGC\t0\n16\tYMORB\tYM Opening Range Breakout\tYM\t0\n30001\tNQTrendLeveraged\tNQ Trend (Leveraged)\tNQ\t0\n",
+  "stderr": "",
+  "execution_time_ms": 955
+}

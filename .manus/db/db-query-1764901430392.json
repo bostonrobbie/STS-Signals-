@@ -1,0 +1,15 @@
+{
+  "query": "SELECT MIN(date) as earliest, MAX(date) as latest, COUNT(*) as total_rows FROM benchmarks",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT MIN(date) as earliest, MAX(date) as latest, COUNT(*) as total_rows FROM benchmarks",
+  "rows": [
+    {
+      "earliest": "2006-01-03 00:00:00",
+      "latest": "2025-07-29 00:00:00",
+      "total_rows": "4924"
+    }
+  ],
+  "messages": [],
+  "stdout": "earliest\tlatest\ttotal_rows\n2006-01-03 00:00:00\t2025-07-29 00:00:00\t4924\n",
+  "stderr": "",
+  "execution_time_ms": 57
+}

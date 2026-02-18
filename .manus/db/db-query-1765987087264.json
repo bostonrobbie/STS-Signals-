@@ -1,0 +1,9 @@
+{
+  "query": "\n-- Insert default subscription tiers\nINSERT INTO subscription_tiers (name, description, priceMonthly, priceYearly, maxStrategies, maxBrokerConnections, autoExecuteAllowed, prioritySupport) VALUES\n('Free', 'Basic access to view strategies and performance', 0, 0, 3, 0, FALSE, FALSE),\n('Basic', 'Access to all strategies with manual execution', 2900, 29000, NULL, 1, FALSE, FALSE),\n('Pro', 'Full access with auto-execution capability', 9900, 99000, NULL, 3, TRUE, FALSE),\n('Enterprise', 'Unlimited access with priority support', 29900, 299000, NULL, 10, TRUE, TRUE)\nON DUPLICATE KEY UPDATE name = name;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute \n-- Insert default subscription tiers\nINSERT INTO subscription_tiers (name, description, priceMonthly, priceYearly, maxStrategies, maxBrokerConnections, autoExecuteAllowed, prioritySupport) VALUES\n('Free', 'Basic access to view strategies and performance', 0, 0, 3, 0, FALSE, FALSE),\n('Basic', 'Access to all strategies with manual execution', 2900, 29000, NULL, 1, FALSE, FALSE),\n('Pro', 'Full access with auto-execution capability', 9900, 99000, NULL, 3, TRUE, FALSE),\n('Enterprise', 'Unlimited access with priority support', 29900, 299000, NULL, 10, TRUE, TRUE)\nON DUPLICATE KEY UPDATE name = name;\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 73
+}

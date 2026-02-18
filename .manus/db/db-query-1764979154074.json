@@ -1,0 +1,66 @@
+{
+  "query": "SELECT id, symbol, name, market, strategyType FROM strategies ORDER BY symbol;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, symbol, name, market, strategyType FROM strategies ORDER BY symbol;",
+  "rows": [
+    {
+      "id": "14",
+      "symbol": "BTCTrend",
+      "name": "BTC Trend Following",
+      "market": "BTC",
+      "strategyType": "Trend"
+    },
+    {
+      "id": "13",
+      "symbol": "CLTrend",
+      "name": "CL Trend Following",
+      "market": "CL",
+      "strategyType": "Trend"
+    },
+    {
+      "id": "10",
+      "symbol": "ESORB",
+      "name": "ES Opening Range Breakout",
+      "market": "ES",
+      "strategyType": "ORB"
+    },
+    {
+      "id": "9",
+      "symbol": "ESTrend",
+      "name": "ES Trend Following",
+      "market": "ES",
+      "strategyType": "Trend"
+    },
+    {
+      "id": "15",
+      "symbol": "GCTrend",
+      "name": "GC Trend Following",
+      "market": "GC",
+      "strategyType": "Trend"
+    },
+    {
+      "id": "12",
+      "symbol": "NQORB",
+      "name": "NQ Opening Range Breakout",
+      "market": "NQ",
+      "strategyType": "ORB"
+    },
+    {
+      "id": "11",
+      "symbol": "NQTrend",
+      "name": "NQ Trend Following",
+      "market": "NQ",
+      "strategyType": "Trend"
+    },
+    {
+      "id": "16",
+      "symbol": "YMORB",
+      "name": "YM Opening Range Breakout",
+      "market": "YM",
+      "strategyType": "ORB"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tsymbol\tname\tmarket\tstrategyType\n14\tBTCTrend\tBTC Trend Following\tBTC\tTrend\n13\tCLTrend\tCL Trend Following\tCL\tTrend\n10\tESORB\tES Opening Range Breakout\tES\tORB\n9\tESTrend\tES Trend Following\tES\tTrend\n15\tGCTrend\tGC Trend Following\tGC\tTrend\n12\tNQORB\tNQ Opening Range Breakout\tNQ\tORB\n11\tNQTrend\tNQ Trend Following\tNQ\tTrend\n16\tYMORB\tYM Opening Range Breakout\tYM\tORB\n",
+  "stderr": "",
+  "execution_time_ms": 49
+}

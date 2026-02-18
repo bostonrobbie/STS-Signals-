@@ -1,0 +1,45 @@
+{
+  "query": "SELECT id, email, role FROM users WHERE id = 18630335; SELECT id, email, role FROM users ORDER BY id DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, email, role FROM users WHERE id = 18630335; SELECT id, email, role FROM users ORDER BY id DESC LIMIT 5;",
+  "rows": [
+    {
+      "id": "18630335",
+      "email": "rgorham369@gmail.com",
+      "role": "admin"
+    },
+    {
+      "id": "id",
+      "email": "email",
+      "role": "role"
+    },
+    {
+      "id": "18990001",
+      "email": "test@test.com",
+      "role": "user"
+    },
+    {
+      "id": "18960005",
+      "email": "testsubscriber20260202@example.com",
+      "role": "user"
+    },
+    {
+      "id": "18960004",
+      "email": "finaltest20260202@example.com",
+      "role": "user"
+    },
+    {
+      "id": "18960003",
+      "email": "regularuser20260202@example.com",
+      "role": "user"
+    },
+    {
+      "id": "18960002",
+      "email": "subscriber20260202@example.com",
+      "role": "user"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\trole\n18630335\trgorham369@gmail.com\tadmin\nid\temail\trole\n18990001\ttest@test.com\tuser\n18960005\ttestsubscriber20260202@example.com\tuser\n18960004\tfinaltest20260202@example.com\tuser\n18960003\tregularuser20260202@example.com\tuser\n18960002\tsubscriber20260202@example.com\tuser\n",
+  "stderr": "",
+  "execution_time_ms": 77
+}

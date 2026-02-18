@@ -1,0 +1,31 @@
+{
+  "query": "SELECT \n  isTest, \n  status, \n  COUNT(*) as count,\n  MIN(createdAt) as earliest,\n  MAX(createdAt) as latest\nFROM webhook_logs \nWHERE createdAt > DATE_SUB(NOW(), INTERVAL 1 HOUR)\nGROUP BY isTest, status",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT \n  isTest, \n  status, \n  COUNT(*) as count,\n  MIN(createdAt) as earliest,\n  MAX(createdAt) as latest\nFROM webhook_logs \nWHERE createdAt > DATE_SUB(NOW(), INTERVAL 1 HOUR)\nGROUP BY isTest, status",
+  "rows": [
+    {
+      "isTest": "0",
+      "status": "failed",
+      "count": "29",
+      "earliest": "2025-12-26 17:17:44",
+      "latest": "2025-12-26 17:18:30"
+    },
+    {
+      "isTest": "0",
+      "status": "success",
+      "count": "35",
+      "earliest": "2025-12-26 17:17:44",
+      "latest": "2025-12-26 17:18:31"
+    },
+    {
+      "isTest": "0",
+      "status": "duplicate",
+      "count": "23",
+      "earliest": "2025-12-26 17:17:45",
+      "latest": "2025-12-26 17:18:28"
+    }
+  ],
+  "messages": [],
+  "stdout": "isTest\tstatus\tcount\tearliest\tlatest\n0\tfailed\t29\t2025-12-26 17:17:44\t2025-12-26 17:18:30\n0\tsuccess\t35\t2025-12-26 17:17:44\t2025-12-26 17:18:31\n0\tduplicate\t23\t2025-12-26 17:17:45\t2025-12-26 17:18:28\n",
+  "stderr": "",
+  "execution_time_ms": 62
+}

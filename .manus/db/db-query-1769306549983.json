@@ -1,0 +1,28 @@
+{
+  "query": "SELECT id, email, name, role FROM users WHERE name LIKE '%Rob%' OR email LIKE '%rob%' LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, email, name, role FROM users WHERE name LIKE '%Rob%' OR email LIKE '%rob%' LIMIT 10;",
+  "rows": [
+    {
+      "id": "1",
+      "email": "rgorham369@gmail.com",
+      "name": "Rob Gorham",
+      "role": "admin"
+    },
+    {
+      "id": "18630337",
+      "email": "robgorham@gmail.com",
+      "name": "robgorham",
+      "role": "user"
+    },
+    {
+      "id": "18630338",
+      "email": "",
+      "name": "Rob Gorham",
+      "role": "user"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\tname\trole\n1\trgorham369@gmail.com\tRob Gorham\tadmin\n18630337\trobgorham@gmail.com\trobgorham\tuser\n18630338\t\tRob Gorham\tuser\n",
+  "stderr": "",
+  "execution_time_ms": 759
+}

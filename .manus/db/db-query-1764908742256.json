@@ -1,0 +1,70 @@
+{
+  "query": "SELECT entryDate, exitDate, TIMESTAMPDIFF(MINUTE, entryDate, exitDate) as holdMinutes, TIMESTAMPDIFF(HOUR, entryDate, exitDate) as holdHours FROM trades ORDER BY id DESC LIMIT 10",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT entryDate, exitDate, TIMESTAMPDIFF(MINUTE, entryDate, exitDate) as holdMinutes, TIMESTAMPDIFF(HOUR, entryDate, exitDate) as holdHours FROM trades ORDER BY id DESC LIMIT 10",
+  "rows": [
+    {
+      "entryDate": "2025-09-26 13:55:00",
+      "exitDate": "2025-10-08 14:20:00",
+      "holdMinutes": "17305",
+      "holdHours": "288"
+    },
+    {
+      "entryDate": "2025-09-17 15:40:00",
+      "exitDate": "2025-09-26 14:00:00",
+      "holdMinutes": "12860",
+      "holdHours": "214"
+    },
+    {
+      "entryDate": "2025-09-03 13:50:00",
+      "exitDate": "2025-09-17 15:50:00",
+      "holdMinutes": "20280",
+      "holdHours": "338"
+    },
+    {
+      "entryDate": "2025-08-22 14:00:00",
+      "exitDate": "2025-09-03 14:20:00",
+      "holdMinutes": "17300",
+      "holdHours": "288"
+    },
+    {
+      "entryDate": "2025-08-14 16:10:00",
+      "exitDate": "2025-08-22 14:15:00",
+      "holdMinutes": "11405",
+      "holdHours": "190"
+    },
+    {
+      "entryDate": "2025-08-12 14:00:00",
+      "exitDate": "2025-08-14 16:20:00",
+      "holdMinutes": "3020",
+      "holdHours": "50"
+    },
+    {
+      "entryDate": "2025-08-04 13:55:00",
+      "exitDate": "2025-08-12 14:50:00",
+      "holdMinutes": "11575",
+      "holdHours": "192"
+    },
+    {
+      "entryDate": "2025-08-01 13:55:00",
+      "exitDate": "2025-08-04 14:05:00",
+      "holdMinutes": "4330",
+      "holdHours": "72"
+    },
+    {
+      "entryDate": "2025-07-23 14:10:00",
+      "exitDate": "2025-08-01 14:15:00",
+      "holdMinutes": "12965",
+      "holdHours": "216"
+    },
+    {
+      "entryDate": "2025-07-21 13:50:00",
+      "exitDate": "2025-07-23 14:25:00",
+      "holdMinutes": "2915",
+      "holdHours": "48"
+    }
+  ],
+  "messages": [],
+  "stdout": "entryDate\texitDate\tholdMinutes\tholdHours\n2025-09-26 13:55:00\t2025-10-08 14:20:00\t17305\t288\n2025-09-17 15:40:00\t2025-09-26 14:00:00\t12860\t214\n2025-09-03 13:50:00\t2025-09-17 15:50:00\t20280\t338\n2025-08-22 14:00:00\t2025-09-03 14:20:00\t17300\t288\n2025-08-14 16:10:00\t2025-08-22 14:15:00\t11405\t190\n2025-08-12 14:00:00\t2025-08-14 16:20:00\t3020\t50\n2025-08-04 13:55:00\t2025-08-12 14:50:00\t11575\t192\n2025-08-01 13:55:00\t2025-08-04 14:05:00\t4330\t72\n2025-07-23 14:10:00\t2025-08-01 14:15:00\t12965\t216\n2025-07-21 13:50:00\t2025-07-23 14:25:00\t2915\t48\n",
+  "stderr": "",
+  "execution_time_ms": 146
+}

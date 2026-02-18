@@ -1,0 +1,19 @@
+{
+  "query": "SHOW TABLES LIKE '%subscription%';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SHOW TABLES LIKE '%subscription%';",
+  "rows": [
+    {
+      "Tables_in_jFmY8c2b9B6TEBRxmcJws8 (%subscription%)": "subscription_tiers"
+    },
+    {
+      "Tables_in_jFmY8c2b9B6TEBRxmcJws8 (%subscription%)": "user_payment_subscriptions"
+    },
+    {
+      "Tables_in_jFmY8c2b9B6TEBRxmcJws8 (%subscription%)": "user_subscriptions"
+    }
+  ],
+  "messages": [],
+  "stdout": "Tables_in_jFmY8c2b9B6TEBRxmcJws8 (%subscription%)\nsubscription_tiers\nuser_payment_subscriptions\nuser_subscriptions\n",
+  "stderr": "",
+  "execution_time_ms": 64
+}

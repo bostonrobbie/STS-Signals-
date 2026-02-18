@@ -1,0 +1,15 @@
+{
+  "query": "SELECT DATE(exitDate) as trade_date, COUNT(*) as trade_count, SUM(pnl)/100 as total_pnl FROM trades WHERE DAYOFWEEK(exitDate) = 7 GROUP BY DATE(exitDate) ORDER BY trade_date DESC LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT DATE(exitDate) as trade_date, COUNT(*) as trade_count, SUM(pnl)/100 as total_pnl FROM trades WHERE DAYOFWEEK(exitDate) = 7 GROUP BY DATE(exitDate) ORDER BY trade_date DESC LIMIT 10;",
+  "rows": [
+    {
+      "trade_date": "2025-12-27",
+      "trade_count": "18",
+      "total_pnl": "720.0000"
+    }
+  ],
+  "messages": [],
+  "stdout": "trade_date\ttrade_count\ttotal_pnl\n2025-12-27\t18\t720.0000\n",
+  "stderr": "",
+  "execution_time_ms": 66
+}

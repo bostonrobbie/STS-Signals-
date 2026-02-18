@@ -1,0 +1,50 @@
+{
+  "query": "SELECT id, name, symbol FROM strategies ORDER BY id",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, name, symbol FROM strategies ORDER BY id",
+  "rows": [
+    {
+      "id": "9",
+      "name": "ES Trend Following",
+      "symbol": "ESTrend"
+    },
+    {
+      "id": "10",
+      "name": "ES Opening Range Breakout",
+      "symbol": "ESORB"
+    },
+    {
+      "id": "11",
+      "name": "NQ Trend Following",
+      "symbol": "NQTrend"
+    },
+    {
+      "id": "12",
+      "name": "NQ Opening Range Breakout",
+      "symbol": "NQORB"
+    },
+    {
+      "id": "13",
+      "name": "CL Trend Following",
+      "symbol": "CLTrend"
+    },
+    {
+      "id": "14",
+      "name": "BTC Trend Following",
+      "symbol": "BTCTrend"
+    },
+    {
+      "id": "15",
+      "name": "GC Trend Following",
+      "symbol": "GCTrend"
+    },
+    {
+      "id": "16",
+      "name": "YM Opening Range Breakout",
+      "symbol": "YMORB"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tsymbol\n9\tES Trend Following\tESTrend\n10\tES Opening Range Breakout\tESORB\n11\tNQ Trend Following\tNQTrend\n12\tNQ Opening Range Breakout\tNQORB\n13\tCL Trend Following\tCLTrend\n14\tBTC Trend Following\tBTCTrend\n15\tGC Trend Following\tGCTrend\n16\tYM Opening Range Breakout\tYMORB\n",
+  "stderr": "",
+  "execution_time_ms": 51
+}

@@ -1,0 +1,45 @@
+{
+  "query": "SELECT \n  DAYNAME(entryDate) as day_of_week,\n  DAYOFWEEK(entryDate) as day_num,\n  COUNT(*) as trade_count\nFROM trades\nGROUP BY DAYNAME(entryDate), DAYOFWEEK(entryDate)\nORDER BY DAYOFWEEK(entryDate);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT \n  DAYNAME(entryDate) as day_of_week,\n  DAYOFWEEK(entryDate) as day_num,\n  COUNT(*) as trade_count\nFROM trades\nGROUP BY DAYNAME(entryDate), DAYOFWEEK(entryDate)\nORDER BY DAYOFWEEK(entryDate);",
+  "rows": [
+    {
+      "day_of_week": "Sunday",
+      "day_num": "1",
+      "trade_count": "45"
+    },
+    {
+      "day_of_week": "Monday",
+      "day_num": "2",
+      "trade_count": "1835"
+    },
+    {
+      "day_of_week": "Tuesday",
+      "day_num": "3",
+      "trade_count": "1900"
+    },
+    {
+      "day_of_week": "Wednesday",
+      "day_num": "4",
+      "trade_count": "1933"
+    },
+    {
+      "day_of_week": "Thursday",
+      "day_num": "5",
+      "trade_count": "1942"
+    },
+    {
+      "day_of_week": "Friday",
+      "day_num": "6",
+      "trade_count": "1803"
+    },
+    {
+      "day_of_week": "Saturday",
+      "day_num": "7",
+      "trade_count": "14"
+    }
+  ],
+  "messages": [],
+  "stdout": "day_of_week\tday_num\ttrade_count\nSunday\t1\t45\nMonday\t2\t1835\nTuesday\t3\t1900\nWednesday\t4\t1933\nThursday\t5\t1942\nFriday\t6\t1803\nSaturday\t7\t14\n",
+  "stderr": "",
+  "execution_time_ms": 68
+}

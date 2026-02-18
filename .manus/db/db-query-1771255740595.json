@@ -1,0 +1,298 @@
+{
+  "query": "SELECT \n  DATE_FORMAT(exitDate, '%Y-%m') as month,\n  SUM(pnl) / 100.0 as total_pnl_dollars,\n  COUNT(*) as trade_count,\n  CASE WHEN SUM(pnl) > 0 THEN 'PROFITABLE' ELSE 'LOSING' END as status\nFROM trades \nWHERE isTest = 0\nGROUP BY DATE_FORMAT(exitDate, '%Y-%m')\nHAVING SUM(pnl) <= 0\nORDER BY month;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT \n  DATE_FORMAT(exitDate, '%Y-%m') as month,\n  SUM(pnl) / 100.0 as total_pnl_dollars,\n  COUNT(*) as trade_count,\n  CASE WHEN SUM(pnl) > 0 THEN 'PROFITABLE' ELSE 'LOSING' END as status\nFROM trades \nWHERE isTest = 0\nGROUP BY DATE_FORMAT(exitDate, '%Y-%m')\nHAVING SUM(pnl) <= 0\nORDER BY month;",
+  "rows": [
+    {
+      "month": "2010-12",
+      "total_pnl_dollars": "-57.0000",
+      "trade_count": "1",
+      "status": "LOSING"
+    },
+    {
+      "month": "2011-03",
+      "total_pnl_dollars": "-2318.1000",
+      "trade_count": "81",
+      "status": "LOSING"
+    },
+    {
+      "month": "2011-05",
+      "total_pnl_dollars": "-238.4000",
+      "trade_count": "73",
+      "status": "LOSING"
+    },
+    {
+      "month": "2011-06",
+      "total_pnl_dollars": "-681.1000",
+      "trade_count": "67",
+      "status": "LOSING"
+    },
+    {
+      "month": "2011-07",
+      "total_pnl_dollars": "-6013.7000",
+      "trade_count": "79",
+      "status": "LOSING"
+    },
+    {
+      "month": "2011-10",
+      "total_pnl_dollars": "-151.7000",
+      "trade_count": "82",
+      "status": "LOSING"
+    },
+    {
+      "month": "2011-11",
+      "total_pnl_dollars": "-6600.8000",
+      "trade_count": "99",
+      "status": "LOSING"
+    },
+    {
+      "month": "2012-01",
+      "total_pnl_dollars": "-3751.4000",
+      "trade_count": "66",
+      "status": "LOSING"
+    },
+    {
+      "month": "2012-02",
+      "total_pnl_dollars": "-11124.1000",
+      "trade_count": "77",
+      "status": "LOSING"
+    },
+    {
+      "month": "2012-03",
+      "total_pnl_dollars": "-13279.0000",
+      "trade_count": "79",
+      "status": "LOSING"
+    },
+    {
+      "month": "2012-04",
+      "total_pnl_dollars": "-2613.9000",
+      "trade_count": "77",
+      "status": "LOSING"
+    },
+    {
+      "month": "2012-05",
+      "total_pnl_dollars": "-2676.3000",
+      "trade_count": "89",
+      "status": "LOSING"
+    },
+    {
+      "month": "2012-08",
+      "total_pnl_dollars": "-3158.1000",
+      "trade_count": "82",
+      "status": "LOSING"
+    },
+    {
+      "month": "2012-12",
+      "total_pnl_dollars": "-2211.7000",
+      "trade_count": "69",
+      "status": "LOSING"
+    },
+    {
+      "month": "2013-01",
+      "total_pnl_dollars": "-11061.3000",
+      "trade_count": "61",
+      "status": "LOSING"
+    },
+    {
+      "month": "2013-05",
+      "total_pnl_dollars": "-5981.0000",
+      "trade_count": "75",
+      "status": "LOSING"
+    },
+    {
+      "month": "2013-08",
+      "total_pnl_dollars": "-8743.7000",
+      "trade_count": "68",
+      "status": "LOSING"
+    },
+    {
+      "month": "2014-06",
+      "total_pnl_dollars": "-3708.2000",
+      "trade_count": "68",
+      "status": "LOSING"
+    },
+    {
+      "month": "2014-08",
+      "total_pnl_dollars": "-3292.6000",
+      "trade_count": "75",
+      "status": "LOSING"
+    },
+    {
+      "month": "2015-06",
+      "total_pnl_dollars": "-3887.6000",
+      "trade_count": "73",
+      "status": "LOSING"
+    },
+    {
+      "month": "2015-08",
+      "total_pnl_dollars": "-8878.8000",
+      "trade_count": "73",
+      "status": "LOSING"
+    },
+    {
+      "month": "2015-09",
+      "total_pnl_dollars": "-9732.8000",
+      "trade_count": "71",
+      "status": "LOSING"
+    },
+    {
+      "month": "2016-01",
+      "total_pnl_dollars": "-10791.3000",
+      "trade_count": "66",
+      "status": "LOSING"
+    },
+    {
+      "month": "2016-06",
+      "total_pnl_dollars": "-15804.7000",
+      "trade_count": "86",
+      "status": "LOSING"
+    },
+    {
+      "month": "2016-08",
+      "total_pnl_dollars": "-3162.4000",
+      "trade_count": "69",
+      "status": "LOSING"
+    },
+    {
+      "month": "2017-01",
+      "total_pnl_dollars": "-3430.5000",
+      "trade_count": "60",
+      "status": "LOSING"
+    },
+    {
+      "month": "2017-02",
+      "total_pnl_dollars": "-3850.3000",
+      "trade_count": "63",
+      "status": "LOSING"
+    },
+    {
+      "month": "2017-06",
+      "total_pnl_dollars": "-111.5000",
+      "trade_count": "56",
+      "status": "LOSING"
+    },
+    {
+      "month": "2017-09",
+      "total_pnl_dollars": "-9529.4000",
+      "trade_count": "64",
+      "status": "LOSING"
+    },
+    {
+      "month": "2019-04",
+      "total_pnl_dollars": "-2414.1000",
+      "trade_count": "70",
+      "status": "LOSING"
+    },
+    {
+      "month": "2019-05",
+      "total_pnl_dollars": "-15683.5000",
+      "trade_count": "89",
+      "status": "LOSING"
+    },
+    {
+      "month": "2019-12",
+      "total_pnl_dollars": "-14595.7000",
+      "trade_count": "76",
+      "status": "LOSING"
+    },
+    {
+      "month": "2020-12",
+      "total_pnl_dollars": "-29791.4000",
+      "trade_count": "99",
+      "status": "LOSING"
+    },
+    {
+      "month": "2021-02",
+      "total_pnl_dollars": "-17665.2000",
+      "trade_count": "97",
+      "status": "LOSING"
+    },
+    {
+      "month": "2021-07",
+      "total_pnl_dollars": "-4385.2000",
+      "trade_count": "103",
+      "status": "LOSING"
+    },
+    {
+      "month": "2021-09",
+      "total_pnl_dollars": "-5320.9000",
+      "trade_count": "87",
+      "status": "LOSING"
+    },
+    {
+      "month": "2022-01",
+      "total_pnl_dollars": "-12620.8000",
+      "trade_count": "96",
+      "status": "LOSING"
+    },
+    {
+      "month": "2022-02",
+      "total_pnl_dollars": "-10788.5000",
+      "trade_count": "68",
+      "status": "LOSING"
+    },
+    {
+      "month": "2022-07",
+      "total_pnl_dollars": "-9960.3000",
+      "trade_count": "77",
+      "status": "LOSING"
+    },
+    {
+      "month": "2023-02",
+      "total_pnl_dollars": "-22305.3000",
+      "trade_count": "95",
+      "status": "LOSING"
+    },
+    {
+      "month": "2023-07",
+      "total_pnl_dollars": "-3485.9000",
+      "trade_count": "89",
+      "status": "LOSING"
+    },
+    {
+      "month": "2023-09",
+      "total_pnl_dollars": "-20669.9000",
+      "trade_count": "90",
+      "status": "LOSING"
+    },
+    {
+      "month": "2024-01",
+      "total_pnl_dollars": "-4524.0000",
+      "trade_count": "91",
+      "status": "LOSING"
+    },
+    {
+      "month": "2024-09",
+      "total_pnl_dollars": "-1169.8000",
+      "trade_count": "90",
+      "status": "LOSING"
+    },
+    {
+      "month": "2024-10",
+      "total_pnl_dollars": "-6182.9000",
+      "trade_count": "109",
+      "status": "LOSING"
+    },
+    {
+      "month": "2025-01",
+      "total_pnl_dollars": "-13275.7000",
+      "trade_count": "97",
+      "status": "LOSING"
+    },
+    {
+      "month": "2025-05",
+      "total_pnl_dollars": "-4358.1000",
+      "trade_count": "100",
+      "status": "LOSING"
+    },
+    {
+      "month": "2025-06",
+      "total_pnl_dollars": "-9827.0000",
+      "trade_count": "110",
+      "status": "LOSING"
+    }
+  ],
+  "messages": [],
+  "stdout": "month\ttotal_pnl_dollars\ttrade_count\tstatus\n2010-12\t-57.0000\t1\tLOSING\n2011-03\t-2318.1000\t81\tLOSING\n2011-05\t-238.4000\t73\tLOSING\n2011-06\t-681.1000\t67\tLOSING\n2011-07\t-6013.7000\t79\tLOSING\n2011-10\t-151.7000\t82\tLOSING\n2011-11\t-6600.8000\t99\tLOSING\n2012-01\t-3751.4000\t66\tLOSING\n2012-02\t-11124.1000\t77\tLOSING\n2012-03\t-13279.0000\t79\tLOSING\n2012-04\t-2613.9000\t77\tLOSING\n2012-05\t-2676.3000\t89\tLOSING\n2012-08\t-3158.1000\t82\tLOSING\n2012-12\t-2211.7000\t69\tLOSING\n2013-01\t-11061.3000\t61\tLOSING\n2013-05\t-5981.0000\t75\tLOSING\n2013-08\t-8743.7000\t68\tLOSING\n2014-06\t-3708.2000\t68\tLOSING\n2014-08\t-3292.6000\t75\tLOSING\n2015-06\t-3887.6000\t73\tLOSING\n2015-08\t-8878.8000\t73\tLOSING\n2015-09\t-9732.8000\t71\tLOSING\n2016-01\t-10791.3000\t66\tLOSING\n2016-06\t-15804.7000\t86\tLOSING\n2016-08\t-3162.4000\t69\tLOSING\n2017-01\t-3430.5000\t60\tLOSING\n2017-02\t-3850.3000\t63\tLOSING\n2017-06\t-111.5000\t56\tLOSING\n2017-09\t-9529.4000\t64\tLOSING\n2019-04\t-2414.1000\t70\tLOSING\n2019-05\t-15683.5000\t89\tLOSING\n2019-12\t-14595.7000\t76\tLOSING\n2020-12\t-29791.4000\t99\tLOSING\n2021-02\t-17665.2000\t97\tLOSING\n2021-07\t-4385.2000\t103\tLOSING\n2021-09\t-5320.9000\t87\tLOSING\n2022-01\t-12620.8000\t96\tLOSING\n2022-02\t-10788.5000\t68\tLOSING\n2022-07\t-9960.3000\t77\tLOSING\n2023-02\t-22305.3000\t95\tLOSING\n2023-07\t-3485.9000\t89\tLOSING\n2023-09\t-20669.9000\t90\tLOSING\n2024-01\t-4524.0000\t91\tLOSING\n2024-09\t-1169.8000\t90\tLOSING\n2024-10\t-6182.9000\t109\tLOSING\n2025-01\t-13275.7000\t97\tLOSING\n2025-05\t-4358.1000\t100\tLOSING\n2025-06\t-9827.0000\t110\tLOSING\n",
+  "stderr": "",
+  "execution_time_ms": 88
+}

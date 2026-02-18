@@ -1,0 +1,40 @@
+{
+  "query": "SELECT id, strategyId, source, isTest FROM trades LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, strategyId, source, isTest FROM trades LIMIT 5;",
+  "rows": [
+    {
+      "id": "1230892",
+      "strategyId": "9",
+      "source": "csv_import",
+      "isTest": "0"
+    },
+    {
+      "id": "1230893",
+      "strategyId": "9",
+      "source": "csv_import",
+      "isTest": "0"
+    },
+    {
+      "id": "1230894",
+      "strategyId": "9",
+      "source": "csv_import",
+      "isTest": "0"
+    },
+    {
+      "id": "1230895",
+      "strategyId": "9",
+      "source": "csv_import",
+      "isTest": "0"
+    },
+    {
+      "id": "1230896",
+      "strategyId": "9",
+      "source": "csv_import",
+      "isTest": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tstrategyId\tsource\tisTest\n1230892\t9\tcsv_import\t0\n1230893\t9\tcsv_import\t0\n1230894\t9\tcsv_import\t0\n1230895\t9\tcsv_import\t0\n1230896\t9\tcsv_import\t0\n",
+  "stderr": "",
+  "execution_time_ms": 60
+}

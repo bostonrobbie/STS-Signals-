@@ -1,0 +1,22 @@
+{
+  "query": "UPDATE users SET role = 'admin' WHERE name = 'Rob Gorham' LIMIT 1; SELECT id, email, name, role FROM users WHERE name = 'Rob Gorham';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute UPDATE users SET role = 'admin' WHERE name = 'Rob Gorham' LIMIT 1; SELECT id, email, name, role FROM users WHERE name = 'Rob Gorham';",
+  "rows": [
+    {
+      "id": "1",
+      "email": "rgorham369@gmail.com",
+      "name": "Rob Gorham",
+      "role": "admin"
+    },
+    {
+      "id": "18630338",
+      "email": "",
+      "name": "Rob Gorham",
+      "role": "user"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\tname\trole\n1\trgorham369@gmail.com\tRob Gorham\tadmin\n18630338\t\tRob Gorham\tuser\n",
+  "stderr": "",
+  "execution_time_ms": 271
+}

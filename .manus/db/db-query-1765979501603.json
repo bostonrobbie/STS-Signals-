@@ -1,0 +1,150 @@
+{
+  "query": "SELECT id, status, strategySymbol, errorMessage, createdAt FROM webhook_logs ORDER BY createdAt DESC LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, status, strategySymbol, errorMessage, createdAt FROM webhook_logs ORDER BY createdAt DESC LIMIT 20;",
+  "rows": [
+    {
+      "id": "210016",
+      "status": "success",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "NULL",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210004",
+      "status": "failed",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "Invalid or missing authentication token",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210018",
+      "status": "success",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "NULL",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210006",
+      "status": "success",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "NULL",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210019",
+      "status": "success",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "NULL",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210015",
+      "status": "success",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "NULL",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210011",
+      "status": "success",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "NULL",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210012",
+      "status": "success",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "NULL",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210005",
+      "status": "failed",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "Invalid or missing authentication token",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210013",
+      "status": "success",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "NULL",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210014",
+      "status": "success",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "NULL",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210020",
+      "status": "success",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "NULL",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210017",
+      "status": "success",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "NULL",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210007",
+      "status": "failed",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "Invalid or missing authentication token",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210010",
+      "status": "failed",
+      "strategySymbol": "NULL",
+      "errorMessage": "Missing or invalid \"symbol\" or \"strategy\" field",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210008",
+      "status": "failed",
+      "strategySymbol": "UNKNOWN_SYMBOL_XYZ",
+      "errorMessage": "Unknown strategy: UNKNOWN_SYMBOL_XYZ",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210009",
+      "status": "failed",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "Invalid or missing authentication token",
+      "createdAt": "2025-12-17 13:38:02"
+    },
+    {
+      "id": "210003",
+      "status": "success",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "NULL",
+      "createdAt": "2025-12-17 13:37:55"
+    },
+    {
+      "id": "210002",
+      "status": "failed",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "Invalid or missing authentication token",
+      "createdAt": "2025-12-17 13:37:54"
+    },
+    {
+      "id": "210001",
+      "status": "failed",
+      "strategySymbol": "ESTrend",
+      "errorMessage": "Invalid or missing authentication token",
+      "createdAt": "2025-12-17 13:37:54"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tstatus\tstrategySymbol\terrorMessage\tcreatedAt\n210016\tsuccess\tESTrend\tNULL\t2025-12-17 13:38:02\n210004\tfailed\tESTrend\tInvalid or missing authentication token\t2025-12-17 13:38:02\n210018\tsuccess\tESTrend\tNULL\t2025-12-17 13:38:02\n210006\tsuccess\tESTrend\tNULL\t2025-12-17 13:38:02\n210019\tsuccess\tESTrend\tNULL\t2025-12-17 13:38:02\n210015\tsuccess\tESTrend\tNULL\t2025-12-17 13:38:02\n210011\tsuccess\tESTrend\tNULL\t2025-12-17 13:38:02\n210012\tsuccess\tESTrend\tNULL\t2025-12-17 13:38:02\n210005\tfailed\tESTrend\tInvalid or missing authentication token\t2025-12-17 13:38:02\n210013\tsuccess\tESTrend\tNULL\t2025-12-17 13:38:02\n210014\tsuccess\tESTrend\tNULL\t2025-12-17 13:38:02\n210020\tsuccess\tESTrend\tNULL\t2025-12-17 13:38:02\n210017\tsuccess\tESTrend\tNULL\t2025-12-17 13:38:02\n210007\tfailed\tESTrend\tInvalid or missing authentication token\t2025-12-17 13:38:02\n210010\tfailed\tNULL\tMissing or invalid \"symbol\" or \"strategy\" field\t2025-12-17 13:38:02\n210008\tfailed\tUNKNOWN_SYMBOL_XYZ\tUnknown strategy: UNKNOWN_SYMBOL_XYZ\t2025-12-17 13:38:02\n210009\tfailed\tESTrend\tInvalid or missing authentication token\t2025-12-17 13:38:02\n210003\tsuccess\tESTrend\tNULL\t2025-12-17 13:37:55\n210002\tfailed\tESTrend\tInvalid or missing authentication token\t2025-12-17 13:37:54\n210001\tfailed\tESTrend\tInvalid or missing authentication token\t2025-12-17 13:37:54\n",
+  "stderr": "",
+  "execution_time_ms": 51
+}

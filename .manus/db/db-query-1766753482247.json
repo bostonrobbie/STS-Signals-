@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS position_adjustments (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  openPositionId INT,\n  strategySymbol VARCHAR(50) NOT NULL,\n  adjustmentType ENUM('force_close', 'force_open', 'quantity_adjust', 'price_adjust', 'sync_from_broker', 'manual_override') NOT NULL,\n  beforeDirection VARCHAR(10),\n  beforeQuantity INT,\n  beforeEntryPrice INT,\n  afterDirection VARCHAR(10),\n  afterQuantity INT,\n  afterEntryPrice INT,\n  reason TEXT NOT NULL,\n  adjustedBy VARCHAR(100) NOT NULL,\n  reconciliationLogId INT,\n  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\n  INDEX idx_position_adjustments_position (openPositionId),\n  INDEX idx_position_adjustments_strategy (strategySymbol),\n  INDEX idx_position_adjustments_type (adjustmentType)\n)",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute CREATE TABLE IF NOT EXISTS position_adjustments (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  openPositionId INT,\n  strategySymbol VARCHAR(50) NOT NULL,\n  adjustmentType ENUM('force_close', 'force_open', 'quantity_adjust', 'price_adjust', 'sync_from_broker', 'manual_override') NOT NULL,\n  beforeDirection VARCHAR(10),\n  beforeQuantity INT,\n  beforeEntryPrice INT,\n  afterDirection VARCHAR(10),\n  afterQuantity INT,\n  afterEntryPrice INT,\n  reason TEXT NOT NULL,\n  adjustedBy VARCHAR(100) NOT NULL,\n  reconciliationLogId INT,\n  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\n  INDEX idx_position_adjustments_position (openPositionId),\n  INDEX idx_position_adjustments_strategy (strategySymbol),\n  INDEX idx_position_adjustments_type (adjustmentType)\n)",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 208
+}

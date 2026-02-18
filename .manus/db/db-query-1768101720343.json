@@ -1,0 +1,80 @@
+{
+  "query": "SELECT op.id, op.strategyId, s.name as strategyName, op.direction, op.quantity, op.entryPrice, op.entryTime, op.isTest FROM open_positions op LEFT JOIN strategies s ON op.strategyId = s.id ORDER BY op.entryTime DESC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT op.id, op.strategyId, s.name as strategyName, op.direction, op.quantity, op.entryPrice, op.entryTime, op.isTest FROM open_positions op LEFT JOIN strategies s ON op.strategyId = s.id ORDER BY op.entryTime DESC;",
+  "rows": [
+    {
+      "id": "1800019",
+      "strategyId": "9",
+      "strategyName": "ES Trend Following",
+      "direction": "Long",
+      "quantity": "1",
+      "entryPrice": "450000",
+      "entryTime": "2026-01-11 03:05:55",
+      "isTest": "0"
+    },
+    {
+      "id": "1800010",
+      "strategyId": "13",
+      "strategyName": "CL Trend Following",
+      "direction": "Long",
+      "quantity": "1",
+      "entryPrice": "7500",
+      "entryTime": "2026-01-11 03:05:50",
+      "isTest": "0"
+    },
+    {
+      "id": "1800011",
+      "strategyId": "14",
+      "strategyName": "BTC Trend Following",
+      "direction": "Long",
+      "quantity": "1",
+      "entryPrice": "4200000",
+      "entryTime": "2026-01-11 03:05:50",
+      "isTest": "0"
+    },
+    {
+      "id": "1800013",
+      "strategyId": "16",
+      "strategyName": "YM Opening Range Breakout",
+      "direction": "Long",
+      "quantity": "1",
+      "entryPrice": "3500000",
+      "entryTime": "2026-01-11 03:05:50",
+      "isTest": "0"
+    },
+    {
+      "id": "1800009",
+      "strategyId": "30001",
+      "strategyName": "NQ Trend (Leveraged)",
+      "direction": "Short",
+      "quantity": "1",
+      "entryPrice": "1500000",
+      "entryTime": "2026-01-11 03:05:49",
+      "isTest": "0"
+    },
+    {
+      "id": "1800004",
+      "strategyId": "10",
+      "strategyName": "ES Opening Range Breakout",
+      "direction": "Long",
+      "quantity": "1",
+      "entryPrice": "450000",
+      "entryTime": "2026-01-11 03:05:48",
+      "isTest": "0"
+    },
+    {
+      "id": "1800005",
+      "strategyId": "15",
+      "strategyName": "GC Trend Following",
+      "direction": "Short",
+      "quantity": "1",
+      "entryPrice": "200000",
+      "entryTime": "2026-01-11 03:05:48",
+      "isTest": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tstrategyId\tstrategyName\tdirection\tquantity\tentryPrice\tentryTime\tisTest\n1800019\t9\tES Trend Following\tLong\t1\t450000\t2026-01-11 03:05:55\t0\n1800010\t13\tCL Trend Following\tLong\t1\t7500\t2026-01-11 03:05:50\t0\n1800011\t14\tBTC Trend Following\tLong\t1\t4200000\t2026-01-11 03:05:50\t0\n1800013\t16\tYM Opening Range Breakout\tLong\t1\t3500000\t2026-01-11 03:05:50\t0\n1800009\t30001\tNQ Trend (Leveraged)\tShort\t1\t1500000\t2026-01-11 03:05:49\t0\n1800004\t10\tES Opening Range Breakout\tLong\t1\t450000\t2026-01-11 03:05:48\t0\n1800005\t15\tGC Trend Following\tShort\t1\t200000\t2026-01-11 03:05:48\t0\n",
+  "stderr": "",
+  "execution_time_ms": 53
+}

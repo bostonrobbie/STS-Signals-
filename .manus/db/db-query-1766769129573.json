@@ -1,0 +1,26 @@
+{
+  "query": "SELECT status, COUNT(*) as count FROM webhook_logs GROUP BY status;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT status, COUNT(*) as count FROM webhook_logs GROUP BY status;",
+  "rows": [
+    {
+      "status": "pending",
+      "count": "1"
+    },
+    {
+      "status": "failed",
+      "count": "441"
+    },
+    {
+      "status": "duplicate",
+      "count": "408"
+    },
+    {
+      "status": "success",
+      "count": "624"
+    }
+  ],
+  "messages": [],
+  "stdout": "status\tcount\npending\t1\nfailed\t441\nduplicate\t408\nsuccess\t624\n",
+  "stderr": "",
+  "execution_time_ms": 56
+}

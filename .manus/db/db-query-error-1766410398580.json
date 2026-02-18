@@ -1,0 +1,8 @@
+{
+  "query": "CREATE INDEX IF NOT EXISTS idx_trades_strategy_entry ON trades(strategy_id, entry_date DESC);\nCREATE INDEX IF NOT EXISTS idx_trades_entry_date ON trades(entry_date DESC);\nCREATE INDEX IF NOT EXISTS idx_trades_strategy_exit ON trades(strategy_id, exit_date DESC);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute CREATE INDEX IF NOT EXISTS idx_trades_strategy_entry ON trades(strategy_id, entry_date DESC);\nCREATE INDEX IF NOT EXISTS idx_trades_entry_date ON trades(entry_date DESC);\nCREATE INDEX IF NOT EXISTS idx_trades_strategy_exit ON trades(strategy_id, exit_date DESC);",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1072 (42000) at line 1: column does not exist: strategy_id"
+  ]
+}

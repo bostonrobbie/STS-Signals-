@@ -1,0 +1,18 @@
+{
+  "query": "SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS \nWHERE TABLE_NAME = 'users' AND COLUMN_NAME IN ('accountSize', 'riskPercentage', 'accountsize', 'riskpercentage');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS \nWHERE TABLE_NAME = 'users' AND COLUMN_NAME IN ('accountSize', 'riskPercentage', 'accountsize', 'riskpercentage');",
+  "rows": [
+    {
+      "COLUMN_NAME": "accountSize",
+      "DATA_TYPE": "decimal"
+    },
+    {
+      "COLUMN_NAME": "riskPercentage",
+      "DATA_TYPE": "decimal"
+    }
+  ],
+  "messages": [],
+  "stdout": "COLUMN_NAME\tDATA_TYPE\naccountSize\tdecimal\nriskPercentage\tdecimal\n",
+  "stderr": "",
+  "execution_time_ms": 56
+}

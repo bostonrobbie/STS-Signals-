@@ -1,0 +1,9 @@
+{
+  "query": "-- First, delete the bad trade that was created from the test position\nDELETE FROM trades WHERE id = 2430001;\n\n-- Delete the bad open position\nDELETE FROM open_positions WHERE id = 1500001;\n\n-- Update the webhook log to mark it as test data\nUPDATE webhook_logs SET isTest = 1 WHERE id = 2520001;\n\n-- Also mark the exit webhook log that processed against the test position\nUPDATE webhook_logs SET isTest = 1, errorMessage = 'Processed against test position - data invalid' WHERE id = 2640001;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute -- First, delete the bad trade that was created from the test position\nDELETE FROM trades WHERE id = 2430001;\n\n-- Delete the bad open position\nDELETE FROM open_positions WHERE id = 1500001;\n\n-- Update the webhook log to mark it as test data\nUPDATE webhook_logs SET isTest = 1 WHERE id = 2520001;\n\n-- Also mark the exit webhook log that processed against the test position\nUPDATE webhook_logs SET isTest = 1, errorMessage = 'Processed against test position - data invalid' WHERE id = 2640001;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 570
+}

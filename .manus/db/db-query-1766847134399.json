@@ -1,0 +1,30 @@
+{
+  "query": "SELECT 'webhook_logs' as table_name, COUNT(*) as count FROM webhook_logs\nUNION ALL\nSELECT 'open_positions', COUNT(*) FROM open_positions\nUNION ALL\nSELECT 'staging_trades', COUNT(*) FROM staging_trades\nUNION ALL\nSELECT 'paper_trades', COUNT(*) FROM paper_trades\nUNION ALL\nSELECT 'paper_positions', COUNT(*) FROM paper_positions",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT 'webhook_logs' as table_name, COUNT(*) as count FROM webhook_logs\nUNION ALL\nSELECT 'open_positions', COUNT(*) FROM open_positions\nUNION ALL\nSELECT 'staging_trades', COUNT(*) FROM staging_trades\nUNION ALL\nSELECT 'paper_trades', COUNT(*) FROM paper_trades\nUNION ALL\nSELECT 'paper_positions', COUNT(*) FROM paper_positions",
+  "rows": [
+    {
+      "table_name": "paper_positions",
+      "count": "1"
+    },
+    {
+      "table_name": "open_positions",
+      "count": "6"
+    },
+    {
+      "table_name": "paper_trades",
+      "count": "1"
+    },
+    {
+      "table_name": "staging_trades",
+      "count": "0"
+    },
+    {
+      "table_name": "webhook_logs",
+      "count": "320"
+    }
+  ],
+  "messages": [],
+  "stdout": "table_name\tcount\npaper_positions\t1\nopen_positions\t6\npaper_trades\t1\nstaging_trades\t0\nwebhook_logs\t320\n",
+  "stderr": "",
+  "execution_time_ms": 53
+}

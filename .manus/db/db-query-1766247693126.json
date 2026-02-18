@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS `open_positions` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `strategyId` int NOT NULL,\n  `strategySymbol` varchar(20) NOT NULL,\n  `direction` varchar(10) NOT NULL,\n  `entryPrice` int NOT NULL,\n  `quantity` int NOT NULL DEFAULT 1,\n  `entryTime` datetime NOT NULL,\n  `entryWebhookLogId` int,\n  `status` enum('open','closing','closed') NOT NULL DEFAULT 'open',\n  `exitPrice` int,\n  `exitTime` datetime,\n  `exitWebhookLogId` int,\n  `pnl` int,\n  `tradeId` int,\n  `createdAt` timestamp NOT NULL DEFAULT (now()),\n  `updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,\n  CONSTRAINT `open_positions_id` PRIMARY KEY(`id`)\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute CREATE TABLE IF NOT EXISTS `open_positions` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `strategyId` int NOT NULL,\n  `strategySymbol` varchar(20) NOT NULL,\n  `direction` varchar(10) NOT NULL,\n  `entryPrice` int NOT NULL,\n  `quantity` int NOT NULL DEFAULT 1,\n  `entryTime` datetime NOT NULL,\n  `entryWebhookLogId` int,\n  `status` enum('open','closing','closed') NOT NULL DEFAULT 'open',\n  `exitPrice` int,\n  `exitTime` datetime,\n  `exitWebhookLogId` int,\n  `pnl` int,\n  `tradeId` int,\n  `createdAt` timestamp NOT NULL DEFAULT (now()),\n  `updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,\n  CONSTRAINT `open_positions_id` PRIMARY KEY(`id`)\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 618
+}

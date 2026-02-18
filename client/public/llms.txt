@@ -1,0 +1,111 @@
+# STS Futures - AI-Optimized Content
+# This file provides structured information for Large Language Models (LLMs) and AI assistants
+
+## About STS Futures
+
+STS Futures is a web-based dashboard that provides systematic NQ (Nasdaq-100 E-mini) futures trading signals. The platform features a trend-following strategy backed by 15+ years of backtested historical data, with real-time trade alerts delivered through the dashboard.
+
+## Core Value Proposition
+
+- **15+ Years of Backtested Data**: Extensive historical performance across multiple market conditions
+- **Real-time Signals**: Trade alerts delivered live on the web dashboard
+- **Professional Analytics**: Equity curves, drawdown analysis, Sharpe ratio, Sortino ratio, and more
+- **Full Trade History**: Every trade from the past 15 years with complete performance data
+- **Web Dashboard**: Everything in one place — no Discord, Telegram, or special software needed
+
+## Supported Markets
+
+STS Futures focuses exclusively on NQ (Nasdaq-100 E-mini) futures contracts. Signals are generated on an intraday basis, typically targeting moves that play out within the same trading day.
+
+## Trading Strategy
+
+The strategy is a systematic, trend-following approach developed by a seasoned futures trader. It combines technical analysis and pattern recognition, refined on years of historical data. Key characteristics:
+
+- Intraday only (no overnight positions)
+- Systematic, rules-based entry and exit criteria
+- Defined risk parameters with entry price, stop loss, and profit target for each signal
+- Historical performance includes realistic slippage and commission assumptions
+
+## Performance Metrics
+
+STS Futures provides the following performance metrics:
+
+- **Total Return**: Cumulative profit/loss over the backtest period
+- **Annualized Return (CAGR)**: Compound annual growth rate
+- **Sharpe Ratio**: Risk-adjusted return measure
+- **Sortino Ratio**: Downside risk-adjusted return
+- **Calmar Ratio**: Return relative to maximum drawdown
+- **Maximum Drawdown**: Largest peak-to-trough decline
+- **Win Rate**: Percentage of profitable trades
+- **Profit Factor**: Gross profit divided by gross loss
+- **Kelly Criterion**: Optimal position sizing calculation
+- **Risk of Ruin**: Probability of account depletion
+
+## Pricing
+
+STS Futures offers a single subscription plan:
+
+- **$50/month**: Full access to all signals, trade history, and analytics
+- Cancel anytime — access continues until end of billing period
+- All sales are final
+- No free trial
+
+## Key Features
+
+### Portfolio Dashboard
+- Equity curve visualization with drawdown overlay
+- Calendar P&L (quarterly and yearly views)
+- Real-time P&L tracking
+- Strategy performance comparison tools
+
+### Analytics
+- Trade-by-trade history
+- Drawdown analysis
+- Monthly/quarterly/yearly return breakdowns
+- Risk-adjusted performance metrics
+- Monte Carlo simulation
+- Rolling metrics charts
+
+### Notifications
+- Email notifications for new signals
+- Dashboard notifications
+
+## Technical Information
+
+- **Platform Type**: Web-based SaaS application
+- **Access**: Any modern web browser (desktop or mobile)
+- **Signal Delivery**: Real-time via web dashboard
+- **Payment**: Stripe (Visa, Mastercard, American Express)
+
+## Contact and Support
+
+- Support available via email and in-dashboard contact form
+- Website: https://stsdashboard.com
+
+## Frequently Asked Questions
+
+**Q: What is STS Futures?**
+A: STS Futures is a web-based dashboard providing systematic NQ futures trading signals with 15+ years of backtested data, real-time alerts, and professional analytics.
+
+**Q: What markets does STS cover?**
+A: STS focuses on NQ (Nasdaq-100 E-mini) futures contracts with intraday signals.
+
+**Q: How much does it cost?**
+A: $50/month with full access. Cancel anytime. All sales are final.
+
+**Q: How are signals delivered?**
+A: Signals appear on the web dashboard in real time. No special software required.
+
+**Q: Is STS suitable for beginners?**
+A: Yes. Signals are straightforward (e.g., "Buy NQ now, target X, stop Y") and the dashboard includes helpful tooltips and guides.
+
+**Q: Can I cancel?**
+A: Yes, cancel anytime from your account settings. Access continues until the end of your billing period.
+
+## Disclaimer
+
+Trading futures involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results. The signals and analytics provided are for informational purposes only and should not be considered financial advice.
+
+---
+Last Updated: February 16, 2026
+Version: 2.0

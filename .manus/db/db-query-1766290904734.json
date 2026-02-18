@@ -1,0 +1,244 @@
+{
+  "query": "SELECT \n  TABLE_NAME,\n  INDEX_NAME,\n  GROUP_CONCAT(COLUMN_NAME ORDER BY SEQ_IN_INDEX) as COLUMNS,\n  NON_UNIQUE\nFROM information_schema.STATISTICS \nWHERE TABLE_SCHEMA = DATABASE()\nGROUP BY TABLE_NAME, INDEX_NAME, NON_UNIQUE\nORDER BY TABLE_NAME, INDEX_NAME;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT \n  TABLE_NAME,\n  INDEX_NAME,\n  GROUP_CONCAT(COLUMN_NAME ORDER BY SEQ_IN_INDEX) as COLUMNS,\n  NON_UNIQUE\nFROM information_schema.STATISTICS \nWHERE TABLE_SCHEMA = DATABASE()\nGROUP BY TABLE_NAME, INDEX_NAME, NON_UNIQUE\nORDER BY TABLE_NAME, INDEX_NAME;",
+  "rows": [
+    {
+      "TABLE_NAME": "__drizzle_migrations",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "__drizzle_migrations",
+      "INDEX_NAME": "id",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "audit_logs",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "audit_logs",
+      "INDEX_NAME": "idx_created",
+      "COLUMNS": "createdAt",
+      "NON_UNIQUE": "1"
+    },
+    {
+      "TABLE_NAME": "audit_logs",
+      "INDEX_NAME": "idx_user_action",
+      "COLUMNS": "userId,action",
+      "NON_UNIQUE": "1"
+    },
+    {
+      "TABLE_NAME": "benchmarks",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "benchmarks",
+      "INDEX_NAME": "benchmarks_date_unique",
+      "COLUMNS": "date",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "broker_connections",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "dead_letter_queue",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "dead_letter_queue",
+      "INDEX_NAME": "idx_status",
+      "COLUMNS": "status",
+      "NON_UNIQUE": "1"
+    },
+    {
+      "TABLE_NAME": "execution_logs",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "notification_preferences",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "notification_preferences",
+      "INDEX_NAME": "unique_user",
+      "COLUMNS": "userId",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "open_positions",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "payment_history",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "routing_rules",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "strategies",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "strategies",
+      "INDEX_NAME": "strategies_symbol_unique",
+      "COLUMNS": "symbol",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "strategy_notification_settings",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "strategy_notification_settings",
+      "INDEX_NAME": "unique_user_strategy",
+      "COLUMNS": "userId,strategyId",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "subscription_tiers",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "trades",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "user_payment_subscriptions",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "user_payment_subscriptions",
+      "INDEX_NAME": "userId",
+      "COLUMNS": "userId",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "user_portfolio_config",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "user_portfolio_config",
+      "INDEX_NAME": "userId",
+      "COLUMNS": "userId",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "user_signals",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "user_signals",
+      "INDEX_NAME": "idx_action",
+      "COLUMNS": "action",
+      "NON_UNIQUE": "1"
+    },
+    {
+      "TABLE_NAME": "user_signals",
+      "INDEX_NAME": "idx_user_strategy",
+      "COLUMNS": "userId,strategyId",
+      "NON_UNIQUE": "1"
+    },
+    {
+      "TABLE_NAME": "user_strategy_settings",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "user_strategy_settings",
+      "INDEX_NAME": "unique_user_strategy",
+      "COLUMNS": "userId,strategyId",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "user_subscriptions",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "user_subscriptions",
+      "INDEX_NAME": "unique_user_strategy",
+      "COLUMNS": "userId,strategyId",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "users",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "users",
+      "INDEX_NAME": "users_openId_unique",
+      "COLUMNS": "openId",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "webhook_logs",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "webhook_queue",
+      "INDEX_NAME": "PRIMARY",
+      "COLUMNS": "id",
+      "NON_UNIQUE": "0"
+    },
+    {
+      "TABLE_NAME": "webhook_queue",
+      "INDEX_NAME": "idx_next_retry",
+      "COLUMNS": "nextRetryAt",
+      "NON_UNIQUE": "1"
+    },
+    {
+      "TABLE_NAME": "webhook_queue",
+      "INDEX_NAME": "idx_status",
+      "COLUMNS": "status",
+      "NON_UNIQUE": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "TABLE_NAME\tINDEX_NAME\tCOLUMNS\tNON_UNIQUE\n__drizzle_migrations\tPRIMARY\tid\t0\n__drizzle_migrations\tid\tid\t0\naudit_logs\tPRIMARY\tid\t0\naudit_logs\tidx_created\tcreatedAt\t1\naudit_logs\tidx_user_action\tuserId,action\t1\nbenchmarks\tPRIMARY\tid\t0\nbenchmarks\tbenchmarks_date_unique\tdate\t0\nbroker_connections\tPRIMARY\tid\t0\ndead_letter_queue\tPRIMARY\tid\t0\ndead_letter_queue\tidx_status\tstatus\t1\nexecution_logs\tPRIMARY\tid\t0\nnotification_preferences\tPRIMARY\tid\t0\nnotification_preferences\tunique_user\tuserId\t0\nopen_positions\tPRIMARY\tid\t0\npayment_history\tPRIMARY\tid\t0\nrouting_rules\tPRIMARY\tid\t0\nstrategies\tPRIMARY\tid\t0\nstrategies\tstrategies_symbol_unique\tsymbol\t0\nstrategy_notification_settings\tPRIMARY\tid\t0\nstrategy_notification_settings\tunique_user_strategy\tuserId,strategyId\t0\nsubscription_tiers\tPRIMARY\tid\t0\ntrades\tPRIMARY\tid\t0\nuser_payment_subscriptions\tPRIMARY\tid\t0\nuser_payment_subscriptions\tuserId\tuserId\t0\nuser_portfolio_config\tPRIMARY\tid\t0\nuser_portfolio_config\tuserId\tuserId\t0\nuser_signals\tPRIMARY\tid\t0\nuser_signals\tidx_action\taction\t1\nuser_signals\tidx_user_strategy\tuserId,strategyId\t1\nuser_strategy_settings\tPRIMARY\tid\t0\nuser_strategy_settings\tunique_user_strategy\tuserId,strategyId\t0\nuser_subscriptions\tPRIMARY\tid\t0\nuser_subscriptions\tunique_user_strategy\tuserId,strategyId\t0\nusers\tPRIMARY\tid\t0\nusers\tusers_openId_unique\topenId\t0\nwebhook_logs\tPRIMARY\tid\t0\nwebhook_queue\tPRIMARY\tid\t0\nwebhook_queue\tidx_next_retry\tnextRetryAt\t1\nwebhook_queue\tidx_status\tstatus\t1\n",
+  "stderr": "",
+  "execution_time_ms": 145
+}

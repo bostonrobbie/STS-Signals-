@@ -1,0 +1,9 @@
+{
+  "query": "CREATE INDEX idx_staging_trades_webhook ON staging_trades(webhookLogId);\nCREATE INDEX idx_staging_trades_strategy ON staging_trades(strategyId);\nCREATE INDEX idx_staging_trades_status ON staging_trades(status);\nCREATE INDEX idx_staging_trades_is_open ON staging_trades(isOpen);\nCREATE INDEX idx_staging_trades_created ON staging_trades(createdAt);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute CREATE INDEX idx_staging_trades_webhook ON staging_trades(webhookLogId);\nCREATE INDEX idx_staging_trades_strategy ON staging_trades(strategyId);\nCREATE INDEX idx_staging_trades_status ON staging_trades(status);\nCREATE INDEX idx_staging_trades_is_open ON staging_trades(isOpen);\nCREATE INDEX idx_staging_trades_created ON staging_trades(createdAt);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 2647
+}

@@ -1,0 +1,55 @@
+{
+  "query": "SELECT id, name, active FROM strategies;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, name, active FROM strategies;",
+  "rows": [
+    {
+      "id": "9",
+      "name": "ES Trend Following",
+      "active": "0"
+    },
+    {
+      "id": "10",
+      "name": "ES Opening Range Breakout",
+      "active": "0"
+    },
+    {
+      "id": "11",
+      "name": "NQ Trend",
+      "active": "1"
+    },
+    {
+      "id": "12",
+      "name": "NQ Opening Range Breakout",
+      "active": "0"
+    },
+    {
+      "id": "13",
+      "name": "CL Trend Following",
+      "active": "0"
+    },
+    {
+      "id": "14",
+      "name": "BTC Trend Following",
+      "active": "0"
+    },
+    {
+      "id": "15",
+      "name": "GC Trend Following",
+      "active": "0"
+    },
+    {
+      "id": "16",
+      "name": "YM Opening Range Breakout",
+      "active": "0"
+    },
+    {
+      "id": "30001",
+      "name": "NQ Trend (Leveraged)",
+      "active": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tactive\n9\tES Trend Following\t0\n10\tES Opening Range Breakout\t0\n11\tNQ Trend\t1\n12\tNQ Opening Range Breakout\t0\n13\tCL Trend Following\t0\n14\tBTC Trend Following\t0\n15\tGC Trend Following\t0\n16\tYM Opening Range Breakout\t0\n30001\tNQ Trend (Leveraged)\t1\n",
+  "stderr": "",
+  "execution_time_ms": 60
+}

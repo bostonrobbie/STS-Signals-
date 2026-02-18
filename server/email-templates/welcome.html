@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to STS Futures</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+    }
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #10b981;
+      margin-bottom: 10px;
+    }
+    .header-subtitle {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    .content {
+      padding: 40px 30px;
+    }
+    h1 {
+      color: #0f172a;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 15px;
+      color: #475569;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #10b981;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .cta-button:hover {
+      background-color: #059669;
+    }
+    .features {
+      background-color: #f8fafc;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 30px 0;
+    }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+    .feature-icon {
+      color: #10b981;
+      font-size: 20px;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    .feature-text {
+      color: #475569;
+      font-size: 14px;
+    }
+    .footer {
+      background-color: #f8fafc;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+    }
+    .footer-text {
+      color: #64748b;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .footer-links {
+      margin-top: 15px;
+    }
+    .footer-link {
+      color: #64748b;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 12px;
+    }
+    .footer-link:hover {
+      color: #10b981;
+    }
+    .risk-disclaimer {
+      background-color: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 15px;
+      margin: 20px 0;
+      font-size: 12px;
+      color: #92400e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">STS Futures</div>
+      <div class="header-subtitle">Systematic Trading Strategies</div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <h1>Welcome to STS Futures, {{name}}!</h1>
+      
+      <p>Thank you for joining STS Futures. We're excited to have you on board and help you navigate the futures markets with our systematic trading strategies.</p>
+      
+      <p>Your account has been successfully created, and you now have access to our comprehensive trading dashboard with backtested strategies, real-time signals, and advanced analytics.</p>
+
+      <div style="text-align: center;">
+        <a href="{{dashboardUrl}}" class="cta-button">Access Your Dashboard</a>
+      </div>
+
+      <!-- Features -->
+      <div class="features">
+        <h2 style="font-size: 18px; color: #0f172a; margin-top: 0;">What You Get:</h2>
+        
+        <div class="feature-item">
+          <div class="feature-icon">✓</div>
+          <div class="feature-text">
+            <strong>8 Backtested Strategies</strong> - Access to proven trading strategies with 15+ years of historical data
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">✓</div>
+          <div class="feature-text">
+            <strong>Real-Time Signals</strong> - TradingView alerts delivered instantly to your dashboard
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">✓</div>
+          <div class="feature-text">
+            <strong>Comprehensive Analytics</strong> - Performance metrics, equity curves, and risk analysis
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">✓</div>
+          <div class="feature-text">
+            <strong>Position Sizing Calculators</strong> - Kelly Criterion and risk-based position sizing tools
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">✓</div>
+          <div class="feature-text">
+            <strong>Automated Execution</strong> - Connect your broker for automated trade execution
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Steps -->
+      <h2 style="font-size: 18px; color: #0f172a;">Getting Started:</h2>
+      <ol style="color: #475569;">
+        <li>Explore the <strong>Overview</strong> page to see all strategies and performance metrics</li>
+        <li>Review individual strategy details and historical performance</li>
+        <li>Set up your account size and risk preferences in the position sizing calculator</li>
+        <li>Subscribe to receive live trading signals</li>
+        <li>Optionally connect your broker for automated execution</li>
+      </ol>
+
+      <!-- Risk Disclaimer -->
+      <div class="risk-disclaimer">
+        <strong>Risk Disclosure:</strong> Trading futures involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results. Please review our Terms of Service and ensure you understand the risks before trading.
+      </div>
+
+      <p>If you have any questions or need assistance, our support team is here to help at <a href="mailto:support@stsfutures.com" style="color: #10b981;">support@stsfutures.com</a>.</p>
+
+      <p style="margin-top: 30px;">
+        Best regards,<br>
+        <strong>The STS Futures Team</strong>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="footer-text">
+        © 2026 STS Futures. All rights reserved.
+      </p>
+      <div class="footer-links">
+        <a href="{{baseUrl}}/terms" class="footer-link">Terms of Service</a>
+        <a href="{{baseUrl}}/privacy" class="footer-link">Privacy Policy</a>
+        <a href="{{baseUrl}}/refund-policy" class="footer-link">Refund Policy</a>
+      </div>
+      <p class="footer-text" style="margin-top: 15px;">
+        You're receiving this email because you created an account at STS Futures.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

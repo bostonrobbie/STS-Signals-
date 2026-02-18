@@ -1,0 +1,30 @@
+{
+  "query": "SELECT s.id, s.symbol, s.name, \n       COUNT(t.id) as trade_count,\n       SUM(t.pnl) / 100 as total_pnl_dollars,\n       MIN(t.pnl) / 100 as worst_trade_dollars,\n       MAX(t.pnl) / 100 as best_trade_dollars,\n       AVG(t.pnlPercent) / 10000 * 100 as avg_pnl_percent\nFROM strategies s\nLEFT JOIN trades t ON s.id = t.strategyId\nWHERE s.symbol IN ('NQTrend', 'NQTrendLeveraged')\nGROUP BY s.id, s.symbol, s.name;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT s.id, s.symbol, s.name, \n       COUNT(t.id) as trade_count,\n       SUM(t.pnl) / 100 as total_pnl_dollars,\n       MIN(t.pnl) / 100 as worst_trade_dollars,\n       MAX(t.pnl) / 100 as best_trade_dollars,\n       AVG(t.pnlPercent) / 10000 * 100 as avg_pnl_percent\nFROM strategies s\nLEFT JOIN trades t ON s.id = t.strategyId\nWHERE s.symbol IN ('NQTrend', 'NQTrendLeveraged')\nGROUP BY s.id, s.symbol, s.name;",
+  "rows": [
+    {
+      "id": "30001",
+      "symbol": "NQTrendLeveraged",
+      "name": "NQ Trend (Leveraged)",
+      "trade_count": "4414",
+      "total_pnl_dollars": "5083845.4000",
+      "worst_trade_dollars": "-125477.5000",
+      "best_trade_dollars": "816522.5000",
+      "avg_pnl_percent": "0.00000000"
+    },
+    {
+      "id": "11",
+      "symbol": "NQTrend",
+      "name": "NQ Trend",
+      "trade_count": "4425",
+      "total_pnl_dollars": "774168.9000",
+      "worst_trade_dollars": "-9888.2000",
+      "best_trade_dollars": "32660.9000",
+      "avg_pnl_percent": "0.03313700"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tsymbol\tname\ttrade_count\ttotal_pnl_dollars\tworst_trade_dollars\tbest_trade_dollars\tavg_pnl_percent\n30001\tNQTrendLeveraged\tNQ Trend (Leveraged)\t4414\t5083845.4000\t-125477.5000\t816522.5000\t0.00000000\n11\tNQTrend\tNQ Trend\t4425\t774168.9000\t-9888.2000\t32660.9000\t0.03313700\n",
+  "stderr": "",
+  "execution_time_ms": 79
+}

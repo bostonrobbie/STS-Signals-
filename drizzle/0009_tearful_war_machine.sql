@@ -1,0 +1,19 @@
+CREATE INDEX `idx_broker_connections_user` ON `broker_connections` (`userId`);--> statement-breakpoint
+CREATE INDEX `idx_broker_connections_status` ON `broker_connections` (`status`);--> statement-breakpoint
+CREATE INDEX `idx_execution_logs_webhook` ON `execution_logs` (`webhookLogId`);--> statement-breakpoint
+CREATE INDEX `idx_execution_logs_broker` ON `execution_logs` (`brokerConnectionId`);--> statement-breakpoint
+CREATE INDEX `idx_execution_logs_status` ON `execution_logs` (`status`);--> statement-breakpoint
+CREATE INDEX `idx_open_positions_strategy` ON `open_positions` (`strategyId`);--> statement-breakpoint
+CREATE INDEX `idx_open_positions_status` ON `open_positions` (`status`);--> statement-breakpoint
+CREATE INDEX `idx_open_positions_strategy_status` ON `open_positions` (`strategyId`,`status`);--> statement-breakpoint
+CREATE INDEX `idx_payment_history_user` ON `payment_history` (`userId`);--> statement-breakpoint
+CREATE INDEX `idx_payment_history_status` ON `payment_history` (`status`);--> statement-breakpoint
+CREATE INDEX `idx_payment_history_created` ON `payment_history` (`createdAt`);--> statement-breakpoint
+CREATE INDEX `idx_routing_rules_user` ON `routing_rules` (`userId`);--> statement-breakpoint
+CREATE INDEX `idx_routing_rules_broker` ON `routing_rules` (`brokerConnectionId`);--> statement-breakpoint
+CREATE INDEX `idx_trades_strategy` ON `trades` (`strategyId`);--> statement-breakpoint
+CREATE INDEX `idx_trades_exit_date` ON `trades` (`exitDate`);--> statement-breakpoint
+CREATE INDEX `idx_trades_strategy_exit` ON `trades` (`strategyId`,`exitDate`);--> statement-breakpoint
+CREATE INDEX `idx_webhook_logs_strategy` ON `webhook_logs` (`strategyId`);--> statement-breakpoint
+CREATE INDEX `idx_webhook_logs_status` ON `webhook_logs` (`status`);--> statement-breakpoint
+CREATE INDEX `idx_webhook_logs_created` ON `webhook_logs` (`createdAt`);

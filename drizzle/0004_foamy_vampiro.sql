@@ -1,0 +1,61 @@
+CREATE TABLE `broker_connections` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`userId` int NOT NULL,
+	`broker` enum('tradovate','ibkr','fidelity') NOT NULL,
+	`name` varchar(100) NOT NULL,
+	`status` enum('disconnected','connecting','connected','error') NOT NULL DEFAULT 'disconnected',
+	`encryptedCredentials` text,
+	`accountId` varchar(100),
+	`accountName` varchar(100),
+	`accountType` varchar(50),
+	`accessToken` text,
+	`refreshToken` text,
+	`tokenExpiresAt` datetime,
+	`lastConnectedAt` datetime,
+	`lastError` text,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `broker_connections_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE `execution_logs` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`webhookLogId` int NOT NULL,
+	`routingRuleId` int,
+	`brokerConnectionId` int NOT NULL,
+	`status` enum('pending','submitted','filled','partial','rejected','cancelled','error') NOT NULL DEFAULT 'pending',
+	`orderType` varchar(20),
+	`side` varchar(10),
+	`symbol` varchar(20),
+	`quantity` int,
+	`price` int,
+	`brokerOrderId` varchar(100),
+	`fillPrice` int,
+	`fillQuantity` int,
+	`commission` int,
+	`submittedAt` datetime,
+	`filledAt` datetime,
+	`errorMessage` text,
+	`retryCount` int NOT NULL DEFAULT 0,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `execution_logs_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE `routing_rules` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`userId` int NOT NULL,
+	`name` varchar(100) NOT NULL,
+	`strategyId` int,
+	`direction` varchar(10),
+	`brokerConnectionId` int NOT NULL,
+	`enabled` boolean NOT NULL DEFAULT true,
+	`autoExecute` boolean NOT NULL DEFAULT false,
+	`quantityMultiplier` decimal(10,4) NOT NULL DEFAULT '1.0000',
+	`maxPositionSize` int,
+	`maxDailyLoss` int,
+	`priority` int NOT NULL DEFAULT 0,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `routing_rules_id` PRIMARY KEY(`id`)
+);

@@ -1,0 +1,42 @@
+{
+  "query": "SELECT id, name FROM strategies ORDER BY id LIMIT 10",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, name FROM strategies ORDER BY id LIMIT 10",
+  "rows": [
+    {
+      "id": "9",
+      "name": "ES Trend Following"
+    },
+    {
+      "id": "10",
+      "name": "ES Opening Range Breakout"
+    },
+    {
+      "id": "11",
+      "name": "NQ Trend Following"
+    },
+    {
+      "id": "12",
+      "name": "NQ Opening Range Breakout"
+    },
+    {
+      "id": "13",
+      "name": "CL Trend Following"
+    },
+    {
+      "id": "14",
+      "name": "BTC Trend Following"
+    },
+    {
+      "id": "15",
+      "name": "GC Trend Following"
+    },
+    {
+      "id": "16",
+      "name": "YM Opening Range Breakout"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\n9\tES Trend Following\n10\tES Opening Range Breakout\n11\tNQ Trend Following\n12\tNQ Opening Range Breakout\n13\tCL Trend Following\n14\tBTC Trend Following\n15\tGC Trend Following\n16\tYM Opening Range Breakout\n",
+  "stderr": "",
+  "execution_time_ms": 123
+}

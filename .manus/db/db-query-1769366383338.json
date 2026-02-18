@@ -1,0 +1,31 @@
+{
+  "query": "SELECT id, email, name, role, openId FROM users WHERE email = 'rgorham369@gmail.com';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, email, name, role, openId FROM users WHERE email = 'rgorham369@gmail.com';",
+  "rows": [
+    {
+      "id": "1",
+      "email": "rgorham369@gmail.com",
+      "name": "Rob Gorham",
+      "role": "admin",
+      "openId": "G36spQ5V2NDVrk3yaRobHq"
+    },
+    {
+      "id": "18630335",
+      "email": "rgorham369@gmail.com",
+      "name": "rgorham369",
+      "role": "user",
+      "openId": "email_rgorham369@gmail.com"
+    },
+    {
+      "id": "18870002",
+      "email": "rgorham369@gmail.com",
+      "name": "Admin",
+      "role": "admin",
+      "openId": "admin_openid_123456789"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\tname\trole\topenId\n1\trgorham369@gmail.com\tRob Gorham\tadmin\tG36spQ5V2NDVrk3yaRobHq\n18630335\trgorham369@gmail.com\trgorham369\tuser\temail_rgorham369@gmail.com\n18870002\trgorham369@gmail.com\tAdmin\tadmin\tadmin_openid_123456789\n",
+  "stderr": "",
+  "execution_time_ms": 107
+}

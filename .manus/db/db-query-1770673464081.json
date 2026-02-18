@@ -1,0 +1,44 @@
+{
+  "query": "SELECT id, email, role FROM users WHERE email = 'rgorham369@gmail.com'; SELECT * FROM user_subscriptions LIMIT 5; DESCRIBE user_subscriptions;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, email, role FROM users WHERE email = 'rgorham369@gmail.com'; SELECT * FROM user_subscriptions LIMIT 5; DESCRIBE user_subscriptions;",
+  "rows": [
+    {
+      "id": "1",
+      "email": "rgorham369@gmail.com",
+      "role": "admin"
+    },
+    {
+      "id": "18630335",
+      "email": "rgorham369@gmail.com",
+      "role": "admin"
+    },
+    {
+      "id": "18870002",
+      "email": "rgorham369@gmail.com",
+      "role": "admin"
+    }
+  ],
+  "messages": [
+    "id\tuserId\tstrategyId\tnotificationsEnabled\tautoExecuteEnabled\tquantityMultiplier\tmaxPositionSize\tsubscribedAt\tupdatedAt\taccountValue\tuseLeveraged",
+    "1\t1\t9\t0\t0\t1.0000\tNULL\t2025-12-17 19:43:45\t2025-12-17 19:43:45\t100000\t0",
+    "30001\t1\t10\t1\t0\t1.0000\tNULL\t2025-12-17 20:06:35\t2025-12-17 20:06:35\t100000\t0",
+    "60001\t1\t16\t1\t0\t1.0000\tNULL\t2025-12-18 01:52:28\t2025-12-18 01:52:28\t100000\t0",
+    "60002\t1\t14\t1\t0\t1.0000\tNULL\t2025-12-18 01:52:31\t2025-12-18 01:52:31\t100000\t0",
+    "90001\t1\t11\t1\t0\t1.0000\tNULL\t2025-12-19 02:06:26\t2025-12-19 02:06:26\t100000\t0",
+    "Field\tType\tNull\tKey\tDefault\tExtra",
+    "id\tint(11)\tNO\tPRI\tNULL\tauto_increment",
+    "userId\tint(11)\tNO\tMUL\tNULL\t",
+    "strategyId\tint(11)\tNO\tMUL\tNULL\t",
+    "notificationsEnabled\ttinyint(1)\tNO\t\t1\t",
+    "autoExecuteEnabled\ttinyint(1)\tNO\t\t0\t",
+    "quantityMultiplier\tdecimal(10,4)\tYES\t\t1.0000\t",
+    "maxPositionSize\tint(11)\tYES\t\tNULL\t",
+    "subscribedAt\ttimestamp\tNO\t\tCURRENT_TIMESTAMP\t",
+    "updatedAt\ttimestamp\tNO\t\tCURRENT_TIMESTAMP\tDEFAULT_GENERATED on update CURRENT_TIMESTAMP",
+    "accountValue\tint(11)\tYES\t\t100000\t",
+    "useLeveraged\ttinyint(1)\tNO\t\t0\t"
+  ],
+  "stdout": "id\temail\trole\n1\trgorham369@gmail.com\tadmin\n18630335\trgorham369@gmail.com\tadmin\n18870002\trgorham369@gmail.com\tadmin\nid\tuserId\tstrategyId\tnotificationsEnabled\tautoExecuteEnabled\tquantityMultiplier\tmaxPositionSize\tsubscribedAt\tupdatedAt\taccountValue\tuseLeveraged\n1\t1\t9\t0\t0\t1.0000\tNULL\t2025-12-17 19:43:45\t2025-12-17 19:43:45\t100000\t0\n30001\t1\t10\t1\t0\t1.0000\tNULL\t2025-12-17 20:06:35\t2025-12-17 20:06:35\t100000\t0\n60001\t1\t16\t1\t0\t1.0000\tNULL\t2025-12-18 01:52:28\t2025-12-18 01:52:28\t100000\t0\n60002\t1\t14\t1\t0\t1.0000\tNULL\t2025-12-18 01:52:31\t2025-12-18 01:52:31\t100000\t0\n90001\t1\t11\t1\t0\t1.0000\tNULL\t2025-12-19 02:06:26\t2025-12-19 02:06:26\t100000\t0\nField\tType\tNull\tKey\tDefault\tExtra\nid\tint(11)\tNO\tPRI\tNULL\tauto_increment\nuserId\tint(11)\tNO\tMUL\tNULL\t\nstrategyId\tint(11)\tNO\tMUL\tNULL\t\nnotificationsEnabled\ttinyint(1)\tNO\t\t1\t\nautoExecuteEnabled\ttinyint(1)\tNO\t\t0\t\nquantityMultiplier\tdecimal(10,4)\tYES\t\t1.0000\t\nmaxPositionSize\tint(11)\tYES\t\tNULL\t\nsubscribedAt\ttimestamp\tNO\t\tCURRENT_TIMESTAMP\t\nupdatedAt\ttimestamp\tNO\t\tCURRENT_TIMESTAMP\tDEFAULT_GENERATED on update CURRENT_TIMESTAMP\naccountValue\tint(11)\tYES\t\t100000\t\nuseLeveraged\ttinyint(1)\tNO\t\t0\t\n",
+  "stderr": "",
+  "execution_time_ms": 74
+}

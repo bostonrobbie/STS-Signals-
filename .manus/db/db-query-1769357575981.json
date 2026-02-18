@@ -1,0 +1,130 @@
+{
+  "query": "SELECT id, email, passwordHash, loginMethod FROM users LIMIT 20",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, email, passwordHash, loginMethod FROM users LIMIT 20",
+  "rows": [
+    {
+      "id": "1",
+      "email": "rgorham369@gmail.com",
+      "passwordHash": "NULL",
+      "loginMethod": "google"
+    },
+    {
+      "id": "18630001",
+      "email": "testuser@example.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630019",
+      "email": "newuser@example.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630308",
+      "email": "test@example.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630310",
+      "email": "test2@example.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630311",
+      "email": "test3@example.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630314",
+      "email": "test4@example.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630317",
+      "email": "fresh@example.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630318",
+      "email": "test5@example.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630321",
+      "email": "working@example.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630326",
+      "email": "success@example.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630329",
+      "email": "browser@test.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630330",
+      "email": "final@test.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630331",
+      "email": "session2@test.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630332",
+      "email": "working@test.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630333",
+      "email": "finaltest@example.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630335",
+      "email": "rgorham369@gmail.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630337",
+      "email": "robgorham@gmail.com",
+      "passwordHash": "NULL",
+      "loginMethod": "email"
+    },
+    {
+      "id": "18630338",
+      "email": "",
+      "passwordHash": "NULL",
+      "loginMethod": "oauth"
+    },
+    {
+      "id": "18870002",
+      "email": "rgorham369@gmail.com",
+      "passwordHash": "$2b$10$bd3c400087f2799cbc61340073aab75b0f4ca89022901ec135155dfb827815f4f206abd82c5c0f6c29d722c7225f848712382b59fc2dc3230c6d98cb394d9523",
+      "loginMethod": "password"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\tpasswordHash\tloginMethod\n1\trgorham369@gmail.com\tNULL\tgoogle\n18630001\ttestuser@example.com\tNULL\temail\n18630019\tnewuser@example.com\tNULL\temail\n18630308\ttest@example.com\tNULL\temail\n18630310\ttest2@example.com\tNULL\temail\n18630311\ttest3@example.com\tNULL\temail\n18630314\ttest4@example.com\tNULL\temail\n18630317\tfresh@example.com\tNULL\temail\n18630318\ttest5@example.com\tNULL\temail\n18630321\tworking@example.com\tNULL\temail\n18630326\tsuccess@example.com\tNULL\temail\n18630329\tbrowser@test.com\tNULL\temail\n18630330\tfinal@test.com\tNULL\temail\n18630331\tsession2@test.com\tNULL\temail\n18630332\tworking@test.com\tNULL\temail\n18630333\tfinaltest@example.com\tNULL\temail\n18630335\trgorham369@gmail.com\tNULL\temail\n18630337\trobgorham@gmail.com\tNULL\temail\n18630338\t\tNULL\toauth\n18870002\trgorham369@gmail.com\t$2b$10$bd3c400087f2799cbc61340073aab75b0f4ca89022901ec135155dfb827815f4f206abd82c5c0f6c29d722c7225f848712382b59fc2dc3230c6d98cb394d9523\tpassword\n",
+  "stderr": "",
+  "execution_time_ms": 178
+}

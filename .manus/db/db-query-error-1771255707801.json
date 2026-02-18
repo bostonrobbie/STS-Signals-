@@ -1,0 +1,8 @@
+{
+  "query": "SELECT \n  DATE_FORMAT(exit_date, '%Y-%m') as month,\n  SUM(pnl) / 100.0 as total_pnl_dollars,\n  COUNT(*) as trade_count,\n  CASE WHEN SUM(pnl) > 0 THEN 'PROFITABLE' ELSE 'LOSING' END as status\nFROM trades \nWHERE is_test = 0\nGROUP BY DATE_FORMAT(exit_date, '%Y-%m')\nORDER BY month DESC\nLIMIT 60;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT \n  DATE_FORMAT(exit_date, '%Y-%m') as month,\n  SUM(pnl) / 100.0 as total_pnl_dollars,\n  COUNT(*) as trade_count,\n  CASE WHEN SUM(pnl) > 0 THEN 'PROFITABLE' ELSE 'LOSING' END as status\nFROM trades \nWHERE is_test = 0\nGROUP BY DATE_FORMAT(exit_date, '%Y-%m')\nORDER BY month DESC\nLIMIT 60;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'exit_date' in 'group statement'"
+  ]
+}

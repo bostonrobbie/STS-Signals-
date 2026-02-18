@@ -1,0 +1,25 @@
+{
+  "query": "SELECT \n  isTest, \n  status, \n  COUNT(*) as count \nFROM webhook_logs \nWHERE createdAt > DATE_SUB(NOW(), INTERVAL 1 HOUR)\nGROUP BY isTest, status\nORDER BY isTest, status",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT \n  isTest, \n  status, \n  COUNT(*) as count \nFROM webhook_logs \nWHERE createdAt > DATE_SUB(NOW(), INTERVAL 1 HOUR)\nGROUP BY isTest, status\nORDER BY isTest, status",
+  "rows": [
+    {
+      "isTest": "0",
+      "status": "success",
+      "count": "35"
+    },
+    {
+      "isTest": "0",
+      "status": "failed",
+      "count": "29"
+    },
+    {
+      "isTest": "0",
+      "status": "duplicate",
+      "count": "23"
+    }
+  ],
+  "messages": [],
+  "stdout": "isTest\tstatus\tcount\n0\tsuccess\t35\n0\tfailed\t29\n0\tduplicate\t23\n",
+  "stderr": "",
+  "execution_time_ms": 100
+}

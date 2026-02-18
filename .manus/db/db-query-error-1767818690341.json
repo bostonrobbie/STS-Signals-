@@ -1,0 +1,8 @@
+{
+  "query": "SELECT id, status, strategySymbol, direction, receivedAt, errorMessage, payload\nFROM webhook_logs \nWHERE strategySymbol = 'NQTrend' OR payload LIKE '%NQTrend%'\nORDER BY receivedAt DESC\nLIMIT 10",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, status, strategySymbol, direction, receivedAt, errorMessage, payload\nFROM webhook_logs \nWHERE strategySymbol = 'NQTrend' OR payload LIKE '%NQTrend%'\nORDER BY receivedAt DESC\nLIMIT 10",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'receivedat' in 'field list'"
+  ]
+}

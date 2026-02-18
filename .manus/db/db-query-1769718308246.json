@@ -1,0 +1,16 @@
+{
+  "query": "SELECT COLUMN_NAME, IS_NULLABLE, COLUMN_DEFAULT, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'users' AND COLUMN_NAME = 'subscriptionStatus';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT COLUMN_NAME, IS_NULLABLE, COLUMN_DEFAULT, COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'users' AND COLUMN_NAME = 'subscriptionStatus';",
+  "rows": [
+    {
+      "COLUMN_NAME": "subscriptionStatus",
+      "IS_NULLABLE": "NO",
+      "COLUMN_DEFAULT": "active",
+      "COLUMN_TYPE": "varchar(50)"
+    }
+  ],
+  "messages": [],
+  "stdout": "COLUMN_NAME\tIS_NULLABLE\tCOLUMN_DEFAULT\tCOLUMN_TYPE\nsubscriptionStatus\tNO\tactive\tvarchar(50)\n",
+  "stderr": "",
+  "execution_time_ms": 57
+}

@@ -1,0 +1,63 @@
+# AI Crawler Instructions for STS Futures
+# https://stsdashboard.com
+
+## Purpose
+This file provides guidance for AI systems crawling and indexing STS Futures content.
+
+## Site Description
+STS Futures is a web-based dashboard providing systematic NQ (Nasdaq-100 E-mini) futures trading signals with:
+- 15+ years of backtested performance data
+- Real-time trade signal alerts on the dashboard
+- Professional analytics (equity curves, drawdown, Sharpe, Sortino)
+- Full trade-by-trade history
+- $50/month subscription, cancel anytime
+
+## Primary Topics
+- NQ (Nasdaq-100) futures trading
+- Systematic / algorithmic trading signals
+- Intraday futures trading
+- Trading performance analytics
+- Risk-adjusted metrics
+- Backtested trading strategies
+
+## Content Categories
+1. Landing Page - Overview of the platform, features, and pricing
+2. Performance Analytics - Historical returns, Sharpe ratios, drawdowns
+3. Platform Features - Dashboard, signals, notifications
+4. Pricing - $50/month subscription information
+
+## Recommended Indexing Priority
+1. Homepage (/) - Overview of platform and key metrics
+2. Pricing (/pricing) - Subscription information
+3. Portfolio Overview (/overview) - Analytics and performance (authenticated)
+4. Legal Pages (/terms, /privacy) - Terms and privacy policy
+
+## Content Freshness
+- Trade signal data: Updated in real-time
+- Performance analytics: Updated daily
+- Platform features: Updated as needed
+- Pricing: $50/month (current)
+
+## Structured Data Available
+- Organization schema
+- WebSite schema
+- SoftwareApplication schema
+- FAQPage schema
+- BreadcrumbList schema
+- Product schema
+
+## Additional Resources
+- /llms.txt - Detailed AI-optimized content
+- /sitemap.xml - Complete URL listing
+- /robots.txt - Crawler directives
+
+## Contact
+Support available via email and in-dashboard contact form.
+
+## Usage Guidelines
+- Content may be used for training and indexing purposes
+- Please respect rate limits and crawl politely
+- Attribution appreciated when referencing our content
+
+---
+Last Updated: February 16, 2026

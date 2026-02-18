@@ -1,0 +1,18 @@
+{
+  "query": "SELECT op.id, op.strategyId, s.name, s.active, op.direction, op.entryPrice FROM open_positions op LEFT JOIN strategies s ON op.strategyId = s.id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT op.id, op.strategyId, s.name, s.active, op.direction, op.entryPrice FROM open_positions op LEFT JOIN strategies s ON op.strategyId = s.id;",
+  "rows": [
+    {
+      "id": "1800009",
+      "strategyId": "30001",
+      "name": "NQ Trend (Leveraged)",
+      "active": "1",
+      "direction": "Short",
+      "entryPrice": "1500000"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tstrategyId\tname\tactive\tdirection\tentryPrice\n1800009\t30001\tNQ Trend (Leveraged)\t1\tShort\t1500000\n",
+  "stderr": "",
+  "execution_time_ms": 50
+}

@@ -1,0 +1,16 @@
+/* TEAM */
+Platform: STS Futures
+Site: https://stsdashboard.com
+Location: United States
+
+/* THANKS */
+Built with: React, TypeScript, Tailwind CSS, tRPC
+Hosting: Manus Platform
+Analytics: Umami
+
+/* SITE */
+Last update: 2026/02/16
+Language: English
+Standards: HTML5, CSS3, ES6+
+Components: shadcn/ui
+Software: VS Code, Node.js, Vite

@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS `contact_responses` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `messageId` int NOT NULL,\n  `responseText` text NOT NULL,\n  `isAiGenerated` boolean NOT NULL DEFAULT false,\n  `approvedBy` int,\n  `approvedAt` datetime,\n  `sentAt` datetime,\n  `deliveryStatus` enum('draft','approved','sent','failed') NOT NULL DEFAULT 'draft',\n  `errorMessage` text,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  CONSTRAINT `contact_responses_id` PRIMARY KEY(`id`),\n  INDEX `idx_contact_responses_message` (`messageId`),\n  INDEX `idx_contact_responses_status` (`deliveryStatus`)\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute CREATE TABLE IF NOT EXISTS `contact_responses` (\n  `id` int AUTO_INCREMENT NOT NULL,\n  `messageId` int NOT NULL,\n  `responseText` text NOT NULL,\n  `isAiGenerated` boolean NOT NULL DEFAULT false,\n  `approvedBy` int,\n  `approvedAt` datetime,\n  `sentAt` datetime,\n  `deliveryStatus` enum('draft','approved','sent','failed') NOT NULL DEFAULT 'draft',\n  `errorMessage` text,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  CONSTRAINT `contact_responses_id` PRIMARY KEY(`id`),\n  INDEX `idx_contact_responses_message` (`messageId`),\n  INDEX `idx_contact_responses_status` (`deliveryStatus`)\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 546
+}

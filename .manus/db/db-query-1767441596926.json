@@ -1,0 +1,18 @@
+{
+  "query": "SELECT id, strategySymbol, status, errorMessage, payload, createdAt FROM webhook_logs WHERE status = 'success' ORDER BY id DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, strategySymbol, status, errorMessage, payload, createdAt FROM webhook_logs WHERE status = 'success' ORDER BY id DESC LIMIT 5;",
+  "rows": [
+    {
+      "id": "2400001",
+      "strategySymbol": "NQTrend",
+      "status": "success",
+      "errorMessage": "NULL",
+      "payload": "{\"symbol\":\"NQTrend\",\"date\":\"2026-01-02T14:45:00Z\",\"data\":\"buy\",\"quantity\":\"1\",\"price\":\"25690.75\",\"entryPrice\":\"{{strategy.position_avg_price}}\",\"pnl\":\"{{strategy.order.profit}}\",\"token\":\"RobTradingDashWebhookToken32K\"}",
+      "createdAt": "2026-01-02 14:45:01"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tstrategySymbol\tstatus\terrorMessage\tpayload\tcreatedAt\n2400001\tNQTrend\tsuccess\tNULL\t{\"symbol\":\"NQTrend\",\"date\":\"2026-01-02T14:45:00Z\",\"data\":\"buy\",\"quantity\":\"1\",\"price\":\"25690.75\",\"entryPrice\":\"{{strategy.position_avg_price}}\",\"pnl\":\"{{strategy.order.profit}}\",\"token\":\"RobTradingDashWebhookToken32K\"}\t2026-01-02 14:45:01\n",
+  "stderr": "",
+  "execution_time_ms": 418
+}

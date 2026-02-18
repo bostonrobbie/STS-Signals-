@@ -1,0 +1,66 @@
+{
+  "query": "SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'trades' ORDER BY ORDINAL_POSITION;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'trades' ORDER BY ORDINAL_POSITION;",
+  "rows": [
+    {
+      "COLUMN_NAME": "id",
+      "DATA_TYPE": "int"
+    },
+    {
+      "COLUMN_NAME": "strategyId",
+      "DATA_TYPE": "int"
+    },
+    {
+      "COLUMN_NAME": "entryDate",
+      "DATA_TYPE": "datetime"
+    },
+    {
+      "COLUMN_NAME": "exitDate",
+      "DATA_TYPE": "datetime"
+    },
+    {
+      "COLUMN_NAME": "direction",
+      "DATA_TYPE": "varchar"
+    },
+    {
+      "COLUMN_NAME": "entryPrice",
+      "DATA_TYPE": "int"
+    },
+    {
+      "COLUMN_NAME": "exitPrice",
+      "DATA_TYPE": "int"
+    },
+    {
+      "COLUMN_NAME": "quantity",
+      "DATA_TYPE": "int"
+    },
+    {
+      "COLUMN_NAME": "pnl",
+      "DATA_TYPE": "int"
+    },
+    {
+      "COLUMN_NAME": "pnlPercent",
+      "DATA_TYPE": "int"
+    },
+    {
+      "COLUMN_NAME": "commission",
+      "DATA_TYPE": "int"
+    },
+    {
+      "COLUMN_NAME": "createdAt",
+      "DATA_TYPE": "timestamp"
+    },
+    {
+      "COLUMN_NAME": "isTest",
+      "DATA_TYPE": "tinyint"
+    },
+    {
+      "COLUMN_NAME": "source",
+      "DATA_TYPE": "enum"
+    }
+  ],
+  "messages": [],
+  "stdout": "COLUMN_NAME\tDATA_TYPE\nid\tint\nstrategyId\tint\nentryDate\tdatetime\nexitDate\tdatetime\ndirection\tvarchar\nentryPrice\tint\nexitPrice\tint\nquantity\tint\npnl\tint\npnlPercent\tint\ncommission\tint\ncreatedAt\ttimestamp\nisTest\ttinyint\nsource\tenum\n",
+  "stderr": "",
+  "execution_time_ms": 59
+}

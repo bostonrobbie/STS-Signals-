@@ -1,0 +1,20 @@
+{
+  "query": "SELECT id, email, name, subscriptionTier, subscriptionStatus, stripeCustomerId, stripeSubscriptionId, updatedAt FROM users WHERE email = 'finaltest29jan2026@example.com';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, email, name, subscriptionTier, subscriptionStatus, stripeCustomerId, stripeSubscriptionId, updatedAt FROM users WHERE email = 'finaltest29jan2026@example.com';",
+  "rows": [
+    {
+      "id": "18900004",
+      "email": "finaltest29jan2026@example.com",
+      "name": "Test User Final",
+      "subscriptionTier": "free",
+      "subscriptionStatus": "active",
+      "stripeCustomerId": "cus_TsnVRDWCkN0rTP",
+      "stripeSubscriptionId": "NULL",
+      "updatedAt": "2026-01-29 20:34:04"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\tname\tsubscriptionTier\tsubscriptionStatus\tstripeCustomerId\tstripeSubscriptionId\tupdatedAt\n18900004\tfinaltest29jan2026@example.com\tTest User Final\tfree\tactive\tcus_TsnVRDWCkN0rTP\tNULL\t2026-01-29 20:34:04\n",
+  "stderr": "",
+  "execution_time_ms": 57
+}

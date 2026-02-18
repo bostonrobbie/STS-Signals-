@@ -1,0 +1,46 @@
+{
+  "query": "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'trades' ORDER BY ORDINAL_POSITION;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'trades' ORDER BY ORDINAL_POSITION;",
+  "rows": [
+    {
+      "COLUMN_NAME": "id"
+    },
+    {
+      "COLUMN_NAME": "strategyId"
+    },
+    {
+      "COLUMN_NAME": "entryDate"
+    },
+    {
+      "COLUMN_NAME": "exitDate"
+    },
+    {
+      "COLUMN_NAME": "direction"
+    },
+    {
+      "COLUMN_NAME": "entryPrice"
+    },
+    {
+      "COLUMN_NAME": "exitPrice"
+    },
+    {
+      "COLUMN_NAME": "quantity"
+    },
+    {
+      "COLUMN_NAME": "pnl"
+    },
+    {
+      "COLUMN_NAME": "pnlPercent"
+    },
+    {
+      "COLUMN_NAME": "commission"
+    },
+    {
+      "COLUMN_NAME": "createdAt"
+    }
+  ],
+  "messages": [],
+  "stdout": "COLUMN_NAME\nid\nstrategyId\nentryDate\nexitDate\ndirection\nentryPrice\nexitPrice\nquantity\npnl\npnlPercent\ncommission\ncreatedAt\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

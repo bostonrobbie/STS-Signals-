@@ -1,0 +1,25 @@
+{
+  "query": "SELECT \n  CASE WHEN isTest = 1 THEN 'test' ELSE 'production' END as type,\n  status, \n  COUNT(*) as count \nFROM webhook_logs \nWHERE createdAt > DATE_SUB(NOW(), INTERVAL 1 HOUR)\nGROUP BY isTest, status\nORDER BY isTest, status",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT \n  CASE WHEN isTest = 1 THEN 'test' ELSE 'production' END as type,\n  status, \n  COUNT(*) as count \nFROM webhook_logs \nWHERE createdAt > DATE_SUB(NOW(), INTERVAL 1 HOUR)\nGROUP BY isTest, status\nORDER BY isTest, status",
+  "rows": [
+    {
+      "type": "production",
+      "status": "success",
+      "count": "35"
+    },
+    {
+      "type": "production",
+      "status": "failed",
+      "count": "29"
+    },
+    {
+      "type": "production",
+      "status": "duplicate",
+      "count": "23"
+    }
+  ],
+  "messages": [],
+  "stdout": "type\tstatus\tcount\nproduction\tsuccess\t35\nproduction\tfailed\t29\nproduction\tduplicate\t23\n",
+  "stderr": "",
+  "execution_time_ms": 69
+}

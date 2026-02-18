@@ -1,0 +1,66 @@
+{
+  "query": "SELECT s.id, s.name, COUNT(t.id) as trade_count, MIN(t.exitDate) as earliest, MAX(t.exitDate) as latest FROM strategies s LEFT JOIN trades t ON s.id = t.strategyId WHERE t.isTest = 0 GROUP BY s.id, s.name ORDER BY s.id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT s.id, s.name, COUNT(t.id) as trade_count, MIN(t.exitDate) as earliest, MAX(t.exitDate) as latest FROM strategies s LEFT JOIN trades t ON s.id = t.strategyId WHERE t.isTest = 0 GROUP BY s.id, s.name ORDER BY s.id;",
+  "rows": [
+    {
+      "id": "9",
+      "name": "ES Trend Following",
+      "trade_count": "972",
+      "earliest": "2011-01-12 15:25:00",
+      "latest": "2025-12-30 03:07:42"
+    },
+    {
+      "id": "10",
+      "name": "ES Opening Range Breakout",
+      "trade_count": "820",
+      "earliest": "2011-01-03 10:00:00",
+      "latest": "2025-12-19 15:25:00"
+    },
+    {
+      "id": "11",
+      "name": "NQ Trend Following",
+      "trade_count": "1370",
+      "earliest": "2011-01-03 14:30:00",
+      "latest": "2025-12-30 03:04:10"
+    },
+    {
+      "id": "12",
+      "name": "NQ Opening Range Breakout",
+      "trade_count": "1439",
+      "earliest": "2011-01-03 14:30:00",
+      "latest": "2025-12-29 15:25:00"
+    },
+    {
+      "id": "13",
+      "name": "CL Trend Following",
+      "trade_count": "2371",
+      "earliest": "2010-12-30 16:45:00",
+      "latest": "2025-12-26 21:45:00"
+    },
+    {
+      "id": "14",
+      "name": "BTC Trend Following",
+      "trade_count": "832",
+      "earliest": "2017-12-18 14:15:00",
+      "latest": "2025-12-23 16:00:00"
+    },
+    {
+      "id": "15",
+      "name": "GC Trend Following",
+      "trade_count": "712",
+      "earliest": "2011-01-04 16:50:00",
+      "latest": "2025-12-30 03:04:11"
+    },
+    {
+      "id": "16",
+      "name": "YM Opening Range Breakout",
+      "trade_count": "989",
+      "earliest": "2011-01-03 11:10:00",
+      "latest": "2025-12-19 15:10:00"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\ttrade_count\tearliest\tlatest\n9\tES Trend Following\t972\t2011-01-12 15:25:00\t2025-12-30 03:07:42\n10\tES Opening Range Breakout\t820\t2011-01-03 10:00:00\t2025-12-19 15:25:00\n11\tNQ Trend Following\t1370\t2011-01-03 14:30:00\t2025-12-30 03:04:10\n12\tNQ Opening Range Breakout\t1439\t2011-01-03 14:30:00\t2025-12-29 15:25:00\n13\tCL Trend Following\t2371\t2010-12-30 16:45:00\t2025-12-26 21:45:00\n14\tBTC Trend Following\t832\t2017-12-18 14:15:00\t2025-12-23 16:00:00\n15\tGC Trend Following\t712\t2011-01-04 16:50:00\t2025-12-30 03:04:11\n16\tYM Opening Range Breakout\t989\t2011-01-03 11:10:00\t2025-12-19 15:10:00\n",
+  "stderr": "",
+  "execution_time_ms": 85
+}

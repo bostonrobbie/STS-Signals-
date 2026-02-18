@@ -1,0 +1,280 @@
+{
+  "query": "SELECT id, strategySymbol, status, isTest, ipAddress, createdAt,\n       SUBSTRING(payload, 1, 200) as payload_preview\nFROM webhook_logs \nWHERE DATE(createdAt) = CURDATE()\nORDER BY createdAt DESC\nLIMIT 30;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT id, strategySymbol, status, isTest, ipAddress, createdAt,\n       SUBSTRING(payload, 1, 200) as payload_preview\nFROM webhook_logs \nWHERE DATE(createdAt) = CURDATE()\nORDER BY createdAt DESC\nLIMIT 30;",
+  "rows": [
+    {
+      "id": "2130179",
+      "strategySymbol": "ESTrend",
+      "status": "success",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:51",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:51.033Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130178",
+      "strategySymbol": "ESTrend",
+      "status": "failed",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:50",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:50.441Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"token\":\"wrong_token_12345\"}"
+    },
+    {
+      "id": "2130177",
+      "strategySymbol": "ESTrend",
+      "status": "failed",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:50",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:50.305Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500}"
+    },
+    {
+      "id": "2130176",
+      "strategySymbol": "NQTrend",
+      "status": "success",
+      "isTest": "0",
+      "ipAddress": "test-simulator",
+      "createdAt": "2025-12-30 20:30:49",
+      "payload_preview": "{\"symbol\":\"NQTrend\",\"signalType\":\"entry\",\"date\":\"2025-12-30T20:30:49.117Z\",\"data\":\"sell\",\"quantity\":1,\"price\":4500,\"direction\":\"Short\",\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130175",
+      "strategySymbol": "ESTrend",
+      "status": "success",
+      "isTest": "0",
+      "ipAddress": "test-simulator",
+      "createdAt": "2025-12-30 20:30:48",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:39:50.269Z\",\"data\":\"exit\",\"quantity\":1,\"price\":4563,\"direction\":\"Long\",\"entryPrice\":4506,\"entryTime\":\"2025-12-30T19:39:50.269Z\",\"pnl\":20,\"token\":\"RobTradingDa"
+    },
+    {
+      "id": "2130174",
+      "strategySymbol": "ESTrend",
+      "status": "success",
+      "isTest": "0",
+      "ipAddress": "test-simulator",
+      "createdAt": "2025-12-30 20:30:48",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"signalType\":\"entry\",\"date\":\"2025-12-30T20:30:48.855Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130173",
+      "strategySymbol": "ESTrend",
+      "status": "duplicate",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:47",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:51.536Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4504,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130172",
+      "strategySymbol": "ESTrend",
+      "status": "duplicate",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:47",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:50.536Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4503,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130171",
+      "strategySymbol": "ESTrend",
+      "status": "duplicate",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:47",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:49.536Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4502,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130170",
+      "strategySymbol": "ESTrend",
+      "status": "duplicate",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:47",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:48.535Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4501,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130169",
+      "strategySymbol": "ESTrend",
+      "status": "duplicate",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:47",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:47.534Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130168",
+      "strategySymbol": "ESTrend",
+      "status": "duplicate",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:47",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:47.465Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130167",
+      "strategySymbol": "NULL",
+      "status": "failed",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:47",
+      "payload_preview": "{\"date\":\"2025-12-30T20:30:47.372Z\",\"data\":\"buy\",\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130166",
+      "strategySymbol": "UNKNOWN_SYMBOL_XYZ",
+      "status": "failed",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:47",
+      "payload_preview": "{\"symbol\":\"UNKNOWN_SYMBOL_XYZ\",\"date\":\"2025-12-30T20:30:47.310Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130165",
+      "strategySymbol": "ESTrend",
+      "status": "success",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:47",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:47.234Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130164",
+      "strategySymbol": "YMORB",
+      "status": "success",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:47",
+      "payload_preview": "{\"symbol\":\"YMORB\",\"date\":\"2025-12-30T20:30:47.085Z\",\"data\":\"buy\",\"quantity\":1,\"price\":35000,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130163",
+      "strategySymbol": "SITrend",
+      "status": "failed",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:46",
+      "payload_preview": "{\"symbol\":\"SITrend\",\"date\":\"2025-12-30T20:30:46.860Z\",\"data\":\"buy\",\"quantity\":1,\"price\":25,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130162",
+      "strategySymbol": "NQTrend",
+      "status": "success",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:46",
+      "payload_preview": "{\"symbol\":\"NQTrend\",\"date\":\"2025-12-30T20:30:46.681Z\",\"data\":\"buy\",\"quantity\":1,\"price\":15000,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130161",
+      "strategySymbol": "ESTrend",
+      "status": "failed",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:46",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:46.653Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"token\":\"invalid_token_12345\"}"
+    },
+    {
+      "id": "2130160",
+      "strategySymbol": "ESTrend",
+      "status": "failed",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:46",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:46.609Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500}"
+    },
+    {
+      "id": "2130159",
+      "strategySymbol": "BTCTrend",
+      "status": "success",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:46",
+      "payload_preview": "{\"symbol\":\"BTCTrend\",\"date\":\"2025-12-30T20:30:46.532Z\",\"data\":\"buy\",\"quantity\":1,\"price\":42000,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130158",
+      "strategySymbol": "NULL",
+      "status": "failed",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:46",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:46.435Z\",\"data\":\"invalid_action\",\"quantity\":1,\"price\":100,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130157",
+      "strategySymbol": "CLTrend",
+      "status": "success",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:46",
+      "payload_preview": "{\"symbol\":\"CLTrend\",\"date\":\"2025-12-30T20:30:46.364Z\",\"data\":\"BUY\",\"quantity\":1,\"price\":75,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130156",
+      "strategySymbol": "GCTrend",
+      "status": "failed",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:46",
+      "payload_preview": "{\"symbol\":\"GCTrend\",\"date\":\"2025-12-30T20:30:46.239Z\",\"data\":\"exit\",\"quantity\":1,\"price\":2050,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130155",
+      "strategySymbol": "NQTrend",
+      "status": "success",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:46",
+      "payload_preview": "{\"symbol\":\"NQORB\",\"date\":\"2025-12-30T20:30:46.165Z\",\"data\":\"sell\",\"quantity\":1,\"price\":15000,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130154",
+      "strategySymbol": "YMORB",
+      "status": "success",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:46",
+      "payload_preview": "{\"symbol\":\"YMORB\",\"date\":\"2025-12-30T20:30:46.038Z\",\"data\":\"buy\",\"quantity\":1,\"price\":35000,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130153",
+      "strategySymbol": "BTCTrend",
+      "status": "success",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:45",
+      "payload_preview": "{\"symbol\":\"BTCTrend\",\"date\":\"2025-12-30T20:30:45.874Z\",\"data\":\"buy\",\"quantity\":1,\"price\":42000,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130152",
+      "strategySymbol": "ESTrend",
+      "status": "duplicate",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:45",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:45.765Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130151",
+      "strategySymbol": "ESTrend",
+      "status": "duplicate",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:45",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:45.679Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"token\":\"RobTradingDashWebhookToken32K\"}"
+    },
+    {
+      "id": "2130150",
+      "strategySymbol": "ESTrend",
+      "status": "failed",
+      "isTest": "0",
+      "ipAddress": "::1",
+      "createdAt": "2025-12-30 20:30:45",
+      "payload_preview": "{\"symbol\":\"ESTrend\",\"data\":\"buy\",\"price\":4500,\"date\":\"2025-12-30T20:30:45.612Z\",\"token\":\"invalid_token_1767126645612\"}"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tstrategySymbol\tstatus\tisTest\tipAddress\tcreatedAt\tpayload_preview\n2130179\tESTrend\tsuccess\t0\t::1\t2025-12-30 20:30:51\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:51.033Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130178\tESTrend\tfailed\t0\t::1\t2025-12-30 20:30:50\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:50.441Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"token\":\"wrong_token_12345\"}\n2130177\tESTrend\tfailed\t0\t::1\t2025-12-30 20:30:50\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:50.305Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500}\n2130176\tNQTrend\tsuccess\t0\ttest-simulator\t2025-12-30 20:30:49\t{\"symbol\":\"NQTrend\",\"signalType\":\"entry\",\"date\":\"2025-12-30T20:30:49.117Z\",\"data\":\"sell\",\"quantity\":1,\"price\":4500,\"direction\":\"Short\",\"token\":\"RobTradingDashWebhookToken32K\"}\n2130175\tESTrend\tsuccess\t0\ttest-simulator\t2025-12-30 20:30:48\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:39:50.269Z\",\"data\":\"exit\",\"quantity\":1,\"price\":4563,\"direction\":\"Long\",\"entryPrice\":4506,\"entryTime\":\"2025-12-30T19:39:50.269Z\",\"pnl\":20,\"token\":\"RobTradingDa\n2130174\tESTrend\tsuccess\t0\ttest-simulator\t2025-12-30 20:30:48\t{\"symbol\":\"ESTrend\",\"signalType\":\"entry\",\"date\":\"2025-12-30T20:30:48.855Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}\n2130173\tESTrend\tduplicate\t0\t::1\t2025-12-30 20:30:47\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:51.536Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4504,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}\n2130172\tESTrend\tduplicate\t0\t::1\t2025-12-30 20:30:47\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:50.536Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4503,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}\n2130171\tESTrend\tduplicate\t0\t::1\t2025-12-30 20:30:47\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:49.536Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4502,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}\n2130170\tESTrend\tduplicate\t0\t::1\t2025-12-30 20:30:47\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:48.535Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4501,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}\n2130169\tESTrend\tduplicate\t0\t::1\t2025-12-30 20:30:47\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:47.534Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}\n2130168\tESTrend\tduplicate\t0\t::1\t2025-12-30 20:30:47\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:47.465Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}\n2130167\tNULL\tfailed\t0\t::1\t2025-12-30 20:30:47\t{\"date\":\"2025-12-30T20:30:47.372Z\",\"data\":\"buy\",\"token\":\"RobTradingDashWebhookToken32K\"}\n2130166\tUNKNOWN_SYMBOL_XYZ\tfailed\t0\t::1\t2025-12-30 20:30:47\t{\"symbol\":\"UNKNOWN_SYMBOL_XYZ\",\"date\":\"2025-12-30T20:30:47.310Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130165\tESTrend\tsuccess\t0\t::1\t2025-12-30 20:30:47\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:47.234Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"direction\":\"Long\",\"token\":\"RobTradingDashWebhookToken32K\"}\n2130164\tYMORB\tsuccess\t0\t::1\t2025-12-30 20:30:47\t{\"symbol\":\"YMORB\",\"date\":\"2025-12-30T20:30:47.085Z\",\"data\":\"buy\",\"quantity\":1,\"price\":35000,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130163\tSITrend\tfailed\t0\t::1\t2025-12-30 20:30:46\t{\"symbol\":\"SITrend\",\"date\":\"2025-12-30T20:30:46.860Z\",\"data\":\"buy\",\"quantity\":1,\"price\":25,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130162\tNQTrend\tsuccess\t0\t::1\t2025-12-30 20:30:46\t{\"symbol\":\"NQTrend\",\"date\":\"2025-12-30T20:30:46.681Z\",\"data\":\"buy\",\"quantity\":1,\"price\":15000,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130161\tESTrend\tfailed\t0\t::1\t2025-12-30 20:30:46\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:46.653Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"token\":\"invalid_token_12345\"}\n2130160\tESTrend\tfailed\t0\t::1\t2025-12-30 20:30:46\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:46.609Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500}\n2130159\tBTCTrend\tsuccess\t0\t::1\t2025-12-30 20:30:46\t{\"symbol\":\"BTCTrend\",\"date\":\"2025-12-30T20:30:46.532Z\",\"data\":\"buy\",\"quantity\":1,\"price\":42000,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130158\tNULL\tfailed\t0\t::1\t2025-12-30 20:30:46\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:46.435Z\",\"data\":\"invalid_action\",\"quantity\":1,\"price\":100,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130157\tCLTrend\tsuccess\t0\t::1\t2025-12-30 20:30:46\t{\"symbol\":\"CLTrend\",\"date\":\"2025-12-30T20:30:46.364Z\",\"data\":\"BUY\",\"quantity\":1,\"price\":75,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130156\tGCTrend\tfailed\t0\t::1\t2025-12-30 20:30:46\t{\"symbol\":\"GCTrend\",\"date\":\"2025-12-30T20:30:46.239Z\",\"data\":\"exit\",\"quantity\":1,\"price\":2050,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130155\tNQTrend\tsuccess\t0\t::1\t2025-12-30 20:30:46\t{\"symbol\":\"NQORB\",\"date\":\"2025-12-30T20:30:46.165Z\",\"data\":\"sell\",\"quantity\":1,\"price\":15000,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130154\tYMORB\tsuccess\t0\t::1\t2025-12-30 20:30:46\t{\"symbol\":\"YMORB\",\"date\":\"2025-12-30T20:30:46.038Z\",\"data\":\"buy\",\"quantity\":1,\"price\":35000,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130153\tBTCTrend\tsuccess\t0\t::1\t2025-12-30 20:30:45\t{\"symbol\":\"BTCTrend\",\"date\":\"2025-12-30T20:30:45.874Z\",\"data\":\"buy\",\"quantity\":1,\"price\":42000,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130152\tESTrend\tduplicate\t0\t::1\t2025-12-30 20:30:45\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:45.765Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130151\tESTrend\tduplicate\t0\t::1\t2025-12-30 20:30:45\t{\"symbol\":\"ESTrend\",\"date\":\"2025-12-30T20:30:45.679Z\",\"data\":\"buy\",\"quantity\":1,\"price\":4500,\"token\":\"RobTradingDashWebhookToken32K\"}\n2130150\tESTrend\tfailed\t0\t::1\t2025-12-30 20:30:45\t{\"symbol\":\"ESTrend\",\"data\":\"buy\",\"price\":4500,\"date\":\"2025-12-30T20:30:45.612Z\",\"token\":\"invalid_token_1767126645612\"}\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

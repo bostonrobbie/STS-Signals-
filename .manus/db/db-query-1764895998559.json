@@ -1,0 +1,82 @@
+{
+  "query": "\nSELECT \n  s.id,\n  s.name,\n  s.symbol,\n  COUNT(t.id) as trade_count,\n  MIN(t.exitDate) as earliest_trade,\n  MAX(t.exitDate) as latest_trade,\n  DATEDIFF(MAX(t.exitDate), MIN(t.exitDate)) as days_span\nFROM strategies s\nLEFT JOIN trades t ON s.id = t.strategyId\nGROUP BY s.id, s.name, s.symbol\nORDER BY s.id;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute \nSELECT \n  s.id,\n  s.name,\n  s.symbol,\n  COUNT(t.id) as trade_count,\n  MIN(t.exitDate) as earliest_trade,\n  MAX(t.exitDate) as latest_trade,\n  DATEDIFF(MAX(t.exitDate), MIN(t.exitDate)) as days_span\nFROM strategies s\nLEFT JOIN trades t ON s.id = t.strategyId\nGROUP BY s.id, s.name, s.symbol\nORDER BY s.id;\n",
+  "rows": [
+    {
+      "id": "9",
+      "name": "ES Trend Following",
+      "symbol": "ESTrend",
+      "trade_count": "1756",
+      "earliest_trade": "2010-11-18 21:50:00",
+      "latest_trade": "2025-10-08 20:50:00",
+      "days_span": "5438"
+    },
+    {
+      "id": "10",
+      "name": "ES Opening Range Breakout",
+      "symbol": "ESORB",
+      "trade_count": "1650",
+      "earliest_trade": "2010-10-21 19:00:00",
+      "latest_trade": "2025-10-06 19:45:00",
+      "days_span": "5464"
+    },
+    {
+      "id": "11",
+      "name": "NQ Trend Following",
+      "symbol": "NQTrend",
+      "trade_count": "2668",
+      "earliest_trade": "2010-10-24 22:00:00",
+      "latest_trade": "2025-10-10 14:10:00",
+      "days_span": "5465"
+    },
+    {
+      "id": "12",
+      "name": "NQ Opening Range Breakout",
+      "symbol": "NQORB",
+      "trade_count": "2896",
+      "earliest_trade": "2010-10-21 15:10:00",
+      "latest_trade": "2025-10-06 19:45:00",
+      "days_span": "5464"
+    },
+    {
+      "id": "13",
+      "name": "CL Trend Following",
+      "symbol": "CLTrend",
+      "trade_count": "2030",
+      "earliest_trade": "2010-10-21 20:45:00",
+      "latest_trade": "2017-02-23 19:25:00",
+      "days_span": "2317"
+    },
+    {
+      "id": "14",
+      "name": "BTC Trend Following",
+      "symbol": "BTCTrend",
+      "trade_count": "0",
+      "earliest_trade": "NULL",
+      "latest_trade": "NULL",
+      "days_span": "NULL"
+    },
+    {
+      "id": "15",
+      "name": "GC Trend Following",
+      "symbol": "GCTrend",
+      "trade_count": "0",
+      "earliest_trade": "NULL",
+      "latest_trade": "NULL",
+      "days_span": "NULL"
+    },
+    {
+      "id": "16",
+      "name": "YM Opening Range Breakout",
+      "symbol": "YMORB",
+      "trade_count": "0",
+      "earliest_trade": "NULL",
+      "latest_trade": "NULL",
+      "days_span": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tsymbol\ttrade_count\tearliest_trade\tlatest_trade\tdays_span\n9\tES Trend Following\tESTrend\t1756\t2010-11-18 21:50:00\t2025-10-08 20:50:00\t5438\n10\tES Opening Range Breakout\tESORB\t1650\t2010-10-21 19:00:00\t2025-10-06 19:45:00\t5464\n11\tNQ Trend Following\tNQTrend\t2668\t2010-10-24 22:00:00\t2025-10-10 14:10:00\t5465\n12\tNQ Opening Range Breakout\tNQORB\t2896\t2010-10-21 15:10:00\t2025-10-06 19:45:00\t5464\n13\tCL Trend Following\tCLTrend\t2030\t2010-10-21 20:45:00\t2017-02-23 19:25:00\t2317\n14\tBTC Trend Following\tBTCTrend\t0\tNULL\tNULL\tNULL\n15\tGC Trend Following\tGCTrend\t0\tNULL\tNULL\tNULL\n16\tYM Opening Range Breakout\tYMORB\t0\tNULL\tNULL\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 95
+}

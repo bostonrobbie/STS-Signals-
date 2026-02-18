@@ -1,0 +1,21 @@
+{
+  "query": "SELECT * FROM users WHERE email = 'rgorham369@gmail.com';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute SELECT * FROM users WHERE email = 'rgorham369@gmail.com';",
+  "rows": [
+    {
+      "id": "1",
+      "openId": "G36spQ5V2NDVrk3yaRobHq",
+      "name": "Rob Gorham",
+      "email": "rgorham369@gmail.com",
+      "loginMethod": "google",
+      "role": "admin",
+      "createdAt": "2025-12-04 23:17:08",
+      "updatedAt": "2025-12-18 12:14:55",
+      "lastSignedIn": "2025-12-18 12:14:56"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\topenId\tname\temail\tloginMethod\trole\tcreatedAt\tupdatedAt\tlastSignedIn\n1\tG36spQ5V2NDVrk3yaRobHq\tRob Gorham\trgorham369@gmail.com\tgoogle\tadmin\t2025-12-04 23:17:08\t2025-12-18 12:14:55\t2025-12-18 12:14:56\n",
+  "stderr": "",
+  "execution_time_ms": 59
+}

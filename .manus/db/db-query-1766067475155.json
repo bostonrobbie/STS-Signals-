@@ -1,0 +1,9 @@
+{
+  "query": "ALTER TABLE users \nADD COLUMN IF NOT EXISTS subscriptionTier ENUM('free', 'pro', 'premium') DEFAULT 'free' NOT NULL,\nADD COLUMN IF NOT EXISTS stripeCustomerId VARCHAR(255),\nADD COLUMN IF NOT EXISTS stripeSubscriptionId VARCHAR(255),\nADD COLUMN IF NOT EXISTS subscriptionStatus VARCHAR(50) DEFAULT 'active',\nADD COLUMN IF NOT EXISTS onboardingCompleted BOOLEAN DEFAULT FALSE NOT NULL;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute ALTER TABLE users \nADD COLUMN IF NOT EXISTS subscriptionTier ENUM('free', 'pro', 'premium') DEFAULT 'free' NOT NULL,\nADD COLUMN IF NOT EXISTS stripeCustomerId VARCHAR(255),\nADD COLUMN IF NOT EXISTS stripeSubscriptionId VARCHAR(255),\nADD COLUMN IF NOT EXISTS subscriptionStatus VARCHAR(50) DEFAULT 'active',\nADD COLUMN IF NOT EXISTS onboardingCompleted BOOLEAN DEFAULT FALSE NOT NULL;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1612
+}

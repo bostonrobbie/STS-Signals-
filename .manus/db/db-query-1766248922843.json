@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE IF NOT EXISTS notification_preferences (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  userId INT NOT NULL,\n  emailNotificationsEnabled BOOLEAN NOT NULL DEFAULT TRUE,\n  pushNotificationsEnabled BOOLEAN NOT NULL DEFAULT TRUE,\n  notifyOnEntry BOOLEAN NOT NULL DEFAULT TRUE,\n  notifyOnExit BOOLEAN NOT NULL DEFAULT TRUE,\n  notifyOnProfit BOOLEAN NOT NULL DEFAULT TRUE,\n  notifyOnLoss BOOLEAN NOT NULL DEFAULT TRUE,\n  quietHoursStart VARCHAR(5),\n  quietHoursEnd VARCHAR(5),\n  quietHoursTimezone VARCHAR(50) DEFAULT 'America/New_York',\n  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\n  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,\n  UNIQUE KEY unique_user (userId)\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2Wv7ueKqB8G6f57.b62a6ae065f5 --database jFmY8c2b9B6TEBRxmcJws8 --execute CREATE TABLE IF NOT EXISTS notification_preferences (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  userId INT NOT NULL,\n  emailNotificationsEnabled BOOLEAN NOT NULL DEFAULT TRUE,\n  pushNotificationsEnabled BOOLEAN NOT NULL DEFAULT TRUE,\n  notifyOnEntry BOOLEAN NOT NULL DEFAULT TRUE,\n  notifyOnExit BOOLEAN NOT NULL DEFAULT TRUE,\n  notifyOnProfit BOOLEAN NOT NULL DEFAULT TRUE,\n  notifyOnLoss BOOLEAN NOT NULL DEFAULT TRUE,\n  quietHoursStart VARCHAR(5),\n  quietHoursEnd VARCHAR(5),\n  quietHoursTimezone VARCHAR(50) DEFAULT 'America/New_York',\n  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\n  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,\n  UNIQUE KEY unique_user (userId)\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 235
+}
