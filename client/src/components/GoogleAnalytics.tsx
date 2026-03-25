@@ -4,8 +4,11 @@ import { useLocation } from "wouter";
 declare global {
   interface Window {
     gtag?: (..._args: any[]) => void;
+    dataLayer?: any[];
   }
 }
+
+const GA_MEASUREMENT_ID = "G-LVFVPLWCVP";
 
 export function GoogleAnalytics() {
   const [location] = useLocation();
@@ -15,21 +18,19 @@ export function GoogleAnalytics() {
     if (!window.gtag) {
       const script = document.createElement("script");
       script.async = true;
-      script.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX";
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
       document.head.appendChild(script);
 
-      // @ts-expect-error TS2339
       window.dataLayer = window.dataLayer || [];
-      // @ts-expect-error TS1252
-      function gtag(...args: any[]) {
-        // @ts-expect-error TS2339
-        window.dataLayer?.push(arguments);
-      }
-      window.gtag = gtag;
+      const gtag = function (..._args: any[]) {
+        window.dataLayer!.push(arguments);
+      };
+      window.gtag = gtag as any;
       gtag("js", new Date());
-      gtag("config", "G-XXXXXXXXXX", {
+      gtag("config", GA_MEASUREMENT_ID, {
         page_path: location,
         anonymize_ip: true,
+        send_page_view: false, // We send page views manually below
       });
     }
   }, []);
@@ -42,41 +43,31 @@ export function GoogleAnalytics() {
         page_title: document.title,
       });
     }
-  }, [location, location]);
+  }, [location]);
 
   // Track conversion events
   useEffect(() => {
-    // Track signup completion
-    if (location === "/checkout-success") {
-      window.gtag?.("event", "conversion", {
-        value: 99,
-        currency: "USD",
-        transaction_id: "trial_signup",
-      });
-    }
-
-    // Track subscription upgrade
     if (location === "/checkout-success") {
       window.gtag?.("event", "purchase", {
-        value: 99,
+        value: 50,
         currency: "USD",
         items: [
           {
-            item_name: "Pro Subscription",
+            item_name: "STS Pro Subscription",
             item_category: "subscription",
-            price: 99,
+            price: 50,
             quantity: 1,
           },
         ],
       });
     }
-  }, [location, location]);
+  }, [location]);
 
   return null;
 }
 
-// Helper function to track custom events
-export function trackEvent(
+// Track custom events
+export function trackGAEvent(
   eventName: string,
   eventData: Record<string, any> = {}
 ) {
@@ -85,8 +76,8 @@ export function trackEvent(
   }
 }
 
-// Helper function to track conversions
-export function trackConversion(
+// Track conversions (e.g. checkout completed)
+export function trackGAConversion(
   value: number,
   currency: string = "USD",
   transactionId?: string
@@ -100,17 +91,7 @@ export function trackConversion(
   }
 }
 
-// Helper function to track form submissions
-export function trackFormSubmission(formName: string) {
-  if (window.gtag) {
-    window.gtag("event", "form_submit", {
-      form_name: formName,
-      timestamp: new Date().toISOString(),
-    });
-  }
-}
-
-// Helper function to track CTA button clicks
+// Track CTA button clicks
 export function trackGACTAClick(location: string, label: string) {
   if (window.gtag) {
     window.gtag("event", "cta_click", {
@@ -120,5 +101,30 @@ export function trackGACTAClick(location: string, label: string) {
   }
 }
 
-// Alias for trackEvent with GA4 naming convention
-export const trackGAEvent = trackEvent;
+// Track form submissions
+export function trackFormSubmission(formName: string) {
+  if (window.gtag) {
+    window.gtag("event", "form_submit", {
+      form_name: formName,
+      timestamp: new Date().toISOString(),
+    });
+  }
+}
+
+// Track sign-up events
+export function trackGASignUp(method: string = "email") {
+  if (window.gtag) {
+    window.gtag("event", "sign_up", {
+      method,
+    });
+  }
+}
+
+// Track login events
+export function trackGALogin(method: string = "email") {
+  if (window.gtag) {
+    window.gtag("event", "login", {
+      method,
+    });
+  }
+}

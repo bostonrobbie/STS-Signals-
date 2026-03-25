@@ -162,13 +162,8 @@ export function optimizeCSS() {
  * Defer non-critical JavaScript
  */
 export function deferNonCriticalJS() {
-  // Load analytics after page is interactive
-  setTimeout(() => {
-    const script = document.createElement("script");
-    script.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX";
-    script.async = true;
-    document.head.appendChild(script);
-  }, 3000);
+  // GA4 (G-LVFVPLWCVP) is initialized by the GoogleAnalytics React component.
+  // No duplicate script loader needed here — deferral is handled in GoogleAnalytics.tsx.
 }
 
 /**

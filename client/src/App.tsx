@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Route, Switch } from "wouter";
@@ -9,6 +9,9 @@ import { TradeNotificationProvider } from "./contexts/TradeNotificationContext";
 import { AccountValueProvider } from "./contexts/AccountValueContext";
 import DashboardLayout from "./components/DashboardLayout";
 import { CookieConsent } from "./components/CookieConsent";
+import { GoogleAnalytics } from "./components/GoogleAnalytics";
+import { captureTrafficSource } from "./lib/trafficCapture";
+import { initTimeTracking } from "./lib/analytics";
 import { Loader2 } from "lucide-react";
 // import { useAuth } from "@/contexts/AuthContext";
 
@@ -41,6 +44,7 @@ const Disclaimer = lazy(() => import("./pages/Disclaimer"));
 const RiskDisclosure = lazy(() => import("./pages/RiskDisclosure"));
 // QADashboard available for future use
 // const QADashboard = lazy(() => import("./pages/QADashboard"));
+const FAQ = lazy(() => import("./pages/FAQ"));
 
 // Loading fallback component
 function PageLoader() {
@@ -329,11 +333,11 @@ function Router() {
 
         <Route
           path="/qa"
-          component={() => {
-            // Redirect to Admin page with QA tab
-            window.location.href = "/admin?tab=qa";
-            return <PageLoader />;
-          }}
+          component={() => (
+            <Suspense fallback={<PageLoader />}>
+              <FAQ />
+            </Suspense>
+          )}
         />
 
         <Route
@@ -356,7 +360,17 @@ function Router() {
   );
 }
 
+// Initialize all analytics systems on first mount
+function initAnalytics() {
+  initTimeTracking();
+}
+
 function App() {
+  useEffect(() => {
+    initAnalytics();
+    captureTrafficSource();
+  }, []);
+
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light" switchable={true}>
@@ -365,6 +379,7 @@ function App() {
             <AccountValueProvider>
               <TooltipProvider>
                 <Toaster />
+                <GoogleAnalytics />
                 <Router />
                 <CookieConsent />
               </TooltipProvider>
