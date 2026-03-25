@@ -1,12 +1,12 @@
 /**
  * Resend Email Service
- * 
+ *
  * Provides email sending capabilities using Resend API.
  * Handles welcome emails, onboarding sequences, and notifications.
  */
 
-import { Resend } from 'resend';
-import { ENV } from '../_core/env';
+import { Resend } from "resend";
+import { ENV } from "../_core/env";
 
 // Initialize Resend client (will be null if API key not configured)
 let resendClient: Resend | null = null;
@@ -38,18 +38,22 @@ export interface EmailResult {
  */
 export async function sendEmail(options: EmailOptions): Promise<EmailResult> {
   const client = getResendClient();
-  
+
   if (!client) {
-    console.warn('[Email] Resend API key not configured. Email not sent.');
+    console.warn("[Email] Resend API key not configured. Email not sent.");
     return {
       success: false,
-      error: 'Email service not configured. Please add RESEND_API_KEY to environment variables.',
+      error:
+        "Email service not configured. Please add RESEND_API_KEY to environment variables.",
     };
   }
 
   try {
     const result = await client.emails.send({
-      from: options.from || ENV.EMAIL_FROM || 'IntraDay Strategies <noreply@intradaystrategies.com>',
+      from:
+        options.from ||
+        ENV.EMAIL_FROM ||
+        "STS Futures <noreply@stsdashboard.com>",
       to: Array.isArray(options.to) ? options.to : [options.to],
       subject: options.subject,
       html: options.html,
@@ -58,87 +62,88 @@ export async function sendEmail(options: EmailOptions): Promise<EmailResult> {
     });
 
     if (result.error) {
-      console.error('[Email] Send failed:', result.error);
+      console.error("[Email] Send failed:", result.error);
       return {
         success: false,
         error: result.error.message,
       };
     }
 
-    console.log('[Email] Sent successfully:', result.data?.id);
+    console.log("[Email] Sent successfully:", result.data?.id);
     return {
       success: true,
       id: result.data?.id,
     };
   } catch (error) {
-    console.error('[Email] Send error:', error);
+    console.error("[Email] Send error:", error);
     return {
       success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: error instanceof Error ? error.message : "Unknown error",
     };
   }
 }
 
+const DASHBOARD_BASE_URL = "https://stsdashboard.com";
+
 /**
- * Welcome email template for new subscribers
+ * Welcome email template for new STS Futures subscribers
  */
 export function getWelcomeEmailHtml(userName: string): string {
+  const dashboardUrl = `${ENV.VITE_APP_URL || DASHBOARD_BASE_URL}/overview`; // https://stsdashboard.com/overview
   return `
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to IntraDay Strategies</title>
+  <title>Welcome to STS Futures</title>
 </head>
 <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #0a0a0b; color: #ffffff;">
   <div style="max-width: 600px; margin: 0 auto; padding: 40px 20px;">
     <!-- Header -->
     <div style="text-align: center; margin-bottom: 40px;">
-      <h1 style="color: #22d3ee; font-size: 28px; margin: 0;">IntraDay Strategies</h1>
-      <p style="color: #a1a1aa; font-size: 14px; margin-top: 8px;">Professional Trading Signals</p>
+      <h1 style="color: #22d3ee; font-size: 28px; margin: 0;">STS Futures</h1>
+      <p style="color: #a1a1aa; font-size: 14px; margin-top: 8px;">NQ Futures Trading Signals</p>
     </div>
 
     <!-- Welcome Message -->
     <div style="background: linear-gradient(135deg, #1a1a1b 0%, #0f0f10 100%); border: 1px solid #27272a; border-radius: 12px; padding: 32px; margin-bottom: 24px;">
-      <h2 style="color: #ffffff; font-size: 24px; margin: 0 0 16px 0;">Welcome, ${userName}! 🎉</h2>
+      <h2 style="color: #ffffff; font-size: 24px; margin: 0 0 16px 0;">Welcome to STS Futures, ${userName}!</h2>
       <p style="color: #a1a1aa; font-size: 16px; line-height: 1.6; margin: 0;">
-        Thank you for subscribing to IntraDay Strategies. You now have access to our professional-grade trading signals and performance analytics.
+        Thank you for subscribing. You now have full access to the STS Futures dashboard, including real-time NQ futures trading signals, 15+ years of backtested trade history, and professional risk analytics.
       </p>
     </div>
 
-    <!-- Getting Started Steps -->
+    <!-- What You Get -->
     <div style="background: #1a1a1b; border: 1px solid #27272a; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
-      <h3 style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0;">Getting Started</h3>
-      
-      <div style="margin-bottom: 16px; display: flex; align-items: flex-start;">
-        <div style="background: #22d3ee; color: #000; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; margin-right: 12px; flex-shrink: 0;">1</div>
-        <div>
-          <p style="color: #ffffff; font-size: 14px; margin: 0; font-weight: 600;">Connect Your Broker</p>
-          <p style="color: #71717a; font-size: 13px; margin: 4px 0 0 0;">Link your trading account to receive automated signals.</p>
-        </div>
-      </div>
-
-      <div style="margin-bottom: 16px; display: flex; align-items: flex-start;">
-        <div style="background: #22d3ee; color: #000; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; margin-right: 12px; flex-shrink: 0;">2</div>
-        <div>
-          <p style="color: #ffffff; font-size: 14px; margin: 0; font-weight: 600;">Set Up Notifications</p>
-          <p style="color: #71717a; font-size: 13px; margin: 4px 0 0 0;">Configure alerts for new trading signals.</p>
-        </div>
-      </div>
-
-      <div style="display: flex; align-items: flex-start;">
-        <div style="background: #22d3ee; color: #000; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; margin-right: 12px; flex-shrink: 0;">3</div>
-        <div>
-          <p style="color: #ffffff; font-size: 14px; margin: 0; font-weight: 600;">Review Strategy Performance</p>
-          <p style="color: #71717a; font-size: 13px; margin: 4px 0 0 0;">Explore historical data and select your strategies.</p>
-        </div>
-      </div>
+      <h3 style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0;">What You Have Access To</h3>
+      <table style="width: 100%; border-collapse: collapse;">
+        <tr style="border-bottom: 1px solid #27272a;">
+          <td style="padding: 10px 0; color: #22d3ee; font-size: 13px; font-weight: 600;">Real-Time NQ Signals</td>
+          <td style="padding: 10px 0; color: #a1a1aa; font-size: 13px; text-align: right;">Live dashboard alerts</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #27272a;">
+          <td style="padding: 10px 0; color: #22d3ee; font-size: 13px; font-weight: 600;">15+ Years of Data</td>
+          <td style="padding: 10px 0; color: #a1a1aa; font-size: 13px; text-align: right;">Full trade-by-trade history</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #27272a;">
+          <td style="padding: 10px 0; color: #22d3ee; font-size: 13px; font-weight: 600;">Equity Curves and Drawdown</td>
+          <td style="padding: 10px 0; color: #a1a1aa; font-size: 13px; text-align: right;">Visual performance analysis</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #27272a;">
+          <td style="padding: 10px 0; color: #22d3ee; font-size: 13px; font-weight: 600;">Risk Analytics</td>
+          <td style="padding: 10px 0; color: #a1a1aa; font-size: 13px; text-align: right;">Sharpe, Sortino, drawdown metrics</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; color: #22d3ee; font-size: 13px; font-weight: 600;">Calendar P&amp;L</td>
+          <td style="padding: 10px 0; color: #a1a1aa; font-size: 13px; text-align: right;">Daily and monthly P&amp;L heatmap</td>
+        </tr>
+      </table>
     </div>
 
     <!-- Risk Disclaimer -->
     <div style="background: #1c1917; border: 1px solid #44403c; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
-      <p style="color: #fbbf24; font-size: 12px; font-weight: 600; margin: 0 0 8px 0;">⚠️ RISK DISCLOSURE</p>
+      <p style="color: #fbbf24; font-size: 12px; font-weight: 600; margin: 0 0 8px 0;">RISK DISCLOSURE</p>
       <p style="color: #a8a29e; font-size: 11px; line-height: 1.5; margin: 0;">
         Trading futures involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results. Only risk capital you can afford to lose.
       </p>
@@ -146,18 +151,18 @@ export function getWelcomeEmailHtml(userName: string): string {
 
     <!-- CTA Button -->
     <div style="text-align: center; margin-bottom: 32px;">
-      <a href="${ENV.VITE_APP_URL || 'https://intradaystrategies.com'}/my-dashboard" style="display: inline-block; background: #22d3ee; color: #000; font-weight: 600; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-size: 14px;">
-        Go to Dashboard →
+      <a href="${dashboardUrl}" style="display: inline-block; background: #22d3ee; color: #000; font-weight: 600; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-size: 14px;">
+        Go to Dashboard
       </a>
     </div>
 
     <!-- Footer -->
     <div style="text-align: center; border-top: 1px solid #27272a; padding-top: 24px;">
       <p style="color: #71717a; font-size: 12px; margin: 0;">
-        IntraDay Strategies • Professional Trading Signals
+        STS Futures - NQ Futures Trading Signals - stsdashboard.com
       </p>
       <p style="color: #52525b; font-size: 11px; margin: 8px 0 0 0;">
-        You received this email because you subscribed to IntraDay Strategies.
+        You received this email because you subscribed to STS Futures.
       </p>
     </div>
   </div>
@@ -175,9 +180,9 @@ export async function sendWelcomeEmail(
 ): Promise<EmailResult> {
   return sendEmail({
     to: email,
-    subject: 'Welcome to IntraDay Strategies! 🎉',
+    subject: "Welcome to STS Futures - Your Dashboard Is Ready",
     html: getWelcomeEmailHtml(userName),
-    text: `Welcome to IntraDay Strategies, ${userName}! Thank you for subscribing. Visit your dashboard to get started: ${ENV.VITE_APP_URL || 'https://intradaystrategies.com'}/my-dashboard`,
+    text: `Welcome to STS Futures, ${userName}! Thank you for subscribing. Visit your dashboard to get started: ${ENV.VITE_APP_URL || "https://stsdashboard.com"}/my-dashboard`,
   });
 }
 

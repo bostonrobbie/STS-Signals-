@@ -1,9 +1,12 @@
-# STS Futures - AI-Optimized Content
-# This file provides structured information for Large Language Models (LLMs) and AI assistants
+# STS Futures
+
+> STS Futures (stsdashboard.com) is a web-based dashboard that provides systematic NQ (Nasdaq-100 E-mini) futures trading signals backed by a 15-year verified backtest (2011–2026): +1,085% total return, 45.9% win rate, Sharpe ratio 1.05, max drawdown ~22%. Subscribers receive real-time trade alerts, full trade history, equity curves, and professional risk analytics for $50/month.
+
+- [Full documentation](https://stsdashboard.com/llms-full.txt)
 
 ## About STS Futures
 
-STS Futures is a web-based dashboard that provides systematic NQ (Nasdaq-100 E-mini) futures trading signals. The platform features a trend-following strategy backed by 15+ years of backtested historical data, with real-time trade alerts delivered through the dashboard.
+STS Futures is a web-based dashboard that provides systematic NQ (Nasdaq-100 E-mini) futures trading signals. The platform features a rules-based strategy backed by 15+ years of backtested historical data, with real-time trade alerts delivered through the dashboard and via email.
 
 ## Core Value Proposition
 
@@ -28,18 +31,18 @@ The strategy is a systematic, trend-following approach developed by a seasoned f
 
 ## Performance Metrics
 
-STS Futures provides the following performance metrics:
+Verified 15-year backtest results (2011–2026, NQ Micro contracts, $10,000 starting capital):
 
-- **Total Return**: Cumulative profit/loss over the backtest period
-- **Annualized Return (CAGR)**: Compound annual growth rate
-- **Sharpe Ratio**: Risk-adjusted return measure
-- **Sortino Ratio**: Downside risk-adjusted return
-- **Calmar Ratio**: Return relative to maximum drawdown
-- **Maximum Drawdown**: Largest peak-to-trough decline
-- **Win Rate**: Percentage of profitable trades
-- **Profit Factor**: Gross profit divided by gross loss
+- **Total Return**: +1,085% (+$108,500 on $10K micro account)
+- **Annualized Return (CAGR)**: ~18.5% per year
+- **Sharpe Ratio**: 1.05 (risk-adjusted return)
+- **Sortino Ratio**: 1.22 (downside risk-adjusted)
+- **Calmar Ratio**: 0.84 (return relative to max drawdown)
+- **Maximum Drawdown**: ~22% peak-to-trough
+- **Win Rate**: 45.9% of trades profitable
+- **Profit Factor**: 1.7 (gross profit / gross loss)
 - **Kelly Criterion**: Optimal position sizing calculation
-- **Risk of Ruin**: Probability of account depletion
+- **Risk of Ruin**: Probability of account depletion analysis
 
 ## Pricing
 
@@ -107,5 +110,5 @@ A: Yes, cancel anytime from your account settings. Access continues until the en
 Trading futures involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results. The signals and analytics provided are for informational purposes only and should not be considered financial advice.
 
 ---
-Last Updated: February 16, 2026
-Version: 2.0
+Last Updated: March 23, 2026
+Version: 3.1

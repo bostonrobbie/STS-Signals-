@@ -33,7 +33,7 @@ describe("Landing page feature showcase section", () => {
   it("should contain feature screenshot CDN URLs", () => {
     const content = fs.readFileSync(landingPagePath, "utf-8");
     // Verify at least 4 CDN image URLs exist in the showcase section
-    const cdnMatches = content.match(/files\.manuscdn\.com/g);
+    const cdnMatches = content.match(/cloudfront\.net|files\.manuscdn\.com/g);
     expect(cdnMatches).not.toBeNull();
     expect(cdnMatches!.length).toBeGreaterThanOrEqual(4);
   });
@@ -44,12 +44,13 @@ describe("Landing page feature showcase section", () => {
     expect(content).toContain("Inside The Dashboard");
   });
 
-  it("should contain all 4 feature titles", () => {
+  it("should contain all feature titles", () => {
     const content = fs.readFileSync(landingPagePath, "utf-8");
-    expect(content).toContain("Customize Your View");
-    expect(content).toContain("Watch Your Edge Grow");
-    expect(content).toContain("Live Positions & Returns");
+    // Feature sections in the current 5-section LandingPage
     expect(content).toContain("Know Your Best Days");
+    expect(content).toContain("Every Trade");
+    expect(content).toContain("Every Metric at a Glance");
+    expect(content).toContain("See Exactly What You Get");
   });
 
   it("should contain Get Full Access CTA", () => {
@@ -59,10 +60,11 @@ describe("Landing page feature showcase section", () => {
 
   it("should have proper alt text for accessibility", () => {
     const content = fs.readFileSync(landingPagePath, "utf-8");
-    expect(content).toContain('alt="Dashboard metrics and portfolio settings');
-    expect(content).toContain('alt="Live equity curve chart');
-    expect(content).toContain('alt="Live current positions');
-    expect(content).toContain('alt="Day-of-week performance cards');
+    // Alt text in the current 5-section LandingPage
+    expect(content).toContain('alt="STS Futures dashboard');
+    expect(content).toContain('alt="Day-of-Week Performance');
+    expect(content).toContain('alt="Calendar P&L');
+    expect(content).toContain('alt="STS trade alert email');
   });
 
   it("should have lazy loading on all screenshot images", () => {

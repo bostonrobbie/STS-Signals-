@@ -34,7 +34,7 @@ export default function BillingPage() {
         interval: "monthly",
       });
       if (result.url) {
-        window.open(result.url, "_blank");
+        window.location.href = result.url;
       }
     } catch (error) {
       console.error("Failed to create checkout session:", error);
@@ -53,7 +53,7 @@ export default function BillingPage() {
     try {
       const result = await managePortal.mutateAsync();
       if (result.url) {
-        window.open(result.url, "_blank");
+        window.location.href = result.url;
       }
     } catch (error) {
       console.error("Failed to get portal URL:", error);

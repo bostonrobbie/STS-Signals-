@@ -120,6 +120,12 @@ export const SEO_CONFIG = {
       "Your personalized NQ futures trading dashboard. Track subscribed strategies, monitor real-time signals, and manage your portfolio.",
     canonical: "https://stsdashboard.com/my-dashboard",
   },
+  qa: {
+    title: "FAQ | STS Futures - NQ Futures Trading Questions Answered",
+    description:
+      "Frequently asked questions about STS Futures NQ trading signals, subscription plans, trade alerts, and systematic trading strategies.",
+    canonical: "https://stsdashboard.com/qa",
+  },
   strategyDetail: (name: string, symbol: string) => ({
     title: `${name} Strategy | ${symbol} Futures Performance | STS Futures`,
     description: `Detailed performance analysis for ${name} strategy trading ${symbol} futures. View equity curve, trade history, drawdown analysis, and risk metrics.`,

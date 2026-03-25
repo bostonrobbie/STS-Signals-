@@ -109,3 +109,16 @@ export function trackFormSubmission(formName: string) {
     });
   }
 }
+
+// Helper function to track CTA button clicks
+export function trackGACTAClick(location: string, label: string) {
+  if (window.gtag) {
+    window.gtag("event", "cta_click", {
+      cta_location: location,
+      cta_label: label,
+    });
+  }
+}
+
+// Alias for trackEvent with GA4 naming convention
+export const trackGAEvent = trackEvent;

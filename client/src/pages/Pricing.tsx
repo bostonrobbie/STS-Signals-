@@ -10,7 +10,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Check, Zap, ArrowLeft } from "lucide-react";
+import {
+  Check,
+  Zap,
+  ArrowLeft,
+  CreditCard,
+  UserPlus,
+  BarChart3,
+} from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
 
@@ -21,9 +28,9 @@ export default function Pricing() {
   const createCheckout = trpc.stripe.createCheckoutSession.useMutation({
     onSuccess: data => {
       if (data.url) {
-        window.open(data.url, "_blank");
+        window.location.href = data.url;
         toast.success("Redirecting to checkout...", {
-          description: "Complete your payment in the new tab",
+          description: "You are being redirected to the secure checkout page.",
         });
       }
       setLoading(false);
@@ -126,6 +133,60 @@ export default function Pricing() {
               </Button>
             </CardFooter>
           </Card>
+        </div>
+
+        {/* How It Works */}
+        <div className="mt-20 max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-2">How It Works</h2>
+          <p className="text-center text-muted-foreground mb-10">
+            From sign-up to your first NQ trading signals in under 5 minutes
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex flex-col items-center text-center p-6 rounded-xl border border-border bg-card">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                <CreditCard className="h-6 w-6 text-primary" />
+              </div>
+              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                Step <span>1</span>
+              </span>
+              <h3 className="font-semibold text-foreground mb-2">Subscribe</h3>
+              <p className="text-sm text-muted-foreground">
+                No account needed to start. Subscribe with any major credit card
+                through Stripe's secure checkout.
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center p-6 rounded-xl border border-border bg-card">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                <UserPlus className="h-6 w-6 text-primary" />
+              </div>
+              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                Step <span>2</span>
+              </span>
+              <h3 className="font-semibold text-foreground mb-2">
+                Create Account
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                After payment, create your account. Your subscription is
+                automatically linked to your email — no manual activation
+                needed.
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center p-6 rounded-xl border border-border bg-card">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                <BarChart3 className="h-6 w-6 text-primary" />
+              </div>
+              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                Step <span>3</span>
+              </span>
+              <h3 className="font-semibold text-foreground mb-2">
+                Access Dashboard
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Log in and get immediate full access to NQ trading signals, 15+
+                years of trade history, and all analytics tools.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* FAQ Section */}
