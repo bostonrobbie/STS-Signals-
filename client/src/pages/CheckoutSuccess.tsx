@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { mobileTracker } from "@/lib/mobileTracking";
+import { trackGAConversion, trackGAEvent } from "@/components/GoogleAnalytics";
 
 export default function CheckoutSuccess() {
   const [, setLocation] = useLocation();
@@ -33,10 +34,26 @@ export default function CheckoutSuccess() {
 
       mobileTracker.trackPaymentCompleted(
         paymentMethod,
-        99, // Default Pro tier price (will be updated based on actual amount)
+        50, // Pro tier monthly price
         "USD",
         user.id.toString()
       );
+
+      // Fire GA4 purchase conversion event
+      trackGAConversion(50, "USD", `sub_${user.id}_${Date.now()}`);
+      trackGAEvent("purchase", {
+        transaction_id: `sub_${user.id}_${Date.now()}`,
+        value: 50,
+        currency: "USD",
+        items: [
+          {
+            item_id: "pro_monthly",
+            item_name: "STS Futures Pro — Monthly",
+            price: 50,
+            quantity: 1,
+          },
+        ],
+      });
 
       // Clear payment method from session
       sessionStorage.removeItem("paymentMethod");

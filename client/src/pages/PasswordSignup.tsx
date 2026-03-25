@@ -12,6 +12,7 @@ import {
 } from "../components/ui/card";
 import { Alert, AlertDescription } from "../components/ui/alert";
 import { Loader2, AlertCircle, CheckCircle, TrendingUp } from "lucide-react";
+import { trackGASignUp } from "../components/GoogleAnalytics";
 
 export default function PasswordSignup() {
   const [, setLocation] = useLocation();
@@ -61,6 +62,9 @@ export default function PasswordSignup() {
       if (result.success) {
         // Store user info
         localStorage.setItem("user", JSON.stringify(result.user));
+
+        // Fire GA4 sign_up conversion event
+        trackGASignUp("email");
 
         // Redirect new users to checkout (they must pay before accessing dashboard)
         setLocation("/pricing");

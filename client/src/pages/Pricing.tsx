@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
+import { SEOHead, SEO_CONFIG } from "@/components/SEOHead";
+import { trackFunnelStep } from "@/lib/funnelTracking";
+import { trackGACTAClick } from "@/components/GoogleAnalytics";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -45,6 +48,8 @@ export default function Pricing() {
 
   const handleSubscribe = () => {
     setLoading(true);
+    trackFunnelStep("checkout_view");
+    trackGACTAClick("pricing_page", "Subscribe Now");
     createCheckout.mutate({
       interval: "monthly",
     });
@@ -67,6 +72,7 @@ export default function Pricing() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead {...SEO_CONFIG.pricing} />
       {/* Header */}
       <div className="border-b border-border/50">
         <div className="container py-4">

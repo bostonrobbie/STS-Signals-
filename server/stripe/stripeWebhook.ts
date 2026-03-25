@@ -420,18 +420,28 @@ async function handleInvoicePaymentFailed(invoice: Stripe.Invoice) {
     // Send payment failure notification email
     if (isEmailConfigured() && user.email) {
       try {
+        const billingUrl = `${process.env.VITE_FRONTEND_URL || "https://stsdashboard.com"}/billing`;
+        const amountDue = `$${((invoice.amount_due || 0) / 100).toFixed(2)}`;
         const result = await sendEmail({
           to: user.email,
-          subject: "Payment Failed - Action Required",
+          subject: "Action Required: Update Your Billing Information",
           html: `
-            <h2>Payment Failed</h2>
-            <p>Hi ${user.name || "Trader"},</p>
-            <p>Your recent subscription payment failed. Please update your payment method to continue using your subscription.</p>
-            <p>Amount due: $${((invoice.amount_due || 0) / 100).toFixed(2)}</p>
-            <p><a href="${process.env.VITE_FRONTEND_URL || "https://intradaydash.manus.space"}/billing">Update Payment Method</a></p>
-            <p>If you have any questions, please contact our support team.</p>
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; color: #1a1a1a;">
+              <div style="border-bottom: 2px solid #0ea5e9; padding-bottom: 16px; margin-bottom: 24px;">
+                <h1 style="margin: 0; font-size: 20px; color: #0ea5e9;">STS Futures</h1>
+                <p style="margin: 4px 0 0; font-size: 13px; color: #666;">Billing Team</p>
+              </div>
+              <p>Hi ${user.name || "there"},</p>
+              <p>We were unable to process your subscription payment of <strong>${amountDue}</strong>. To avoid any interruption to your access to the STS Futures dashboard and real-time NQ trading signals, please update your payment method as soon as possible.</p>
+              <div style="margin: 24px 0;">
+                <a href="${billingUrl}" style="background-color: #0ea5e9; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">Update Payment Method</a>
+              </div>
+              <p>If you believe this is an error or have any questions, please reply to this email and we will be happy to assist.</p>
+              <p style="margin-top: 32px; color: #666; font-size: 13px;">Thank you for your continued support.</p>
+              <p style="color: #666; font-size: 13px; margin: 4px 0;">Billing Team<br>STS Futures<br><a href="https://stsdashboard.com" style="color: #0ea5e9;">stsdashboard.com</a></p>
+            </div>
           `,
-          text: `Your payment failed. Please update your payment method at ${process.env.VITE_FRONTEND_URL || "https://intradaydash.manus.space"}/billing`,
+          text: `Hi ${user.name || "there"}, your subscription payment of ${amountDue} could not be processed. Please update your payment method at ${billingUrl} to avoid losing access to your STS Futures dashboard.`,
         });
         if (result.success) {
           console.log(
