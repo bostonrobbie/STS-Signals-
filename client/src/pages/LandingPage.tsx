@@ -307,7 +307,7 @@ export default function LandingPage() {
             <Link href="/">
               <div className="flex items-center gap-3 cursor-pointer">
                 <img
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/110198424/sLgasntqXJoSfWmA.png"
+                  src="/logo.png"
                   alt="STS"
                   className="w-9 h-9"
                 />
@@ -1368,7 +1368,7 @@ export default function LandingPage() {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <img
-                    src="https://files.manuscdn.com/user_upload_by_module/session_file/110198424/sLgasntqXJoSfWmA.png"
+                    src="/logo.png"
                     alt="STS"
                     className="w-6 h-6"
                   />

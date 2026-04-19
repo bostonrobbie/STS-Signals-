@@ -253,7 +253,7 @@ function DashboardLayoutContent({
                 <div className="flex items-center gap-2 min-w-0">
                   <div className="flex items-center gap-2">
                     <img
-                      src="https://files.manuscdn.com/user_upload_by_module/session_file/110198424/sLgasntqXJoSfWmA.png"
+                      src="/logo.png"
                       alt="STS Futures"
                       className="h-6 w-6 shrink-0"
                     />
@@ -269,7 +269,7 @@ function DashboardLayoutContent({
                 </div>
               ) : (
                 <img
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/110198424/sLgasntqXJoSfWmA.png"
+                  src="/logo.png"
                   alt="STS"
                   className="h-6 w-6 shrink-0 ml-1"
                 />

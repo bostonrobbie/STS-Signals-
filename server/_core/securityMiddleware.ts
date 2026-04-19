@@ -17,13 +17,18 @@ const CSP_DIRECTIVES = {
   // Default fallback for all resource types
   'default-src': ["'self'"],
   
-  // Scripts - allow self and inline for React/Vite HMR in development
+  // Scripts - self + narrowly approved vendors only.
+  // NOT allowed: manuscdn.com, manus-analytics.com, plausible.io, amplitude,
+  // or any other tracking CDN. Keeping this list tight is what keeps ads
+  // review classifiers from flagging us as "loading suspicious scripts".
   'script-src': [
     "'self'",
-    "'unsafe-inline'", // Required for Vite HMR and some React patterns
-    "'unsafe-eval'", // Required for Vite in development (will be removed in production build)
+    "'unsafe-inline'", // required for Vite HMR + some React patterns
+    "'unsafe-eval'", // Vite dev only (stripped in prod by buildCSPHeader)
     "https://js.stripe.com", // Stripe.js
-    "https://www.googletagmanager.com", // Analytics (if used)
+    "https://www.googletagmanager.com", // GTM + gtag (GA4 + Google Ads)
+    "https://www.google-analytics.com", // GA4 pixel endpoint
+    "https://connect.facebook.net", // Meta pixel (optional, loads only if VITE_META_PIXEL_ID set)
   ],
   
   // Styles - allow self and inline for Tailwind/styled components
@@ -33,12 +38,18 @@ const CSP_DIRECTIVES = {
     "https://fonts.googleapis.com",
   ],
   
-  // Images - allow self, data URIs, and common CDNs
+  // Images - self + data/blob + a curated HTTPS allowlist (NOT wildcard https:).
+  // Wildcard https: triggers "loads images from any domain" heuristics in some
+  // ads classifiers; an explicit list is safer.
   'img-src': [
     "'self'",
     "data:",
     "blob:",
-    "https:", // Allow HTTPS images (for user avatars, etc.)
+    "https://www.google-analytics.com",
+    "https://stats.g.doubleclick.net",
+    "https://www.googletagmanager.com",
+    "https://www.facebook.com", // Meta pixel image fallback
+    "https://stsdashboard.com",
   ],
   
   // Fonts - allow self and Google Fonts
@@ -48,13 +59,19 @@ const CSP_DIRECTIVES = {
     "data:",
   ],
   
-  // API connections - allow self and required external services
+  // API connections - allow self and required external services only.
+  // Intentionally narrow: each added host widens attack surface and makes
+  // ads-review classifiers suspicious of "unexpected call-home" behavior.
   'connect-src': [
     "'self'",
-    "https://api.stripe.com", // Stripe API
-    "https://api.manus.im", // Manus OAuth
-    "wss:", // WebSocket connections (for HMR and real-time features)
-    "ws:", // WebSocket in development
+    "https://api.stripe.com", // Stripe payments
+    "https://www.google-analytics.com", // GA4 collect endpoint (if used)
+    "https://analytics.google.com", // GA4 alt endpoint
+    "https://region1.google-analytics.com", // GA4 regional endpoint
+    "https://stats.g.doubleclick.net", // Google Ads conversion
+    "https://www.googletagmanager.com", // GTM (if used)
+    "wss:", // WebSocket (HMR + real-time signals)
+    "ws:", // dev HMR
   ],
   
   // Frames - restrict to self and Stripe (for 3D Secure)
