@@ -2,6 +2,7 @@ import { useState } from "react";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { SEOHead, SEO_CONFIG } from "@/components/SEOHead";
+import { SEOStructured } from "@/components/SEOStructured";
 import { trackFunnelStep } from "@/lib/funnelTracking";
 import { trackGACTAClick } from "@/components/GoogleAnalytics";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,9 @@ import {
   CreditCard,
   UserPlus,
   BarChart3,
+  ShieldCheck,
+  Lock as LockIcon,
+  RotateCcw,
 } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
@@ -73,6 +77,47 @@ export default function Pricing() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead {...SEO_CONFIG.pricing} />
+      <SEOStructured
+        path="/pricing"
+        title="Pricing — STS Futures NQ Signals"
+        description="Single-tier $50/month subscription. Cancel anytime. 15-day money-back guarantee. All signals, 15-year backtest history, full analytics."
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Pricing", url: "/pricing" },
+        ]}
+        productOffer={{
+          name: "STS Futures — NQ Trading Signals Subscription",
+          price: 50,
+          currency: "USD",
+          sku: "sts-monthly",
+        }}
+        faqs={[
+          {
+            q: "How much does STS Futures cost?",
+            a: "$50 per month. Single tier with full access to all signals, 15-year trade history, equity curve analytics, and real-time alerts. Cancel anytime — access continues until the end of the current billing period.",
+          },
+          {
+            q: "Is there a free trial?",
+            a: "There is no free trial, but every new subscription carries a 15-day money-back guarantee. If the strategy has not fired a signal you could act on within 15 days, email support for a full refund.",
+          },
+          {
+            q: "Can I cancel anytime?",
+            a: "Yes. Cancellation is self-service in your account settings — takes effect at the end of the current billing period with no cancellation fees or retention calls.",
+          },
+          {
+            q: "What payment methods do you accept?",
+            a: "All payments are processed securely by Stripe. Visa, Mastercard, American Express, and Discover are accepted. No banking or card data ever touches STS Futures servers.",
+          },
+          {
+            q: "What's included in the subscription?",
+            a: "Real-time NQ trading signals on the web dashboard, email notifications for every signal, complete 15-year trade history (7,960 trades), equity curve and drawdown analytics, Sharpe/Sortino/Calmar metrics, calendar P&L, position-sizing calculator, and optional broker auto-execution via IBKR, Tradovate, or TradeStation.",
+          },
+          {
+            q: "Is STS Futures regulated?",
+            a: "STS Futures publishes educational content and systematic trading signals but is not a registered investment advisor and does not manage customer funds. Subscribers trade their own brokerage accounts and are responsible for their own risk management decisions.",
+          },
+        ]}
+      />
       {/* Header */}
       <div className="border-b border-border/50">
         <div className="container py-4">
@@ -110,9 +155,13 @@ export default function Pricing() {
             </CardHeader>
 
             <CardContent className="flex-1">
-              <div className="text-center mb-6">
+              <div className="text-center mb-2">
                 <span className="text-4xl font-bold">$50</span>
                 <span className="text-muted-foreground">/month</span>
+              </div>
+              <div className="text-center text-xs text-emerald-700 dark:text-emerald-400 font-medium mb-6 inline-flex items-center gap-1.5 justify-center w-full">
+                <ShieldCheck className="h-3.5 w-3.5" />
+                15-day money-back guarantee
               </div>
 
               <ul className="space-y-3">
@@ -125,7 +174,7 @@ export default function Pricing() {
               </ul>
             </CardContent>
 
-            <CardFooter>
+            <CardFooter className="flex-col gap-3">
               <Button
                 className="w-full"
                 disabled={(user && isCurrentPlan) || loading}
@@ -137,6 +186,17 @@ export default function Pricing() {
                     ? "Current Plan"
                     : "Subscribe Now"}
               </Button>
+              <div className="flex items-center justify-center gap-4 text-[11px] text-muted-foreground w-full pt-1">
+                <span className="inline-flex items-center gap-1">
+                  <LockIcon className="h-3 w-3" /> Stripe Secure
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <RotateCcw className="h-3 w-3" /> Cancel Anytime
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <ShieldCheck className="h-3 w-3" /> 15-yr Verified Track Record
+                </span>
+              </div>
             </CardFooter>
           </Card>
         </div>
