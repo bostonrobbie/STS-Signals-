@@ -2,6 +2,52 @@
   "$schema": "https://stsdashboard.com/blog/manifest.schema.json",
   "posts": [
     {
+      "slug": "nq-recap-2026-04-18",
+      "title": "NQ Recap: Week of April 14, 2026",
+      "excerpt": "A measured week for NQ. +$2,314 Micro P&L across 11 signals with 55% win rate. Five Trend variants, three Drift, two ORB, one Short-ORB. Thursday post-CPI Trend (T3) setup was the textbook trade of the week.",
+      "author": "Rob Gorham",
+      "publishedAt": "2026-04-18",
+      "updatedAt": "2026-04-18",
+      "category": "weekly-recap",
+      "tags": [
+        "nq futures",
+        "weekly recap",
+        "cpi",
+        "systematic trading"
+      ],
+      "readingMinutes": 3,
+      "ogImage": "/portfolio-preview.webp",
+      "keywords": [
+        "nq futures week of april 14 2026",
+        "nq trading recap",
+        "nasdaq futures this week",
+        "cpi nq reaction"
+      ]
+    },
+    {
+      "slug": "nq-vs-es-futures-which-should-you-trade",
+      "title": "NQ vs ES Futures: Which Should You Trade?",
+      "excerpt": "Comprehensive comparison of NQ (Nasdaq-100 E-mini) and ES (S&P 500 E-mini) futures. Volatility, sector concentration, liquidity, and which one fits systematic vs discretionary traders.",
+      "author": "Rob Gorham",
+      "publishedAt": "2026-04-18",
+      "updatedAt": "2026-04-18",
+      "category": "education",
+      "tags": [
+        "nq futures",
+        "es futures",
+        "comparison",
+        "education"
+      ],
+      "readingMinutes": 7,
+      "ogImage": "/portfolio-preview.webp",
+      "keywords": [
+        "nq vs es futures",
+        "nq or es which is better",
+        "nasdaq vs s&p futures",
+        "choose between nq and es"
+      ]
+    },
+    {
       "slug": "what-a-valid-15-year-futures-backtest-looks-like",
       "title": "What a Valid 15-Year Futures Backtest Actually Looks Like",
       "excerpt": "Most retail traders have never seen a legitimate long-running futures backtest. This is the full STS Futures 15-year record (7,960 trades) with year-by-year returns, drawdown, and the years that lost money. Plus five questions to demand from any signal service.",

@@ -60,6 +60,38 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Blog post: NQ vs ES futures comparison -->
+  <url>
+    <loc>https://stsdashboard.com/blog/nq-vs-es-futures-which-should-you-trade</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog post: first weekly NQ recap (update lastmod per week) -->
+  <url>
+    <loc>https://stsdashboard.com/blog/nq-recap-2026-04-18</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Compare index -->
+  <url>
+    <loc>https://stsdashboard.com/compare</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Testimonials -->
+  <url>
+    <loc>https://stsdashboard.com/testimonials</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Competitor comparison pages - high intent + AEO value -->
   <url>
     <loc>https://stsdashboard.com/compare/signalstack</loc>

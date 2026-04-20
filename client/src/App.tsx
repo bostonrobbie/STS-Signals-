@@ -60,6 +60,8 @@ const CompareTradersPost = lazy(
 );
 const CompareGeneric = lazy(() => import("./pages/compare/Generic"));
 const ImportTrades = lazy(() => import("./pages/admin/ImportTrades"));
+const CompareIndex = lazy(() => import("./pages/compare/Index"));
+const Testimonials = lazy(() => import("./pages/Testimonials"));
 
 // Loading fallback component
 function PageLoader() {
@@ -182,6 +184,24 @@ function Router() {
           component={() => (
             <Suspense fallback={<PageLoader />}>
               <BlogPost />
+            </Suspense>
+          )}
+        />
+
+        <Route
+          path="/compare"
+          component={() => (
+            <Suspense fallback={<PageLoader />}>
+              <CompareIndex />
+            </Suspense>
+          )}
+        />
+
+        <Route
+          path="/testimonials"
+          component={() => (
+            <Suspense fallback={<PageLoader />}>
+              <Testimonials />
             </Suspense>
           )}
         />
