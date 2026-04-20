@@ -2,6 +2,31 @@
   "$schema": "https://stsdashboard.com/blog/manifest.schema.json",
   "posts": [
     {
+      "slug": "best-futures-broker-for-nq-trading",
+      "title": "Best Futures Broker for NQ Trading in 2026",
+      "excerpt": "Honest comparison of the brokers I've used for NQ futures: Tradovate, Interactive Brokers, NinjaTrader, TradeStation, AMP, TD Ameritrade. Commission, margin, API, and STS Futures auto-execution compatibility for each.",
+      "author": "Rob Gorham",
+      "publishedAt": "2026-04-18",
+      "updatedAt": "2026-04-18",
+      "category": "education",
+      "tags": [
+        "nq futures",
+        "brokers",
+        "tradovate",
+        "interactive brokers",
+        "education"
+      ],
+      "readingMinutes": 6,
+      "ogImage": "/portfolio-preview.webp",
+      "keywords": [
+        "best futures broker for nq",
+        "nq futures broker",
+        "tradovate vs ibkr",
+        "best broker for futures signals",
+        "nq auto execution broker"
+      ]
+    },
+    {
       "slug": "nq-recap-2026-04-18",
       "title": "NQ Recap: Week of April 14, 2026",
       "excerpt": "A measured week for NQ. +$2,314 Micro P&L across 11 signals with 55% win rate. Five Trend variants, three Drift, two ORB, one Short-ORB. Thursday post-CPI Trend (T3) setup was the textbook trade of the week.",

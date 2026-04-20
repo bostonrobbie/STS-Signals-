@@ -60,6 +60,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Blog post: Best futures broker for NQ trading (high-intent keyword) -->
+  <url>
+    <loc>https://stsdashboard.com/blog/best-futures-broker-for-nq-trading</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Blog post: NQ vs ES futures comparison -->
   <url>
     <loc>https://stsdashboard.com/blog/nq-vs-es-futures-which-should-you-trade</loc>
