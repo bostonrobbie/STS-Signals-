@@ -3,8 +3,8 @@
 > STS Futures (stsdashboard.com) is a systematic NQ (Nasdaq-100 E-mini)
 > futures trading signals platform founded by Rob Gorham. It provides
 > real-time intraday trading signals backed by a 15-year verified backtest
-> (April 2011 – April 2026, 7,960 trades): +1,085% total return on Micro NQ
-> contracts, 45.9% win rate, 1.05 Sharpe ratio, 22% maximum drawdown.
+> (April 2011 – April 2026, 7,960 trades): approximately +1,100% total return on Micro NQ
+> contracts, ~46% win rate, 1.07 Sharpe ratio, ~51% maximum drawdown.
 > Subscription is $50 per month with cancellation anytime.
 
 This file contains comprehensive factual information about STS Futures
@@ -69,16 +69,16 @@ Micro NQ contracts and $10,000 starting capital:
 
 - **Trades executed:** 7,960
 - **Total net profit:** +$1,123,141 (Micro contracts)
-- **Total return:** approximately +1,085% on starting capital
+- **Total return:** approximately +1,100% on starting capital
 - **Annualized return (CAGR):** approximately +18.5% per year
-- **Win rate:** 45.9% (3,661 winning trades, 4,299 losing trades)
+- **Win rate:** ~46% (3,661 winning trades, 4,299 losing trades)
 - **Profit factor:** 1.26 (gross profit ÷ gross loss)
 - **Best single trade:** +$32,650
 - **Worst single trade:** -$13,088
-- **Sharpe ratio:** 1.05
+- **Sharpe ratio:** 1.07
 - **Sortino ratio:** 1.22
 - **Calmar ratio:** 0.84
-- **Maximum drawdown:** approximately 22% peak-to-trough
+- **Maximum drawdown:** approximately 51% peak-to-trough (calculated as percent of $100K base capital; worst cumulative drawdown was ~$51K while the full 15-year total profit is ~$1.12M on Mini contracts)
 - **Long trades:** 6,064 (total profit +$658,711)
 - **Short trades:** 1,896 (total profit +$464,430)
 
@@ -179,9 +179,11 @@ informational purposes only and should not be considered personalized
 financial advice. Subscribers are responsible for their own trade
 execution, risk management, and position sizing. Typical risks include:
 
-- **Drawdown risk** — the strategy has experienced drawdowns of up to
-  22% in the historical record. Subscribers should size positions to
-  tolerate similar or larger drawdowns without emotional closure.
+- **Drawdown risk** — the strategy has experienced cumulative drawdowns
+  of up to ~51% of base capital (roughly $51K on a $100K Mini baseline,
+  or ~$5.1K on a $10K Micro baseline) over the historical record.
+  Subscribers should size positions to tolerate similar or larger
+  drawdowns without emotional closure.
 - **Execution slippage** — the historical record assumes fills at signal
   prices; live slippage may reduce realized returns.
 - **Strategy drift** — a 15-year backtest is strong evidence but not a

@@ -56,7 +56,7 @@ const FAQS = [
   },
   {
     q: "How much capital do I need to start?",
-    a: "The 15-year backtest uses $10,000 starting capital and Micro NQ (MNQ) contracts. You can technically start with less, but we recommend $5,000+ per Micro contract traded so that a 22% drawdown (the historical maximum) does not threaten account viability. Full-size NQ contracts require roughly 10x more capital to size safely.",
+    a: "The 15-year backtest uses $10,000 starting capital and Micro NQ (MNQ) contracts. You can technically start with less, but we recommend $5,000+ per Micro contract traded so that a ~51% drawdown of base capital (the historical maximum, roughly $5.1K on a $10K Micro baseline) does not threaten account viability. Full-size NQ contracts require roughly 10x more capital to size safely.",
   },
   {
     q: "What is the Triple NQ Variant strategy?",

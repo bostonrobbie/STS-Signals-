@@ -39,7 +39,7 @@ export default function About() {
           name: "Rob Gorham",
           jobTitle: "Founder, STS Futures",
           description:
-            "Independent systematic futures trader with over a decade of experience trading NQ (Nasdaq-100 E-mini) contracts. Creator of the Triple NQ Variant strategy backed by a 15-year verified backtest: +1,085% return, 45.9% win rate, Sharpe 1.05.",
+            "Independent systematic futures trader with over a decade of experience trading NQ (Nasdaq-100 E-mini) contracts. Creator of the Triple NQ Variant strategy backed by a 15-year verified backtest: approximately +1,100% return, ~46% win rate, Sharpe 1.07.",
           image: "https://stsdashboard.com/rob-gorham.jpg",
         }}
         faqs={[
@@ -106,10 +106,10 @@ export default function About() {
             verify the numbers themselves. The headline results:
           </p>
           <ul>
-            <li>Total return: approximately <strong>+1,085%</strong> (Micro contracts, $10K starting capital)</li>
-            <li>Win rate: <strong>45.9%</strong> (3,661 wins, 4,299 losses)</li>
-            <li>Sharpe ratio: <strong>1.05</strong>, Sortino <strong>1.22</strong></li>
-            <li>Maximum drawdown: approximately <strong>22%</strong></li>
+            <li>Total return: approximately <strong>+1,100%</strong> (Micro contracts, $10K starting capital)</li>
+            <li>Win rate: <strong>~46%</strong> (3,661 wins, 4,299 losses)</li>
+            <li>Sharpe ratio: <strong>1.07</strong>, Sortino <strong>~1.22</strong></li>
+            <li>Maximum drawdown: approximately <strong>51%</strong> of $100K base capital</li>
             <li>Profit factor: <strong>1.26</strong></li>
           </ul>
           <p>
@@ -166,7 +166,7 @@ export default function About() {
           <Card>
             <CardContent className="p-6 text-center">
               <Award className="w-8 h-8 mx-auto mb-3 text-emerald-600 dark:text-emerald-400" />
-              <p className="text-3xl font-bold">+1,085%</p>
+              <p className="text-3xl font-bold">+1,100%</p>
               <p className="text-sm text-muted-foreground">cumulative return (Micro)</p>
             </CardContent>
           </Card>
