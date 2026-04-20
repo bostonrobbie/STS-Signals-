@@ -7,6 +7,7 @@
 
 import { Resend } from "resend";
 import { ENV } from "../_core/env";
+import { outboundCommsEnabled } from "../_core/commsGuard";
 
 // Initialize Resend client (will be null if API key not configured)
 let resendClient: Resend | null = null;
@@ -16,6 +17,25 @@ function getResendClient(): Resend | null {
     resendClient = new Resend(ENV.RESEND_API_KEY);
   }
   return resendClient;
+}
+
+// ── Per-recipient rate limit ────────────────────────────────────────────
+// Prevents the "retry queue replays and the same user gets 5 emails for
+// the same signal" failure mode. Max N emails to the same (to, subject)
+// pair per window. In-memory, per-process; restart resets the window.
+const EMAIL_RATE_WINDOW_MS = 5 * 60 * 1000;
+const EMAIL_RATE_LIMIT_PER_WINDOW = 3;
+const sentEmailLog = new Map<string, number[]>(); // key → timestamps
+
+function isRateLimited(to: string, subject: string): boolean {
+  const key = `${to.toLowerCase()}|${subject.slice(0, 80)}`;
+  const now = Date.now();
+  const cutoff = now - EMAIL_RATE_WINDOW_MS;
+  const prior = (sentEmailLog.get(key) || []).filter(ts => ts > cutoff);
+  if (prior.length >= EMAIL_RATE_LIMIT_PER_WINDOW) return true;
+  prior.push(now);
+  sentEmailLog.set(key, prior);
+  return false;
 }
 
 export interface EmailOptions {
@@ -46,6 +66,31 @@ export async function sendEmail(options: EmailOptions): Promise<EmailResult> {
       error:
         "Email service not configured. Please add RESEND_API_KEY to environment variables.",
     };
+  }
+
+  // SAFETY-NET: global kill switch. OUTBOUND_COMMS_ENABLED=false → no
+  // email ever leaves, regardless of the sender's intent. Set this
+  // before any Manus staging / test work that could trigger prod
+  // notifications via shared infrastructure.
+  if (!outboundCommsEnabled()) {
+    console.warn(
+      "[Email] OUTBOUND_COMMS_ENABLED=false — email suppressed:",
+      options.subject
+    );
+    return { success: false, error: "OUTBOUND_COMMS_ENABLED is false" };
+  }
+
+  // SAFETY-NET: per-recipient rate limit. Max 3 emails to the same
+  // (recipient, subject) pair per 5 minutes. Catches the retry-storm
+  // incident pattern (1 signal → retry queue → 5 emails).
+  const toArr = Array.isArray(options.to) ? options.to : [options.to];
+  for (const addr of toArr) {
+    if (isRateLimited(addr, options.subject)) {
+      console.warn(
+        `[Email] Rate-limited to ${addr} for subject "${options.subject.slice(0, 60)}" — email suppressed`
+      );
+      return { success: false, error: "rate_limited" };
+    }
   }
 
   try {

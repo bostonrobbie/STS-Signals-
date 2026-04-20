@@ -42,6 +42,7 @@ import {
 import { InsertWebhookLog, InsertOpenPosition } from "../drizzle/schema";
 import { notifyOwnerAsync } from "./_core/notification";
 import { broadcastTradeNotification } from "./sseNotifications";
+import { decideSubscriberNotify } from "./_core/commsGuard";
 import {
   calculateUserPositionSize,
   calculatePositionSize,
@@ -860,7 +861,29 @@ async function handleEntrySignal(
   const isProductionStrategy = PRODUCTION_PREFIXES.some(prefix =>
     payload.strategySymbol.toUpperCase().startsWith(prefix)
   );
-  if (!payload.isTest && isProductionStrategy) {
+
+  // SAFETY-NET: central comms-guard. Blocks email+SSE if:
+  //   (a) OUTBOUND_COMMS_ENABLED env is false,
+  //   (b) strategy symbol starts with TEST-/STAGING-/DEV-/SANDBOX-,
+  //   (c) payload.isTest is true, OR
+  //   (d) same signal fingerprint fired in the last 60s (prevents
+  //       the "test env fires then retry fires again" double-alert
+  //       incident pattern).
+  const commsDecision = decideSubscriberNotify({
+    strategySymbol: payload.strategySymbol,
+    direction: payload.direction,
+    signalType: "entry",
+    price: payload.price,
+    timestamp: payload.timestamp,
+    isTest: payload.isTest,
+  });
+  if (!commsDecision.allowed) {
+    console.log(
+      `[Webhook] Entry notifications suppressed for ${payload.strategySymbol} — ${commsDecision.reason}`
+    );
+  }
+
+  if (commsDecision.allowed && isProductionStrategy) {
     // Fire and forget - don't await
     Promise.resolve().then(async () => {
       try {
@@ -1144,7 +1167,24 @@ async function handleExitSignal(
   const isExitProductionStrategy = EXIT_PRODUCTION_PREFIXES.some(prefix =>
     payload.strategySymbol.toUpperCase().startsWith(prefix)
   );
-  if (!payload.isTest && isExitProductionStrategy) {
+
+  // SAFETY-NET: same central guard as the entry path. Catches
+  // kill-switch + test-prefix + dedupe.
+  const exitCommsDecision = decideSubscriberNotify({
+    strategySymbol: payload.strategySymbol,
+    direction,
+    signalType: "exit",
+    price: payload.price,
+    timestamp: payload.timestamp,
+    isTest: payload.isTest,
+  });
+  if (!exitCommsDecision.allowed) {
+    console.log(
+      `[Webhook] Exit notifications suppressed for ${payload.strategySymbol} — ${exitCommsDecision.reason}`
+    );
+  }
+
+  if (exitCommsDecision.allowed && isExitProductionStrategy) {
     // Fire and forget - don't await
     Promise.resolve().then(() => {
       try {
