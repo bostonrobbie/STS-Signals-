@@ -8,7 +8,11 @@ declare global {
   }
 }
 
-const GA_MEASUREMENT_ID = "G-LVFVPLWCVP";
+// GA4 measurement ID. Read from Vite env at build time so staging/prod can
+// point at different GA properties without a code change. Falls back to the
+// original production ID if the var is unset (keeps existing deploys working).
+const GA_MEASUREMENT_ID =
+  import.meta.env.VITE_GA4_MEASUREMENT_ID || "G-LVFVPLWCVP";
 
 // ─── Funnel step definitions ────────────────────────────────────────────────
 // These map directly to the GA4 Funnel Exploration report steps.
