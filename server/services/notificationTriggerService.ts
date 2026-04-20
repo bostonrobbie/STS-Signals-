@@ -288,6 +288,7 @@ export async function generateDailyDigest(userId: number): Promise<void> {
   today.setHours(0, 0, 0, 0);
 
   // Get today's trades
+  // SAFETY-NET: exclude test trades from subscriber digests.
   const todaysTrades = await db
     .select({
       count: sql<number>`COUNT(*)`,
@@ -295,18 +296,18 @@ export async function generateDailyDigest(userId: number): Promise<void> {
       winners: sql<number>`SUM(CASE WHEN pnl > 0 THEN 1 ELSE 0 END)`,
     })
     .from(trades)
-    .where(sql`exit_time >= ${today}`);
+    .where(sql`exit_time >= ${today} AND is_test = 0`);
 
   const tradeCount = todaysTrades[0]?.count ?? 0;
   const totalPnl = todaysTrades[0]?.totalPnl ?? 0;
   const winners = todaysTrades[0]?.winners ?? 0;
   const winRate = tradeCount > 0 ? (winners / tradeCount) * 100 : 0;
 
-  // Get open positions count
+  // Get open positions count (production only)
   const openPositionsResult = await db
     .select({ count: sql<number>`COUNT(*)` })
     .from(openPositions)
-    .where(eq(openPositions.status, 'open'));
+    .where(and(eq(openPositions.status, 'open'), eq(openPositions.isTest, 0)));
 
   const openPositionsCount = openPositionsResult[0]?.count ?? 0;
 

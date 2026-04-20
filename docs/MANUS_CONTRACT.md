@@ -12,6 +12,13 @@ code to match. Do not make assumptions — verify against current prod.
 Last verified against prod: **2026-04-20** (see `docs/DATA_INTEGRITY_AUDIT.md`
 for how to re-verify).
 
+**Manual-migration note:** `drizzle/manual/*.sql` files exist for schema
+changes that can't flow through `drizzle-kit migrate` on Manus's build
+(because Manus's deploy does not reliably run post-deploy hooks). They
+are idempotent (safe to re-run) and must be applied once per migration
+by hand against the Manus prod DB. See `drizzle/manual/README.md` for
+the list and instructions.
+
 ---
 
 ## 1. What Manus hosts / owns
@@ -136,7 +143,7 @@ alerts, then a retry fired duplicate alerts. Root causes suspected:
 2. Shared webhook retry queue
 3. Shared Resend / SSE broadcast state
 
-**Our mitigations in code (as of safety-nets-staging-isolation branch):**
+**Our mitigations in code (as of safety-nets-persistent-dedupe branch):**
 
 - `OUTBOUND_COMMS_ENABLED=false` env flip = no outbound comms at all.
   Use before every test session on Manus.
@@ -145,8 +152,17 @@ alerts, then a retry fired duplicate alerts. Root causes suspected:
 - Signal dedupe by fingerprint (strategy+direction+price+60s bucket).
   The same signal cannot fire twice within a minute, defeating the
   retry-storm pattern from the incident.
+  - DB-backed (`signal_fingerprints` table) is the primary path —
+    survives restarts and works across replicas.
+  - In-memory fallback if the table doesn't exist yet.
 - Per-recipient email rate limit (3/5min per subject). Even if a
   retry escapes dedupe, a user can't receive 5 emails for 1 signal.
+- Kill-switch health monitor: if `OUTBOUND_COMMS_ENABLED=false` for
+  >60 minutes, logs every 10 minutes and the admin-dashboard banner
+  turns red. Prevents Rob from forgetting to flip the switch back.
+- `getTrades()` + `getTradeSourceBreakdown()` + daily-digest query
+  default to `isTest = 0` — a missing isTest filter was the specific
+  leak vector called out in the incident runbook §"shared DB breach".
 
 ## 8. Manus features we RELY on
 

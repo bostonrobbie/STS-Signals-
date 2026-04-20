@@ -37,6 +37,8 @@ import {
   waitForActiveRequests,
   getActiveRequestCount,
 } from "./connectionMiddleware";
+import { startKillSwitchMonitor } from "../services/killSwitchMonitor";
+import { reapExpiredFingerprints } from "./commsGuard";
 
 // Server state tracking
 let httpServer: Server | null = null;
@@ -104,6 +106,27 @@ function livelinessCheckHandler(_req: express.Request, res: express.Response) {
 async function startServer() {
   // Initialize Sentry before anything else
   initSentry();
+
+  // Start the kill-switch health monitor so if OUTBOUND_COMMS_ENABLED
+  // is left off for >60 minutes we surface a warning to admin UI and
+  // log it loudly every 10 minutes. See services/killSwitchMonitor.ts.
+  startKillSwitchMonitor();
+
+  // Sweep expired signal-fingerprint rows once on boot, then every 6h.
+  // Keeps the signal_fingerprints table from growing unboundedly.
+  // No-op if DB not reachable / table missing.
+  reapExpiredFingerprints().catch(() => {
+    /* swallowed — commsGuard logs internally */
+  });
+  const fingerprintReaper = setInterval(
+    () => {
+      reapExpiredFingerprints().catch(() => {
+        /* swallowed */
+      });
+    },
+    6 * 60 * 60 * 1000
+  );
+  if (typeof fingerprintReaper.unref === "function") fingerprintReaper.unref();
 
   const app = express();
   httpServer = createServer(app);

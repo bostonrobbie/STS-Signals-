@@ -869,7 +869,7 @@ async function handleEntrySignal(
   //   (d) same signal fingerprint fired in the last 60s (prevents
   //       the "test env fires then retry fires again" double-alert
   //       incident pattern).
-  const commsDecision = decideSubscriberNotify({
+  const commsDecision = await decideSubscriberNotify({
     strategySymbol: payload.strategySymbol,
     direction: payload.direction,
     signalType: "entry",
@@ -1170,7 +1170,7 @@ async function handleExitSignal(
 
   // SAFETY-NET: same central guard as the entry path. Catches
   // kill-switch + test-prefix + dedupe.
-  const exitCommsDecision = decideSubscriberNotify({
+  const exitCommsDecision = await decideSubscriberNotify({
     strategySymbol: payload.strategySymbol,
     direction,
     signalType: "exit",
