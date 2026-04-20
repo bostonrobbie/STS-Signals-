@@ -82,6 +82,7 @@ import { useLocation, useSearch } from "wouter";
 import { WebhookSimulator } from "@/components/WebhookSimulator";
 import { PositionManager } from "@/components/PositionManager";
 import { WebhookAlertMonitor } from "@/components/WebhookAlertMonitor";
+import { KillSwitchBanner } from "@/components/KillSwitchBanner";
 import {
   TradeSourceBreakdown,
   WebhookSignalPerformance,
@@ -156,6 +157,10 @@ export default function Admin() {
 
   return (
     <div className="space-y-4 sm:space-y-6">
+      {/* Kill-switch banner — only renders when OUTBOUND_COMMS_ENABLED=false.
+          Prevents the "forgot to flip it back" incident pattern. */}
+      <KillSwitchBanner />
+
       {/* Header with Admin Badge - Mobile Optimized */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 px-1 sm:px-0">
         <div className="flex items-center gap-3">
