@@ -50,6 +50,8 @@ const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const BusinessDashboard = lazy(
   () => import("./pages/admin/BusinessDashboard")
 );
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
 
 // Loading fallback component
 function PageLoader() {
@@ -154,6 +156,24 @@ function Router() {
           component={() => (
             <Suspense fallback={<PageLoader />}>
               <HowItWorks />
+            </Suspense>
+          )}
+        />
+
+        <Route
+          path="/blog"
+          component={() => (
+            <Suspense fallback={<PageLoader />}>
+              <Blog />
+            </Suspense>
+          )}
+        />
+
+        <Route
+          path="/blog/:slug"
+          component={() => (
+            <Suspense fallback={<PageLoader />}>
+              <BlogPost />
             </Suspense>
           )}
         />

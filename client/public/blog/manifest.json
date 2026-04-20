@@ -1,0 +1,29 @@
+{
+  "$schema": "https://stsdashboard.com/blog/manifest.schema.json",
+  "posts": [
+    {
+      "slug": "how-to-trade-nq-futures-signals",
+      "title": "How to Trade NQ Futures Signals: A Systematic Approach",
+      "excerpt": "A step-by-step guide to trading Nasdaq-100 E-mini futures using a systematic, rules-based approach. Covers what NQ signals are, how to execute them, position sizing, risk management, and what to expect from a real 15-year track record.",
+      "author": "Rob Gorham",
+      "publishedAt": "2026-04-18",
+      "updatedAt": "2026-04-18",
+      "category": "education",
+      "tags": [
+        "nq futures",
+        "trading signals",
+        "systematic trading",
+        "education"
+      ],
+      "readingMinutes": 9,
+      "ogImage": "/portfolio-preview.webp",
+      "keywords": [
+        "how to trade nq futures signals",
+        "nq signals guide",
+        "systematic nq trading",
+        "nq futures strategy"
+      ]
+    }
+  ],
+  "lastUpdated": "2026-04-18T00:00:00Z"
+}

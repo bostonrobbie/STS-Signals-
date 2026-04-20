@@ -36,6 +36,22 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Blog index - weekly recaps + how-to content. High crawl priority. -->
+  <url>
+    <loc>https://stsdashboard.com/blog</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog post: How to trade NQ futures signals (primary education) -->
+  <url>
+    <loc>https://stsdashboard.com/blog/how-to-trade-nq-futures-signals</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- FAQ / Q&A - high value for YMYL rich snippets -->
   <url>
     <loc>https://stsdashboard.com/qa</loc>
