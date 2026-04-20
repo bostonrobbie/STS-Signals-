@@ -52,6 +52,14 @@ const BusinessDashboard = lazy(
 );
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const CompareSignalStack = lazy(
+  () => import("./pages/compare/SignalStack")
+);
+const CompareTradersPost = lazy(
+  () => import("./pages/compare/TradersPost")
+);
+const CompareGeneric = lazy(() => import("./pages/compare/Generic"));
+const ImportTrades = lazy(() => import("./pages/admin/ImportTrades"));
 
 // Loading fallback component
 function PageLoader() {
@@ -179,11 +187,49 @@ function Router() {
         />
 
         <Route
+          path="/compare/signalstack"
+          component={() => (
+            <Suspense fallback={<PageLoader />}>
+              <CompareSignalStack />
+            </Suspense>
+          )}
+        />
+
+        <Route
+          path="/compare/traderspost"
+          component={() => (
+            <Suspense fallback={<PageLoader />}>
+              <CompareTradersPost />
+            </Suspense>
+          )}
+        />
+
+        <Route
+          path="/compare/discord-signal-services"
+          component={() => (
+            <Suspense fallback={<PageLoader />}>
+              <CompareGeneric />
+            </Suspense>
+          )}
+        />
+
+        <Route
           path="/admin/business"
           component={() => (
             <DashboardLayout>
               <Suspense fallback={<PageLoader />}>
                 <BusinessDashboard />
+              </Suspense>
+            </DashboardLayout>
+          )}
+        />
+
+        <Route
+          path="/admin/import"
+          component={() => (
+            <DashboardLayout>
+              <Suspense fallback={<PageLoader />}>
+                <ImportTrades />
               </Suspense>
             </DashboardLayout>
           )}

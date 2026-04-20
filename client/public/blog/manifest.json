@@ -2,6 +2,31 @@
   "$schema": "https://stsdashboard.com/blog/manifest.schema.json",
   "posts": [
     {
+      "slug": "what-a-valid-15-year-futures-backtest-looks-like",
+      "title": "What a Valid 15-Year Futures Backtest Actually Looks Like",
+      "excerpt": "Most retail traders have never seen a legitimate long-running futures backtest. This is the full STS Futures 15-year record (7,960 trades) with year-by-year returns, drawdown, and the years that lost money. Plus five questions to demand from any signal service.",
+      "author": "Rob Gorham",
+      "publishedAt": "2026-04-18",
+      "updatedAt": "2026-04-18",
+      "category": "methodology",
+      "tags": [
+        "nq futures",
+        "backtesting",
+        "systematic trading",
+        "methodology",
+        "transparency"
+      ],
+      "readingMinutes": 8,
+      "ogImage": "/portfolio-preview.webp",
+      "keywords": [
+        "15 year futures backtest",
+        "nq futures backtest",
+        "valid backtest",
+        "futures strategy track record",
+        "systematic trading backtest"
+      ]
+    },
+    {
       "slug": "how-to-trade-nq-futures-signals",
       "title": "How to Trade NQ Futures Signals: A Systematic Approach",
       "excerpt": "A step-by-step guide to trading Nasdaq-100 E-mini futures using a systematic, rules-based approach. Covers what NQ signals are, how to execute them, position sizing, risk management, and what to expect from a real 15-year track record.",

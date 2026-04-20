@@ -52,6 +52,34 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Blog post: Valid 15-year futures backtest methodology -->
+  <url>
+    <loc>https://stsdashboard.com/blog/what-a-valid-15-year-futures-backtest-looks-like</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Competitor comparison pages - high intent + AEO value -->
+  <url>
+    <loc>https://stsdashboard.com/compare/signalstack</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stsdashboard.com/compare/traderspost</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stsdashboard.com/compare/discord-signal-services</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- FAQ / Q&A - high value for YMYL rich snippets -->
   <url>
     <loc>https://stsdashboard.com/qa</loc>
