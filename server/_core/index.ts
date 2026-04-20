@@ -10,6 +10,7 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite, closeVite } from "./vite";
 import { seoRouter } from "../seoRoutes";
+import { rssRouter } from "../rssRoute";
 import {
   registerSSEClient,
   getConnectedClientCount,
@@ -144,6 +145,7 @@ async function startServer() {
   // SEO routes - serve curated robots.txt and sitemap.xml before any other middleware
   // This overrides the auto-generated versions from the hosting infrastructure
   app.use(seoRouter);
+  app.use(rssRouter);
 
   // Health check endpoints (before rate limiting and body parser for minimal overhead)
   app.get("/api/health", healthCheckHandler);

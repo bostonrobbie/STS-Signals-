@@ -215,12 +215,33 @@ function renderMarkdown(md: string): string {
   return out.join("\n");
 }
 
+// Pick up to 3 related posts based on overlapping tags/category; fall back
+// to most-recent posts if no overlap. Never returns the current post.
+function pickRelated(all: BlogPost[], current: BlogPost, max = 3): BlogPost[] {
+  const others = all.filter(p => p.slug !== current.slug);
+  const currentTags = new Set(current.tags ?? []);
+  const scored = others.map(p => {
+    const overlap = (p.tags ?? []).filter(t => currentTags.has(t)).length;
+    const sameCategory = p.category === current.category ? 1 : 0;
+    return { post: p, score: overlap * 2 + sameCategory };
+  });
+  scored.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return (
+      new Date(b.post.publishedAt).getTime() -
+      new Date(a.post.publishedAt).getTime()
+    );
+  });
+  return scored.slice(0, max).map(s => s.post);
+}
+
 export default function BlogPost() {
   const [, params] = useRoute<{ slug: string }>("/blog/:slug");
   const slug = params?.slug;
 
   const [post, setPost] = useState<BlogPost | null>(null);
   const [html, setHtml] = useState<string | null>(null);
+  const [related, setRelated] = useState<BlogPost[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -229,12 +250,14 @@ export default function BlogPost() {
       try {
         const manifestRes = await fetch("/blog/manifest.json");
         const manifest = await manifestRes.json();
-        const found = (manifest.posts as BlogPost[]).find(p => p.slug === slug);
+        const all = manifest.posts as BlogPost[];
+        const found = all.find(p => p.slug === slug);
         if (!found) {
           setError("Post not found");
           return;
         }
         setPost(found);
+        setRelated(pickRelated(all, found, 3));
         const mdRes = await fetch(`/blog/${slug}.md`);
         if (!mdRes.ok) {
           setError(`Failed to load post content (${mdRes.status})`);
@@ -355,6 +378,35 @@ export default function BlogPost() {
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </article>
+
+        {related.length > 0 && (
+          <aside className="mt-16 pt-8 border-t">
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-4">
+              Keep reading
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {related.map(r => (
+                <Link key={r.slug} href={`/blog/${r.slug}`}>
+                  <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
+                    <CardContent className="p-4">
+                      {r.category && (
+                        <p className="text-[10px] font-semibold tracking-wide uppercase text-emerald-600 dark:text-emerald-400 mb-1.5">
+                          {r.category}
+                        </p>
+                      )}
+                      <h3 className="font-semibold text-sm mb-1.5 line-clamp-2">
+                        {r.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground line-clamp-2">
+                        {r.excerpt}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </aside>
+        )}
 
         <div className="mt-16 pt-8 border-t">
           <Card className="bg-gradient-to-br from-emerald-600 to-cyan-700 text-white border-0">

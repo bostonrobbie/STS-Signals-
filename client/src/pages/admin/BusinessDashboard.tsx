@@ -97,6 +97,20 @@ export default function BusinessDashboard() {
   const recentTrades =
     (overview.data?.recentTrades as any[] | undefined) ?? [];
 
+  // NEW: live business metrics from adminBusiness router
+  const subscriberSnapshot = trpc.adminBusiness.subscriberSnapshot.useQuery();
+  const newSignups = trpc.adminBusiness.newSignups.useQuery({
+    days: period.days,
+  });
+  const webhookHealth = trpc.adminBusiness.webhookHealth.useQuery({
+    days: period.days,
+  });
+  const retryStats = trpc.adminBusiness.retryQueueStats.useQuery();
+  const recentSignups = trpc.adminBusiness.recentSignups.useQuery({
+    limit: 10,
+  });
+  const churn = trpc.adminBusiness.churn.useQuery({ days: period.days });
+
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
@@ -133,39 +147,63 @@ export default function BusinessDashboard() {
           </div>
         </div>
 
-        {/* ── ROW 1: Revenue & subscriber KPIs (stubs until admin.businessStats wired) ── */}
+        {/* ── ROW 1: Revenue & subscriber KPIs (LIVE via adminBusiness router) ── */}
         <section className="mb-6">
           <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">
             Revenue & Subscribers
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <DashboardStub
+            <KpiCard
               icon={<DollarSign className="w-4 h-4" />}
-              title="MRR (Monthly Recurring)"
-              summary="Active subscribers × $50. Will pull from Stripe + the users table once the admin.businessStats tRPC endpoint is live."
-              source="Stripe + users table"
-              envHint="needs server/routers/adminBusiness.ts"
+              label="MRR"
+              value={
+                subscriberSnapshot.isLoading
+                  ? "…"
+                  : `$${(subscriberSnapshot.data?.mrrUsd ?? 0).toLocaleString()}`
+              }
+              sub={`${subscriberSnapshot.data?.activeSubscribers ?? 0} active × $${50}/mo`}
+              tone="good"
             />
-            <DashboardStub
+            <KpiCard
               icon={<Users className="w-4 h-4" />}
-              title="Active Subscribers"
-              summary="Count of users with subscriptionStatus='active'. Same endpoint as MRR."
-              source="users table"
-              envHint="needs admin.businessStats"
+              label="Active Subscribers"
+              value={
+                subscriberSnapshot.isLoading
+                  ? "…"
+                  : (subscriberSnapshot.data?.activeSubscribers ?? 0).toLocaleString()
+              }
+              sub={`${subscriberSnapshot.data?.totalUsers ?? 0} total users · ${subscriberSnapshot.data?.pastDueSubscribers ?? 0} past-due`}
             />
-            <DashboardStub
+            <KpiCard
               icon={<UserPlus className="w-4 h-4" />}
-              title={`New This ${period.label}`}
-              summary="Signups created in the selected window. One query on users.createdAt."
-              source="users table"
-              envHint="needs admin.businessStats"
+              label={`New This ${period.label}`}
+              value={
+                newSignups.isLoading
+                  ? "…"
+                  : (newSignups.data?.newUsers ?? 0).toLocaleString()
+              }
+              sub={`${newSignups.data?.newPaidSubscribers ?? 0} of those now paid`}
             />
-            <DashboardStub
+            <KpiCard
               icon={<TrendingUp className="w-4 h-4" />}
-              title="Signup → Paid Conversion"
-              summary="% of signups in the window who reached an active subscription. Join users × payment_history."
-              source="users × payment_history"
-              envHint="needs admin.businessStats"
+              label="Signup → Paid"
+              value={
+                newSignups.isLoading
+                  ? "…"
+                  : `${newSignups.data?.signupToPaidConversionPct ?? 0}%`
+              }
+              sub={
+                churn.data
+                  ? `Churn ${churn.data.churnRatePct}% in ${period.label}`
+                  : "conversion rate in period"
+              }
+              tone={
+                (newSignups.data?.signupToPaidConversionPct ?? 0) >= 10
+                  ? "good"
+                  : (newSignups.data?.signupToPaidConversionPct ?? 0) >= 5
+                    ? "default"
+                    : "warn"
+              }
             />
           </div>
         </section>
@@ -213,19 +251,42 @@ export default function BusinessDashboard() {
               />
             )}
 
-            <DashboardStub
+            <KpiCard
               icon={<Activity className="w-4 h-4" />}
-              title="Webhook Success Rate"
-              summary="Successful vs failed webhook deliveries in the period. Query the webhook_logs table grouped by status."
-              source="webhook_logs"
-              envHint="needs admin.webhookHealth endpoint"
+              label="Webhook Success"
+              value={
+                webhookHealth.isLoading
+                  ? "…"
+                  : `${webhookHealth.data?.successRatePct ?? 100}%`
+              }
+              sub={`${webhookHealth.data?.successfulWebhooks ?? 0}/${webhookHealth.data?.totalWebhooks ?? 0} in ${period.label}`}
+              tone={
+                (webhookHealth.data?.successRatePct ?? 100) >= 95
+                  ? "good"
+                  : (webhookHealth.data?.successRatePct ?? 100) >= 90
+                    ? "default"
+                    : "warn"
+              }
             />
-            <DashboardStub
+            <KpiCard
               icon={<Layers className="w-4 h-4" />}
-              title="Pending Retries"
-              summary="Count of rows in webhook_retry_queue + dead_letter_queue. A non-zero dead-letter count means subscribers silently missed signals."
-              source="webhook_retry_queue"
-              envHint="needs admin.retryQueueStats endpoint"
+              label="Queue Depth"
+              value={
+                retryStats.isLoading
+                  ? "…"
+                  : (
+                      (retryStats.data?.pendingRetries ?? 0) +
+                      (retryStats.data?.deadLetter ?? 0)
+                    ).toLocaleString()
+              }
+              sub={`${retryStats.data?.pendingRetries ?? 0} retrying · ${retryStats.data?.deadLetter ?? 0} dead-letter`}
+              tone={
+                (retryStats.data?.deadLetter ?? 0) > 0
+                  ? "warn"
+                  : (retryStats.data?.pendingRetries ?? 0) > 5
+                    ? "default"
+                    : "good"
+              }
             />
             <Card>
               <CardHeader className="pb-2">
@@ -413,13 +474,66 @@ export default function BusinessDashboard() {
               </CardContent>
             </Card>
 
-            <DashboardStub
-              icon={<UserPlus className="w-4 h-4" />}
-              title="Recent Signups"
-              summary="Latest 10 users with email, signup date, first-touch channel from user_attribution, and subscription state. Reads from users + user_attribution tables."
-              source="users + user_attribution"
-              envHint="needs admin.recentSignups endpoint"
-            />
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-sm flex items-center gap-2">
+                  <UserPlus className="w-4 h-4" />
+                  Recent Signups
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {recentSignups.isLoading ? (
+                  <div className="space-y-2">
+                    {[1, 2, 3, 4].map(i => (
+                      <div
+                        key={i}
+                        className="animate-pulse h-7 bg-muted rounded"
+                      />
+                    ))}
+                  </div>
+                ) : (recentSignups.data ?? []).length > 0 ? (
+                  <div className="space-y-1 max-h-80 overflow-y-auto">
+                    {(recentSignups.data ?? []).map(u => {
+                      const when = u.createdAt
+                        ? new Date(u.createdAt)
+                        : null;
+                      return (
+                        <div
+                          key={u.id}
+                          className="flex items-center justify-between text-xs py-1 border-b last:border-0 gap-2"
+                        >
+                          <span className="truncate max-w-[200px]">
+                            {u.email || u.name || `user#${u.id}`}
+                          </span>
+                          <Badge
+                            variant={
+                              u.subscriptionStatus === "active"
+                                ? "default"
+                                : "outline"
+                            }
+                            className="text-[10px] font-normal shrink-0"
+                          >
+                            {u.subscriptionStatus || "free"}
+                          </Badge>
+                          <span className="text-muted-foreground text-[10px] shrink-0">
+                            {when
+                              ? when.toLocaleDateString("en-US", {
+                                  month: "short",
+                                  day: "numeric",
+                                })
+                              : "—"}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="text-sm text-muted-foreground">
+                    No signups yet.
+                  </div>
+                )}
+              </CardContent>
+            </Card>
           </div>
         </section>
 

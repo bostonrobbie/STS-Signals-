@@ -21,6 +21,7 @@ import * as dailyEquityCurve from "./core/dailyEquityCurve";
 import * as paperTrading from "./paperTradingService";
 import { stripeRouter } from "./stripe/stripeRouter";
 import { passwordRouter } from "./auth/passwordRouter";
+import { adminBusinessRouter } from "./routers/adminBusiness";
 import { positionSizingRouter } from "./positionSizingRouter";
 import { userPreferencesRouter } from "./userPreferencesRouter";
 import { cache, cacheKeys, cacheTTL } from "./cache";
@@ -73,6 +74,7 @@ export const appRouter = router({
   system: systemRouter,
   stripe: stripeRouter,
   auth: passwordRouter,
+  adminBusiness: adminBusinessRouter,
   positionSizing: positionSizingRouter,
   userPreferences: userPreferencesRouter,
 
