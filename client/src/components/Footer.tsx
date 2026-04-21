@@ -94,6 +94,13 @@ export function Footer() {
                 />
               </li>
               <li>
+                <Link href="/status">
+                  <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    System Status
+                  </a>
+                </Link>
+              </li>
+              <li>
                 <a
                   href="mailto:support@stsfutures.com"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
