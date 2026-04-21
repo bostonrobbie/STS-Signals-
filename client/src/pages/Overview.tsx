@@ -67,6 +67,16 @@ type TimeRange = "6M" | "YTD" | "1Y" | "3Y" | "5Y" | "10Y" | "ALL";
 export default function Overview() {
   const [timeRange, setTimeRange] = useState<TimeRange>("1Y");
 
+  // Mark the "Take a tour of the dashboard" onboarding step as done the
+  // first time a subscriber lands here. Cheap side-effect, runs once.
+  useEffect(() => {
+    try {
+      window.localStorage.setItem("sts.onboarding.dashboardSeen", "1");
+    } catch {
+      /* localStorage unavailable — skip */
+    }
+  }, []);
+
   // Theme-aware chart colors (auto-updates on light/dark toggle)
   const chartColors = useChartColors();
   // Locked to unleveraged strategy only

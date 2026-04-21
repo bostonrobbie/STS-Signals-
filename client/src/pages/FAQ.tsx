@@ -1,7 +1,7 @@
 import { SEOHead, SEO_CONFIG } from "@/components/SEOHead";
 import { Link } from "wouter";
 import { ChevronDown, ChevronUp, ArrowLeft } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Google Rich Results compliant FAQPage schema
 // Follows: https://developers.google.com/search/docs/appearance/structured-data/faqpage
@@ -111,6 +111,15 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
 }
 
 export default function FAQ() {
+  // Mark "Skim the FAQ" onboarding step complete on first visit.
+  useEffect(() => {
+    try {
+      window.localStorage.setItem("sts.onboarding.faqSeen", "1");
+    } catch {
+      /* localStorage unavailable */
+    }
+  }, []);
+
   return (
     <>
       <SEOHead {...SEO_CONFIG.qa} />
