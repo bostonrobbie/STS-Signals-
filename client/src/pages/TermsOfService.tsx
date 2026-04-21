@@ -1,10 +1,33 @@
 import DashboardLayout from "../components/DashboardLayout";
 import { Footer } from "../components/Footer";
+import { SEOHead, SEO_CONFIG } from "@/components/SEOHead";
+import { StructuredData, webPageSchema, breadcrumbSchema } from "@/components/StructuredData";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function TermsOfService() {
   return (
     <DashboardLayout>
+      <SEOHead {...SEO_CONFIG.terms} />
+      <StructuredData
+        id="terms-page"
+        data={webPageSchema({
+          name: "Terms of Service",
+          description: SEO_CONFIG.terms.description,
+          url: SEO_CONFIG.terms.canonical,
+          breadcrumb: breadcrumbSchema([
+            { name: "Home", url: "https://stsdashboard.com/" },
+            { name: "Terms of Service", url: SEO_CONFIG.terms.canonical },
+          ]),
+        })}
+      />
       <div className="max-w-4xl mx-auto py-12 px-4">
+        <Breadcrumbs
+          className="mb-6"
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Terms of Service", path: "/terms" },
+          ]}
+        />
         <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
 
         <div className="prose prose-invert max-w-none space-y-6">

@@ -1,10 +1,33 @@
 import DashboardLayout from "../components/DashboardLayout";
 import { Footer } from "../components/Footer";
+import { SEOHead, SEO_CONFIG } from "@/components/SEOHead";
+import { StructuredData, webPageSchema, breadcrumbSchema } from "@/components/StructuredData";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function PrivacyPolicy() {
   return (
     <DashboardLayout>
+      <SEOHead {...SEO_CONFIG.privacy} />
+      <StructuredData
+        id="privacy-page"
+        data={webPageSchema({
+          name: "Privacy Policy",
+          description: SEO_CONFIG.privacy.description,
+          url: SEO_CONFIG.privacy.canonical,
+          breadcrumb: breadcrumbSchema([
+            { name: "Home", url: "https://stsdashboard.com/" },
+            { name: "Privacy Policy", url: SEO_CONFIG.privacy.canonical },
+          ]),
+        })}
+      />
       <div className="max-w-4xl mx-auto py-12 px-4">
+        <Breadcrumbs
+          className="mb-6"
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Privacy Policy", path: "/privacy" },
+          ]}
+        />
         <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
 
         <div className="prose prose-invert max-w-none space-y-6">

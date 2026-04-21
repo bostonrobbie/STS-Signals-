@@ -1,4 +1,5 @@
 import { SEOHead, SEO_CONFIG } from "@/components/SEOHead";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Link } from "wouter";
 import { ChevronDown, ChevronUp, ArrowLeft } from "lucide-react";
 import { useState } from "react";
@@ -140,22 +141,16 @@ export default function FAQ() {
 
         {/* Hero */}
         <div className="container py-12 md:py-16 text-center">
-          <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-              <li>
-                <Link
-                  href="/"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li className="text-foreground font-medium" aria-current="page">
-                FAQ
-              </li>
-            </ol>
-          </nav>
+          {/* Breadcrumbs emit BreadcrumbList JSON-LD + visible nav.
+              The visible list is centered to match the hero alignment. */}
+          <div className="flex justify-center mb-6">
+            <Breadcrumbs
+              items={[
+                { name: "Home", path: "/" },
+                { name: "FAQ", path: "/qa" },
+              ]}
+            />
+          </div>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Frequently Asked Questions
           </h1>

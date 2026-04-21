@@ -1,10 +1,33 @@
 import DashboardLayout from "../components/DashboardLayout";
 import { Footer } from "../components/Footer";
+import { SEOHead, SEO_CONFIG } from "@/components/SEOHead";
+import { StructuredData, webPageSchema, breadcrumbSchema } from "@/components/StructuredData";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function RefundPolicy() {
   return (
     <DashboardLayout>
+      <SEOHead {...SEO_CONFIG.refund} />
+      <StructuredData
+        id="refund-page"
+        data={webPageSchema({
+          name: "Cancellation & Refund Policy",
+          description: SEO_CONFIG.refund.description,
+          url: SEO_CONFIG.refund.canonical,
+          breadcrumb: breadcrumbSchema([
+            { name: "Home", url: "https://stsdashboard.com/" },
+            { name: "Cancellation Policy", url: SEO_CONFIG.refund.canonical },
+          ]),
+        })}
+      />
       <div className="max-w-4xl mx-auto py-12 px-4">
+        <Breadcrumbs
+          className="mb-6"
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Cancellation Policy", path: "/refund-policy" },
+          ]}
+        />
         <h1 className="text-4xl font-bold mb-8">Cancellation Policy</h1>
 
         <div className="prose prose-invert max-w-none space-y-6">

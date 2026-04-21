@@ -1,10 +1,33 @@
 import DashboardLayout from "../components/DashboardLayout";
 import { Footer } from "../components/Footer";
+import { SEOHead, SEO_CONFIG } from "@/components/SEOHead";
+import { StructuredData, webPageSchema, breadcrumbSchema } from "@/components/StructuredData";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function Disclaimer() {
   return (
     <DashboardLayout>
+      <SEOHead {...SEO_CONFIG.disclaimer} />
+      <StructuredData
+        id="disclaimer-page"
+        data={webPageSchema({
+          name: "Disclaimer",
+          description: SEO_CONFIG.disclaimer.description,
+          url: SEO_CONFIG.disclaimer.canonical,
+          breadcrumb: breadcrumbSchema([
+            { name: "Home", url: "https://stsdashboard.com/" },
+            { name: "Disclaimer", url: SEO_CONFIG.disclaimer.canonical },
+          ]),
+        })}
+      />
       <div className="max-w-4xl mx-auto py-12 px-4">
+        <Breadcrumbs
+          className="mb-6"
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Disclaimer", path: "/disclaimer" },
+          ]}
+        />
         <h1 className="text-4xl font-bold mb-8">Disclaimer</h1>
 
         <div className="prose prose-invert max-w-none space-y-6">
