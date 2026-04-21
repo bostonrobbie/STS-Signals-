@@ -70,8 +70,30 @@ const queryClient = new QueryClient({
         // Retry up to 2 times for other errors
         return failureCount < 2;
       },
-      staleTime: 5 * 60 * 1000, // 5 minutes
-      gcTime: 10 * 60 * 1000, // 10 minutes (formerly cacheTime)
+      // Default 5-minute stale window. Most queries on the dashboard
+      // are slow-moving (trade history, strategy metadata, equity
+      // curves over months/years). Per-query overrides can shorten
+      // this for endpoints that need fresher data (admin telemetry,
+      // status panels, signal log) and lengthen it for static data.
+      staleTime: 5 * 60 * 1000,
+      // Garbage-collect cached results 30 minutes after the last
+      // observer unmounts. Was 10 min — bumping to 30 means a
+      // dashboard tab the user briefly switches away from doesn't
+      // re-fetch on return.
+      gcTime: 30 * 60 * 1000,
+      // Don't refetch on window focus by default. The data is rarely
+      // stale enough in a 5-minute window for the refetch cost (network
+      // + render) to be worth it. Endpoints that DO need fresh-on-focus
+      // (Status, SafetyPanel) can opt in with refetchOnWindowFocus: true.
+      refetchOnWindowFocus: false,
+      // Keep network-tab quiet on reconnect — the periodic
+      // invalidateQueries() below handles stale data on reconnect.
+      refetchOnReconnect: "always",
+    },
+    mutations: {
+      // Mutations don't auto-retry — a dropped POST mid-flight could
+      // fire the same notification twice. Caller decides retry strategy.
+      retry: false,
     },
   },
 });
