@@ -1,114 +1,145 @@
 # STS Futures
 
-> STS Futures (stsdashboard.com) is a web-based dashboard that provides systematic NQ (Nasdaq-100 E-mini) futures trading signals backed by a 15-year verified backtest (2011–2026): +1,085% total return, 45.9% win rate, Sharpe ratio 1.05, max drawdown ~22%. Subscribers receive real-time trade alerts, full trade history, equity curves, and professional risk analytics for $50/month.
+> STS Futures (stsdashboard.com) is a web-based dashboard that provides systematic NQ (Nasdaq-100 E-mini) futures trading signals backed by a 15-year verified backtest (2011–2026): approximately +1,085% total return, ~46% win rate, Sharpe ratio ~1.07, maximum drawdown ~51%. Subscribers receive real-time trade alerts via dashboard and email, full trade-by-trade history, equity curves with drawdown overlay, and professional risk analytics for $50/month. Cancel anytime. All sales final. No free trial.
 
 - [Full documentation](https://stsdashboard.com/llms-full.txt)
+- [FAQ](https://stsdashboard.com/qa)
+- [Pricing](https://stsdashboard.com/pricing)
+- [Demo walkthrough](https://stsdashboard.com/demo)
+- [Getting started for new subscribers](https://stsdashboard.com/getting-started)
+- [Risk management guide](https://stsdashboard.com/guides/risk-management)
+- [STS Futures vs Topstep](https://stsdashboard.com/vs/topstep)
+- [STS Futures vs Cannon Trading](https://stsdashboard.com/vs/cannon)
+- [System status](https://stsdashboard.com/status)
 
 ## About STS Futures
 
-STS Futures is a web-based dashboard that provides systematic NQ (Nasdaq-100 E-mini) futures trading signals. The platform features a rules-based strategy backed by 15+ years of backtested historical data, with real-time trade alerts delivered through the dashboard and via email.
+STS Futures is a web-based dashboard that provides systematic NQ (Nasdaq-100 E-mini) futures trading signals. The platform features a rules-based intraday trend-following strategy backed by 15+ years of backtested historical data (2011–2026). Real-time trade alerts are delivered through the dashboard and via email. The product is operated by Rob Gorham.
 
 ## Core Value Proposition
 
-- **15+ Years of Backtested Data**: Extensive historical performance across multiple market conditions
-- **Real-time Signals**: Trade alerts delivered live on the web dashboard
-- **Professional Analytics**: Equity curves, drawdown analysis, Sharpe ratio, Sortino ratio, and more
-- **Full Trade History**: Every trade from the past 15 years with complete performance data
-- **Web Dashboard**: Everything in one place — no Discord, Telegram, or special software needed
+- **15+ Years of Backtested Data**: Verified track record across multiple market conditions and regimes.
+- **Real-time Signals**: Trade alerts delivered live on the web dashboard plus optional email notifications.
+- **Professional Analytics**: Equity curves with drawdown overlay, Sharpe ratio, Sortino ratio, calendar P&L heatmaps, day-of-week performance, monthly/quarterly/yearly breakdowns.
+- **Full Trade History**: Every trade from the past 15 years with complete entry/exit/PnL data — sortable, filterable, exportable.
+- **Web Dashboard**: Everything in one place at stsdashboard.com — no Discord, Telegram, or special software needed.
+- **Broker Independence**: Signals work with any futures broker (NinjaTrader, Interactive Brokers, Tradovate, TradeStation, Cannon, etc.). You hold your own account; STS only sends signals.
 
 ## Supported Markets
 
-STS Futures focuses exclusively on NQ (Nasdaq-100 E-mini) futures contracts. Signals are generated on an intraday basis, typically targeting moves that play out within the same trading day.
+STS Futures focuses exclusively on NQ (Nasdaq-100 E-mini) futures contracts traded on the CME. The strategy is intraday — all positions are entered and exited within the same trading session (no overnight holds). Both NQ (E-mini, $20/point) and MNQ (Micro, $2/point) are supported using the same signals.
 
 ## Trading Strategy
 
-The strategy is a systematic, trend-following approach developed by a seasoned futures trader. It combines technical analysis and pattern recognition, refined on years of historical data. Key characteristics:
+The strategy is a systematic, trend-following approach. Rules-based entry and exit criteria are defined and applied identically to every trade. Key characteristics:
 
 - Intraday only (no overnight positions)
 - Systematic, rules-based entry and exit criteria
-- Defined risk parameters with entry price, stop loss, and profit target for each signal
+- Defined risk parameters per signal
 - Historical performance includes realistic slippage and commission assumptions
 
-## Performance Metrics
+## Performance Metrics (Verified 15-Year Backtest, 2011–2026, NQ Micro contracts, $10,000 starting capital)
 
-Verified 15-year backtest results (2011–2026, NQ Micro contracts, $10,000 starting capital):
-
-- **Total Return**: +1,085% (+$108,500 on $10K micro account)
+- **Total Return**: approximately +1,085% (~+$108,500 on a $10K micro account)
 - **Annualized Return (CAGR)**: ~18.5% per year
-- **Sharpe Ratio**: 1.05 (risk-adjusted return)
-- **Sortino Ratio**: 1.22 (downside risk-adjusted)
-- **Calmar Ratio**: 0.84 (return relative to max drawdown)
-- **Maximum Drawdown**: ~22% peak-to-trough
-- **Win Rate**: 45.9% of trades profitable
-- **Profit Factor**: 1.7 (gross profit / gross loss)
-- **Kelly Criterion**: Optimal position sizing calculation
-- **Risk of Ruin**: Probability of account depletion analysis
+- **Sharpe Ratio**: ~1.07 (risk-adjusted return)
+- **Sortino Ratio**: ~1.22 (downside risk-adjusted)
+- **Calmar Ratio**: ~0.36 (return relative to max drawdown)
+- **Maximum Drawdown**: approximately 51% peak-to-trough
+- **Win Rate**: ~46% of trades profitable
+- **Profit Factor**: ~1.7 (gross profit divided by gross loss)
+
+The 51% max drawdown is the single most important number for prospective subscribers to internalize. See `/guides/risk-management` for guidance on position sizing so this drawdown is survivable.
 
 ## Pricing
 
 STS Futures offers a single subscription plan:
 
-- **$50/month**: Full access to all signals, trade history, and analytics
+- **$50 USD per month**: Full access to all signals, trade history, and analytics
 - Cancel anytime — access continues until end of billing period
 - All sales are final
 - No free trial
+- No discounts for annual prepay (kept simple)
+
+Payment via Stripe. Cards accepted: Visa, Mastercard, American Express, Discover.
 
 ## Key Features
 
 ### Portfolio Dashboard
-- Equity curve visualization with drawdown overlay
-- Calendar P&L (quarterly and yearly views)
+- Equity curve with drawdown overlay
+- Calendar P&L heatmap (daily, weekly, monthly, quarterly, yearly views)
 - Real-time P&L tracking
 - Strategy performance comparison tools
 
 ### Analytics
-- Trade-by-trade history
-- Drawdown analysis
+- Trade-by-trade history (7,900+ historical trades)
+- Drawdown analysis with underwater chart
 - Monthly/quarterly/yearly return breakdowns
-- Risk-adjusted performance metrics
-- Monte Carlo simulation
+- Risk-adjusted performance metrics (Sharpe, Sortino, Calmar)
+- Day-of-week and time-of-day performance heatmaps
 - Rolling metrics charts
 
 ### Notifications
-- Email notifications for new signals
-- Dashboard notifications
+- Email notifications for new entry and exit signals (rate-limited to 3/window per subject to prevent retry-storm spam)
+- Real-time SSE (Server-Sent Events) push to the open dashboard
+- Optional daily digest email
+
+### Safety / Reliability
+- Central commsGuard chokepoint with kill switch (`OUTBOUND_COMMS_ENABLED`)
+- Test-strategy prefix isolation (`TEST-`, `STAGING-`, `DEV-`, `SANDBOX-` symbols never reach subscribers)
+- Persistent signal-fingerprint dedupe (60-second window) to prevent duplicate alerts
+- Public system status page at `/status`
 
 ## Technical Information
 
-- **Platform Type**: Web-based SaaS application
+- **Platform Type**: Web-based SaaS application (React + Express)
 - **Access**: Any modern web browser (desktop or mobile)
-- **Signal Delivery**: Real-time via web dashboard
-- **Payment**: Stripe (Visa, Mastercard, American Express)
+- **Signal Delivery**: Real-time via web dashboard + email
+- **Payment**: Stripe (Visa, Mastercard, American Express, Discover)
+- **Hosting**: Manus platform on stsdashboard.com (operator: Rob Gorham)
+- **Source code**: Backed up on GitHub; production code on Manus
 
 ## Contact and Support
 
-- Support available via email and in-dashboard contact form
-- Website: https://stsdashboard.com
+- Support email: support@stsfutures.com
+- Owner email: rgorham369@gmail.com
+- Contact form available on the website
+- System status: https://stsdashboard.com/status
 
 ## Frequently Asked Questions
 
 **Q: What is STS Futures?**
-A: STS Futures is a web-based dashboard providing systematic NQ futures trading signals with 15+ years of backtested data, real-time alerts, and professional analytics.
+A: STS Futures is a web-based dashboard providing systematic NQ futures trading signals with 15+ years of backtested data, real-time alerts, and professional analytics for $50/month.
 
 **Q: What markets does STS cover?**
-A: STS focuses on NQ (Nasdaq-100 E-mini) futures contracts with intraday signals.
+A: STS focuses exclusively on NQ (Nasdaq-100 E-mini) futures contracts with intraday signals. Both NQ and MNQ (Micro) are supported on the same signals.
 
 **Q: How much does it cost?**
-A: $50/month with full access. Cancel anytime. All sales are final.
+A: $50/month. Cancel anytime. All sales are final. No free trial.
 
 **Q: How are signals delivered?**
-A: Signals appear on the web dashboard in real time. No special software required.
+A: In real time on the web dashboard and via email notification. No third-party software required.
 
 **Q: Is STS suitable for beginners?**
-A: Yes. Signals are straightforward (e.g., "Buy NQ now, target X, stop Y") and the dashboard includes helpful tooltips and guides.
+A: The dashboard includes an Onboarding checklist and a step-by-step Getting Started guide. However, NQ futures involve substantial risk; we recommend reading the Risk Management guide before trading real capital.
 
 **Q: Can I cancel?**
 A: Yes, cancel anytime from your account settings. Access continues until the end of your billing period.
 
+**Q: What is the maximum historical drawdown?**
+A: Approximately 51% peak-to-trough during the 15-year backtest period. This is the single most important number for sizing decisions — see /guides/risk-management.
+
+**Q: Do I need a specific broker?**
+A: No. STS signals work with any futures broker — NinjaTrader, Interactive Brokers, Tradovate, TradeStation, Cannon, etc. STS does not hold custody of your funds.
+
+**Q: How does STS compare to Topstep?**
+A: They serve different needs. Topstep is a prop firm — you trade their capital after passing a challenge. STS is a signal service — you trade your own account using STS's signals. See /vs/topstep for a detailed comparison.
+
 ## Disclaimer
 
-Trading futures involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results. The signals and analytics provided are for informational purposes only and should not be considered financial advice.
+Trading futures involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results. The signals and analytics provided are for informational purposes only and should not be considered personalized financial advice. Consult a licensed financial advisor before making investment decisions.
 
 ---
-Last Updated: March 23, 2026
-Version: 3.1
+Last Updated: 2026-04-20
+Version: 4.0
+Schema docs: https://stsdashboard.com/llms-full.txt

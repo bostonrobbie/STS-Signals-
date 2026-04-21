@@ -1,16 +1,34 @@
 /* TEAM */
-Platform: STS Futures
-Site: https://stsdashboard.com
-Location: United States
+
+  Founder & operator: Rob Gorham
+  Contact: rgorham369@gmail.com / support@stsfutures.com
+  Platform: STS Futures
+  Site: https://stsdashboard.com
+  Location: United States
 
 /* THANKS */
-Built with: React, TypeScript, Tailwind CSS, tRPC
-Hosting: Manus Platform
-Analytics: Umami
+
+  Built with:
+  - React 19, Vite 7, TypeScript 5
+  - Tailwind CSS, shadcn/ui (Radix-backed primitives)
+  - Express, tRPC, Drizzle ORM, MySQL/TiDB, Resend, Stripe
+  - Recharts (analytics charts), Wouter (routing)
+  Hosting: Manus
+  Source: backed up to GitHub
 
 /* SITE */
-Last update: 2026/02/16
-Language: English
-Standards: HTML5, CSS3, ES6+
-Components: shadcn/ui
-Software: VS Code, Node.js, Vite
+
+  Last update: 2026-04-20
+  Standards: HTML5, CSS3, ES2022
+  Components: shadcn/ui (Radix-backed primitives)
+  Software: Vite + esbuild
+  Trading data: 15-year NQ futures backtest, ~7,900 trades
+
+/* MISSION */
+
+  Make systematic NQ futures signals approachable and verifiable for
+  individual traders. No black box. Every historical trade visible
+  in the dashboard. No upsell to bigger packages. Just one $50/month
+  product that does one thing.
+
+  See /llms-full.txt for the comprehensive knowledge base.

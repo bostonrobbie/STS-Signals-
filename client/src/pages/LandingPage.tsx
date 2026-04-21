@@ -296,9 +296,9 @@ export default function LandingPage() {
   return (
     <>
       <SEOHead {...SEO_CONFIG.home} />
-      <StructuredData data={productSchema} />
-      <StructuredData data={organizationSchema} />
-      <StructuredData data={faqSchema} />
+      <StructuredData id="product" data={productSchema} />
+      <StructuredData id="organization" data={organizationSchema} />
+      <StructuredData id="faq" data={faqSchema} />
 
       <div className="min-h-screen bg-background" role="main">
         {/* ── NAV ─────────────────────────────────────────────────────────── */}

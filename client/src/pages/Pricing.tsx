@@ -2,6 +2,8 @@ import { useState } from "react";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { SEOHead, SEO_CONFIG } from "@/components/SEOHead";
+import { StructuredData, productSchema } from "@/components/StructuredData";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { trackFunnelStep } from "@/lib/funnelTracking";
 import { trackGACTAClick } from "@/components/GoogleAnalytics";
 import { Button } from "@/components/ui/button";
@@ -73,6 +75,17 @@ export default function Pricing() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead {...SEO_CONFIG.pricing} />
+      {/* SoftwareApplication + Offer schema for the subscription —
+          surfaces price/availability in Google's product rich results
+          and helps AI assistants quote the price accurately. */}
+      <StructuredData id="pricing-product" data={productSchema} />
+      <Breadcrumbs
+        className="container py-3"
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Pricing", path: "/pricing" },
+        ]}
+      />
       {/* Header */}
       <div className="border-b border-border/50">
         <div className="container py-4">

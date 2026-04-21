@@ -5,14 +5,40 @@ interface SEOHeadProps {
   description: string;
   canonical?: string;
   ogImage?: string;
+  /**
+   * "website" for marketing pages, "article" for guides/blog posts,
+   * "product" for paid offerings.
+   */
   ogType?: "website" | "article" | "product";
   noindex?: boolean;
   keywords?: string;
+  /**
+   * Twitter Card type. "summary" (small image) is fine for FAQs and
+   * legal pages; "summary_large_image" is preferred for content pages
+   * with a meaningful OG image. Defaults to "summary_large_image".
+   */
+  twitterCard?: "summary" | "summary_large_image" | "app" | "player";
+  /** Optional published date (ISO 8601) — used when ogType="article". */
+  articlePublishedTime?: string;
+  /** Optional modified date — used when ogType="article". */
+  articleModifiedTime?: string;
+  /** Optional author name — used when ogType="article". */
+  articleAuthor?: string;
+  /** Topical section/category — used when ogType="article". */
+  articleSection?: string;
 }
 
 /**
- * SEOHead - Dynamic meta tag management for React SPA
- * Updates document head with page-specific SEO tags
+ * SEOHead — dynamic meta tag management for the React SPA.
+ *
+ * Responsible for: <title>, description, keywords, robots, canonical,
+ * Open Graph (og:*), Twitter Card (twitter:*), article-* tags when
+ * ogType="article", plus site-wide brand tags (og:site_name, og:locale).
+ *
+ * Pre-render middleware on the server injects breadcrumb + page-type
+ * structured-data so that search-engine crawlers receive complete HTML
+ * even when JS is disabled. Client-side this component still updates
+ * the head for in-app navigation and for crawlers that DO execute JS.
  */
 export function SEOHead({
   title,
@@ -22,33 +48,42 @@ export function SEOHead({
   ogType = "website",
   noindex = false,
   keywords,
+  twitterCard = "summary_large_image",
+  articlePublishedTime,
+  articleModifiedTime,
+  articleAuthor,
+  articleSection,
 }: SEOHeadProps) {
   useEffect(() => {
     // Update document title
     document.title = title;
 
-    // Helper to update or create meta tag
-    const setMetaTag = (selector: string, attribute: string, value: string) => {
+    // Helper to upsert a meta tag matched by selector.
+    const setMetaTag = (
+      selector: string,
+      attribute: string,
+      value: string | undefined
+    ) => {
+      if (value === undefined || value === null) return;
       let element = document.querySelector(selector);
       if (!element) {
         element = document.createElement("meta");
-        if (selector.includes("property=")) {
-          element.setAttribute(
-            "property",
-            selector.match(/property="([^"]+)"/)?.[1] || ""
-          );
-        } else if (selector.includes("name=")) {
-          element.setAttribute(
-            "name",
-            selector.match(/name="([^"]+)"/)?.[1] || ""
-          );
-        }
+        const propMatch = selector.match(/property="([^"]+)"/);
+        const nameMatch = selector.match(/name="([^"]+)"/);
+        if (propMatch) element.setAttribute("property", propMatch[1]);
+        else if (nameMatch) element.setAttribute("name", nameMatch[1]);
         document.head.appendChild(element);
       }
       element.setAttribute(attribute, value);
     };
 
-    // Helper to update or create link tag
+    // Remove a meta tag if present (used for switching away from
+    // article-only fields when navigating to non-article pages).
+    const removeMetaTag = (selector: string) => {
+      const el = document.querySelector(selector);
+      if (el) el.remove();
+    };
+
     const setLinkTag = (rel: string, href: string) => {
       let element = document.querySelector(`link[rel="${rel}"]`);
       if (!element) {
@@ -59,51 +94,118 @@ export function SEOHead({
       element.setAttribute("href", href);
     };
 
-    // Update meta description
+    // ── Core meta ─────────────────────────────────────────────────
     setMetaTag('meta[name="description"]', "content", description);
     setMetaTag('meta[name="title"]', "content", title);
-
-    // Update keywords if provided
     if (keywords) {
       setMetaTag('meta[name="keywords"]', "content", keywords);
     }
 
-    // Update robots if noindex
-    if (noindex) {
-      setMetaTag('meta[name="robots"]', "content", "noindex, nofollow");
-    }
+    // Robots
+    setMetaTag(
+      'meta[name="robots"]',
+      "content",
+      noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"
+    );
+    setMetaTag(
+      'meta[name="googlebot"]',
+      "content",
+      noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"
+    );
 
-    // Update Open Graph tags
+    // ── Open Graph ────────────────────────────────────────────────
     setMetaTag('meta[property="og:title"]', "content", title);
     setMetaTag('meta[property="og:description"]', "content", description);
     setMetaTag('meta[property="og:type"]', "content", ogType);
     setMetaTag('meta[property="og:image"]', "content", ogImage);
+    setMetaTag(
+      'meta[property="og:image:alt"]',
+      "content",
+      `${title} — STS Futures`
+    );
+    setMetaTag('meta[property="og:image:width"]', "content", "1200");
+    setMetaTag('meta[property="og:image:height"]', "content", "630");
+    setMetaTag('meta[property="og:site_name"]', "content", "STS Futures");
+    setMetaTag('meta[property="og:locale"]', "content", "en_US");
     if (canonical) {
       setMetaTag('meta[property="og:url"]', "content", canonical);
     }
 
-    // Update Twitter Card tags
+    // Article-only OG fields. Set when ogType="article", remove
+    // otherwise so stale tags don't linger across navigations.
+    if (ogType === "article") {
+      setMetaTag(
+        'meta[property="article:published_time"]',
+        "content",
+        articlePublishedTime
+      );
+      setMetaTag(
+        'meta[property="article:modified_time"]',
+        "content",
+        articleModifiedTime ?? articlePublishedTime
+      );
+      setMetaTag(
+        'meta[property="article:author"]',
+        "content",
+        articleAuthor ?? "Rob Gorham"
+      );
+      setMetaTag(
+        'meta[property="article:section"]',
+        "content",
+        articleSection
+      );
+      setMetaTag(
+        'meta[property="article:publisher"]',
+        "content",
+        "STS Futures"
+      );
+    } else {
+      removeMetaTag('meta[property="article:published_time"]');
+      removeMetaTag('meta[property="article:modified_time"]');
+      removeMetaTag('meta[property="article:author"]');
+      removeMetaTag('meta[property="article:section"]');
+      removeMetaTag('meta[property="article:publisher"]');
+    }
+
+    // ── Twitter Card ──────────────────────────────────────────────
+    setMetaTag('meta[name="twitter:card"]', "content", twitterCard);
     setMetaTag('meta[name="twitter:title"]', "content", title);
     setMetaTag('meta[name="twitter:description"]', "content", description);
     setMetaTag('meta[name="twitter:image"]', "content", ogImage);
+    setMetaTag(
+      'meta[name="twitter:image:alt"]',
+      "content",
+      `${title} — STS Futures`
+    );
+    // No twitter:site/twitter:creator handles are set yet — when an
+    // official @STSFutures Twitter exists, add them.
 
-    // Update canonical URL
+    // ── Canonical link ────────────────────────────────────────────
     if (canonical) {
       setLinkTag("canonical", canonical);
     }
 
-    // Cleanup function to reset to defaults when component unmounts
-    return () => {
-      // Reset to default values on unmount (optional)
-    };
-  }, [title, description, canonical, ogImage, ogType, noindex, keywords]);
+    // No cleanup-on-unmount; the next page mount will overwrite.
+  }, [
+    title,
+    description,
+    canonical,
+    ogImage,
+    ogType,
+    noindex,
+    keywords,
+    twitterCard,
+    articlePublishedTime,
+    articleModifiedTime,
+    articleAuthor,
+    articleSection,
+  ]);
 
-  return null; // This component doesn't render anything
+  return null; // No DOM render; this component is side-effect only.
 }
 
 // ─── Shared keyword bank ────────────────────────────────────────────────────
-// All keywords are legitimate, descriptive, and within Google's guidelines.
-// They describe what the page actually contains — no keyword stuffing.
+// All keywords describe what the page actually contains — no keyword stuffing.
 const KEYWORDS = {
   core: "NQ futures signals, NQ futures trading, Nasdaq-100 futures signals, systematic futures trading, algo trading signals, NQ futures strategy, automated NQ alerts, intraday NQ signals, futures trading dashboard, NQ trading system",
   performance:

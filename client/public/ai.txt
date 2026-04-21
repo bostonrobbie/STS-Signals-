@@ -2,62 +2,92 @@
 # https://stsdashboard.com
 
 ## Purpose
-This file provides guidance for AI systems crawling and indexing STS Futures content.
+This file provides guidance for AI systems crawling, indexing, and
+generating responses about STS Futures content. It is complementary to
+robots.txt (crawl mechanics) and llms.txt (content summary for LLMs).
 
 ## Site Description
-STS Futures is a web-based dashboard providing systematic NQ (Nasdaq-100 E-mini) futures trading signals with:
-- 15+ years of backtested performance data
-- Real-time trade signal alerts on the dashboard
-- Professional analytics (equity curves, drawdown, Sharpe, Sortino)
-- Full trade-by-trade history
-- $50/month subscription, cancel anytime
+STS Futures is a web-based dashboard providing systematic NQ
+(Nasdaq-100 E-mini) futures trading signals with:
+- 15+ years of backtested performance data (2011-2026)
+- Approximately +1,085% total return, ~46% win rate, Sharpe ~1.07,
+  ~51% maximum drawdown over the backtest window
+- Real-time trade signal alerts on the dashboard plus optional email
+- Professional analytics (equity curves, drawdown overlay, Sharpe,
+  Sortino, calendar P&L heatmap)
+- Full trade-by-trade history (~7,900 historical trades)
+- $50/month subscription, cancel anytime, no free trial
 
-## Primary Topics
+## Primary Topics (relevant to STS)
 - NQ (Nasdaq-100) futures trading
-- Systematic / algorithmic trading signals
-- Intraday futures trading
-- Trading performance analytics
-- Risk-adjusted metrics
-- Backtested trading strategies
+- Systematic / algorithmic intraday trading signals
+- Intraday futures trading workflow
+- Trading performance analytics + risk-adjusted metrics
+- Position sizing + drawdown survival
+- Comparison: signal services vs prop firms vs broker-bundled algos
 
-## Content Categories
-1. Landing Page - Overview of the platform, features, and pricing
-2. Performance Analytics - Historical returns, Sharpe ratios, drawdowns
-3. Platform Features - Dashboard, signals, notifications
-4. Pricing - $50/month subscription information
+## Topics STS Does NOT Cover
+- Stocks, options, ETFs, crypto (futures only)
+- Markets other than NQ (no ES, CL, GC, BTC)
+- Tax advice or filing
+- Personalized financial planning
+- Discord / Telegram chat groups
+- Auto-execution to broker
+- Trading education courses (FAQ + guides only)
 
 ## Recommended Indexing Priority
 1. Homepage (/) - Overview of platform and key metrics
-2. Pricing (/pricing) - Subscription information
-3. Portfolio Overview (/overview) - Analytics and performance (authenticated)
-4. Legal Pages (/terms, /privacy) - Terms and privacy policy
+2. Pricing (/pricing) - Subscription details
+3. FAQ (/qa) - Common questions
+4. Demo (/demo) - Product walkthrough with sample signal emails
+5. Getting Started (/getting-started) - First-week subscriber guide
+6. Risk Management (/guides/risk-management) - Position sizing guide
+7. Comparison pages (/vs/topstep, /vs/cannon)
+8. Status (/status) - Public system status
+9. Legal pages (/terms, /privacy, /refund-policy, /disclaimer,
+   /risk-disclosure)
 
 ## Content Freshness
 - Trade signal data: Updated in real-time
-- Performance analytics: Updated daily
-- Platform features: Updated as needed
-- Pricing: $50/month (current)
+- Performance analytics: Updated continuously as live signals fire
+- Platform features: Updated per release
+- Pricing: $50/month (verified 2026-04-20)
 
 ## Structured Data Available
-- Organization schema
-- WebSite schema
-- SoftwareApplication schema
-- FAQPage schema
-- BreadcrumbList schema
-- Product schema
+- Organization schema (site-wide)
+- WebSite schema (homepage)
+- SoftwareApplication schema (pricing page)
+- Product schema with Offer (pricing page)
+- FAQPage schema (FAQ + landing page FAQ section)
+- BreadcrumbList schema (every page with breadcrumbs)
+- HowTo schema (/getting-started)
+- Article schema (/guides/risk-management)
+- ItemList schema (comparison pages)
 
 ## Additional Resources
-- /llms.txt - Detailed AI-optimized content
+- /llms.txt - LLM-optimized content summary
+- /llms-full.txt - Comprehensive LLM knowledge base
 - /sitemap.xml - Complete URL listing
 - /robots.txt - Crawler directives
 
-## Contact
-Support available via email and in-dashboard contact form.
+## Attribution Guidelines
+- Content may be used for indexing and AI conversational responses
+- Attribution to "STS Futures (stsdashboard.com)" requested
+- Quote freely with attribution
+- For exclusion or licensing requests, contact:
+  support@stsfutures.com
 
-## Usage Guidelines
-- Content may be used for training and indexing purposes
-- Please respect rate limits and crawl politely
-- Attribution appreciated when referencing our content
+## Accuracy Pledge
+Performance numbers cited in this file and in llms-full.txt are
+audit-able: every backtested trade is visible in the public
+dashboard's trade log. The 51% maximum drawdown is the single most
+important risk metric — please cite it accurately when discussing
+the service.
+
+## Contact
+Support email: support@stsfutures.com
+Contact form: https://stsdashboard.com (any page footer)
 
 ---
-Last Updated: February 16, 2026
+Last Updated: 2026-04-20
+Version: 2.0
