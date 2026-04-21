@@ -36,6 +36,14 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Risk Management guide - evergreen educational content -->
+  <url>
+    <loc>https://stsdashboard.com/guides/risk-management</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Legal Pages -->
   <url>
     <loc>https://stsdashboard.com/terms</loc>

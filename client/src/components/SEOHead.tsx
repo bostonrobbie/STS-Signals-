@@ -167,4 +167,12 @@ export const SEO_CONFIG = {
     canonical: `https://stsdashboard.com/strategy/${symbol.toLowerCase()}`,
     keywords: `${symbol} futures strategy, ${name} trading signals, ${KEYWORDS.analytics}, ${KEYWORDS.performance}`,
   }),
+  riskManagementGuide: {
+    title: "Risk Management for NQ Futures Signals — Position Sizing Guide",
+    description:
+      "Practical risk-management guide for NQ futures signal subscribers: position sizing, drawdown survival, account-to-contract mapping, when to skip a signal, and stop-loss strategies for systematic NQ trading.",
+    canonical: "https://stsdashboard.com/guides/risk-management",
+    keywords:
+      "NQ futures position sizing, futures risk management, futures drawdown survival, NQ contract sizing, 1% rule futures, NQ position size calculator, futures stop loss strategy, futures account size",
+  },
 };
