@@ -167,4 +167,20 @@ export const SEO_CONFIG = {
     canonical: `https://stsdashboard.com/strategy/${symbol.toLowerCase()}`,
     keywords: `${symbol} futures strategy, ${name} trading signals, ${KEYWORDS.analytics}, ${KEYWORDS.performance}`,
   }),
+  vsTopstep: {
+    title: "STS Futures vs Topstep — Signal Service vs Funded Account",
+    description:
+      "Honest comparison of STS Futures (NQ signal service, $50/month, your own broker) and Topstep (funded-account challenge, profit split). Which is right for you depends on capital, goals, and risk tolerance.",
+    canonical: "https://stsdashboard.com/vs/topstep",
+    keywords:
+      "STS Futures vs Topstep, Topstep alternative, NQ futures signals vs prop firm, funded account vs signal service, Topstep profit split, NQ trading signal service comparison",
+  },
+  vsCannon: {
+    title: "STS Futures vs Cannon Trading — Signals vs Broker-Bundled Algos",
+    description:
+      "STS Futures (signals delivered to any broker, $50/month) vs Cannon Trading's broker-bundled systematic products. Decouple your signal source from your broker to keep both choices flexible.",
+    canonical: "https://stsdashboard.com/vs/cannon",
+    keywords:
+      "STS Futures vs Cannon Trading, Cannon Trading alternative, broker-independent NQ signals, futures signal service vs broker algos, NQ trading signals any broker",
+  },
 };

@@ -45,6 +45,8 @@ const RiskDisclosure = lazy(() => import("./pages/RiskDisclosure"));
 // QADashboard available for future use
 // const QADashboard = lazy(() => import("./pages/QADashboard"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const StsVsTopstep = lazy(() => import("./pages/vs/StsVsTopstep"));
+const StsVsCannon = lazy(() => import("./pages/vs/StsVsCannon"));
 
 // Loading fallback component
 function PageLoader() {
@@ -132,6 +134,28 @@ function Router() {
             <Suspense fallback={<PageLoader />}>
               <Pricing />
             </Suspense>
+          )}
+        />
+
+        <Route
+          path="/vs/topstep"
+          component={() => (
+            <DashboardLayout>
+              <Suspense fallback={<PageLoader />}>
+                <StsVsTopstep />
+              </Suspense>
+            </DashboardLayout>
+          )}
+        />
+
+        <Route
+          path="/vs/cannon"
+          component={() => (
+            <DashboardLayout>
+              <Suspense fallback={<PageLoader />}>
+                <StsVsCannon />
+              </Suspense>
+            </DashboardLayout>
           )}
         />
 

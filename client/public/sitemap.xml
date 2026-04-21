@@ -28,6 +28,20 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Competitor comparison pages - high-intent long-tail search -->
+  <url>
+    <loc>https://stsdashboard.com/vs/topstep</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://stsdashboard.com/vs/cannon</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
   <!-- Broker Setup Guide - informational, good for long-tail search -->
   <url>
     <loc>https://stsdashboard.com/broker-setup</loc>
