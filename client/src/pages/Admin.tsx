@@ -82,6 +82,7 @@ import { useLocation, useSearch } from "wouter";
 import { WebhookSimulator } from "@/components/WebhookSimulator";
 import { PositionManager } from "@/components/PositionManager";
 import { WebhookAlertMonitor } from "@/components/WebhookAlertMonitor";
+import { SearchConsolePanel } from "@/components/SearchConsolePanel";
 import {
   TradeSourceBreakdown,
   WebhookSignalPerformance,
@@ -182,7 +183,7 @@ export default function Admin() {
         className="space-y-4 sm:space-y-6"
       >
         <div className="overflow-x-auto -mx-1 sm:mx-0 px-1 sm:px-0">
-          <TabsList className="grid w-max sm:w-full grid-cols-6 h-auto p-0.5 sm:p-1 lg:w-auto lg:inline-grid min-w-max">
+          <TabsList className="grid w-max sm:w-full grid-cols-8 h-auto p-0.5 sm:p-1 lg:w-auto lg:inline-grid min-w-max">
             <TabsTrigger
               value="overview"
               className="gap-1 sm:gap-2 px-2 sm:px-4 py-2 text-xs sm:text-sm"
@@ -226,6 +227,13 @@ export default function Admin() {
               <span>Alerts</span>
             </TabsTrigger>
             <TabsTrigger
+              value="seo"
+              className="gap-1 sm:gap-2 px-2 sm:px-4 py-2 text-xs sm:text-sm"
+            >
+              <Search className="h-4 w-4 shrink-0" />
+              <span>SEO</span>
+            </TabsTrigger>
+            <TabsTrigger
               value="advanced"
               className="gap-1 sm:gap-2 px-2 sm:px-4 py-2 text-xs sm:text-sm"
             >
@@ -257,6 +265,10 @@ export default function Admin() {
 
         <TabsContent value="alerts" className="space-y-6">
           <WebhookAlertMonitor />
+        </TabsContent>
+
+        <TabsContent value="seo" className="space-y-6">
+          <SearchConsolePanel />
         </TabsContent>
 
         <TabsContent value="advanced" className="space-y-6">
