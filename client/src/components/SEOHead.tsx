@@ -269,4 +269,67 @@ export const SEO_CONFIG = {
     canonical: `https://stsdashboard.com/strategy/${symbol.toLowerCase()}`,
     keywords: `${symbol} futures strategy, ${name} trading signals, ${KEYWORDS.analytics}, ${KEYWORDS.performance}`,
   }),
+  // ── Legal pages ──────────────────────────────────────────────────────
+  terms: {
+    title: "Terms of Service | STS Futures",
+    description:
+      "Terms of service for STS Futures NQ trading signal subscription. Acceptance of terms, description of service, account responsibilities, and limitation of liability.",
+    canonical: "https://stsdashboard.com/terms",
+    keywords:
+      "STS Futures terms of service, futures signal terms, NQ trading service terms",
+  },
+  privacy: {
+    title: "Privacy Policy | STS Futures",
+    description:
+      "Privacy policy for STS Futures. What data we collect, how we use it, third-party services, and subscriber rights under GDPR and CCPA.",
+    canonical: "https://stsdashboard.com/privacy",
+    keywords:
+      "STS Futures privacy policy, futures signal service privacy, NQ trading data policy",
+  },
+  refund: {
+    title: "Cancellation & Refund Policy | STS Futures",
+    description:
+      "STS Futures cancellation and refund policy: cancel any time from account settings, all sales final, no refunds for partial billing periods.",
+    canonical: "https://stsdashboard.com/refund-policy",
+    keywords:
+      "STS Futures refund policy, cancel STS Futures, futures signal subscription cancellation",
+  },
+  disclaimer: {
+    title: "Disclaimer | STS Futures",
+    description:
+      "STS Futures disclaimer. The platform provides systematic NQ futures signals for informational purposes only — not personalized financial advice.",
+    canonical: "https://stsdashboard.com/disclaimer",
+    keywords:
+      "STS Futures disclaimer, futures trading disclaimer, NQ signal service disclaimer",
+  },
+  riskDisclosure: {
+    title: "Risk Disclosure | STS Futures",
+    description:
+      "Required risk disclosure for STS Futures NQ trading signal subscribers. Trading futures involves substantial risk of loss; past performance is not indicative of future results.",
+    canonical: "https://stsdashboard.com/risk-disclosure",
+    keywords:
+      "futures trading risk disclosure, NQ futures risk, futures signal risk warning",
+  },
+  // ── Auth pages — these should never be indexed ───────────────────────
+  login: {
+    title: "Sign In | STS Futures",
+    description: "Sign in to your STS Futures account.",
+    canonical: "https://stsdashboard.com/login",
+    keywords: "",
+    noindex: true,
+  },
+  signup: {
+    title: "Create Account | STS Futures",
+    description: "Create your STS Futures account.",
+    canonical: "https://stsdashboard.com/password-signup",
+    keywords: "",
+    noindex: true,
+  },
+  forgotPassword: {
+    title: "Forgot Password | STS Futures",
+    description: "Reset your STS Futures account password.",
+    canonical: "https://stsdashboard.com/forgot-password",
+    keywords: "",
+    noindex: true,
+  },
 };

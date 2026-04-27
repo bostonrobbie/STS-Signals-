@@ -13,6 +13,7 @@ import {
 import { Alert, AlertDescription } from "../components/ui/alert";
 import { Loader2, AlertCircle, CheckCircle, TrendingUp } from "lucide-react";
 import { trackGASignUp } from "../components/GoogleAnalytics";
+import { SEOHead, SEO_CONFIG } from "@/components/SEOHead";
 
 export default function PasswordSignup() {
   const [, setLocation] = useLocation();
@@ -77,7 +78,9 @@ export default function PasswordSignup() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+    <>
+      <SEOHead {...SEO_CONFIG.signup} />
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10 pointer-events-none" />
 
@@ -223,5 +226,6 @@ export default function PasswordSignup() {
         </CardContent>
       </Card>
     </div>
+    </>
   );
 }

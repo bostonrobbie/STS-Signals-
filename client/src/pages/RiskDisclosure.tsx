@@ -1,10 +1,33 @@
 import DashboardLayout from "../components/DashboardLayout";
 import { Footer } from "../components/Footer";
+import { SEOHead, SEO_CONFIG } from "@/components/SEOHead";
+import { StructuredData, webPageSchema, breadcrumbSchema } from "@/components/StructuredData";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function RiskDisclosure() {
   return (
     <DashboardLayout>
+      <SEOHead {...SEO_CONFIG.riskDisclosure} />
+      <StructuredData
+        id="risk-disclosure-page"
+        data={webPageSchema({
+          name: "Risk Disclosure Statement",
+          description: SEO_CONFIG.riskDisclosure.description,
+          url: SEO_CONFIG.riskDisclosure.canonical,
+          breadcrumb: breadcrumbSchema([
+            { name: "Home", url: "https://stsdashboard.com/" },
+            { name: "Risk Disclosure", url: SEO_CONFIG.riskDisclosure.canonical },
+          ]),
+        })}
+      />
       <div className="max-w-4xl mx-auto py-12 px-4">
+        <Breadcrumbs
+          className="mb-6"
+          items={[
+            { name: "Home", path: "/" },
+            { name: "Risk Disclosure", path: "/risk-disclosure" },
+          ]}
+        />
         <h1 className="text-4xl font-bold mb-8">Risk Disclosure Statement</h1>
 
         <div className="prose prose-invert max-w-none space-y-6">
