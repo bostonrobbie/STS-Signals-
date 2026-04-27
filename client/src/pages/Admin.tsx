@@ -84,6 +84,7 @@ import { PositionManager } from "@/components/PositionManager";
 import { WebhookAlertMonitor } from "@/components/WebhookAlertMonitor";
 import { KillSwitchBanner } from "@/components/KillSwitchBanner";
 import { SafetyPanel } from "@/components/SafetyPanel";
+import { SearchConsolePanel } from "@/components/SearchConsolePanel";
 import {
   TradeSourceBreakdown,
   WebhookSignalPerformance,
@@ -239,6 +240,13 @@ export default function Admin() {
               <span>Safety</span>
             </TabsTrigger>
             <TabsTrigger
+              value="seo"
+              className="gap-1 sm:gap-2 px-2 sm:px-4 py-2 text-xs sm:text-sm"
+            >
+              <Search className="h-4 w-4 shrink-0" />
+              <span>SEO</span>
+            </TabsTrigger>
+            <TabsTrigger
               value="advanced"
               className="gap-1 sm:gap-2 px-2 sm:px-4 py-2 text-xs sm:text-sm"
             >
@@ -274,6 +282,10 @@ export default function Admin() {
 
         <TabsContent value="safety" className="space-y-6">
           <SafetyPanel />
+        </TabsContent>
+
+        <TabsContent value="seo" className="space-y-6">
+          <SearchConsolePanel />
         </TabsContent>
 
         <TabsContent value="advanced" className="space-y-6">

@@ -28,6 +28,7 @@ import { monitorWebhookUrl, checkWebhookUrl } from "./webhookMonitor";
 import { processWebhook } from "./webhookService";
 import { submitToIndexNow } from "./indexNow";
 import { adminSafetyRouter } from "./routers/adminSafety";
+import { adminSearchConsoleRouter } from "./routers/adminSearchConsole";
 
 // Time range enum for filtering
 const TimeRange = z.enum(["6M", "YTD", "1Y", "3Y", "5Y", "10Y", "ALL"]);
@@ -73,6 +74,7 @@ function sampleEquityCurve(
 export const appRouter = router({
   system: systemRouter,
   adminSafety: adminSafetyRouter,
+  adminSearchConsole: adminSearchConsoleRouter,
   stripe: stripeRouter,
   auth: passwordRouter,
   positionSizing: positionSizingRouter,
