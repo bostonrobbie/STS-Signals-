@@ -309,6 +309,8 @@ export default function LandingPage() {
                 <img
                   src="https://files.manuscdn.com/user_upload_by_module/session_file/110198424/sLgasntqXJoSfWmA.png"
                   alt="STS"
+                  width={36}
+                  height={36}
                   className="w-9 h-9"
                 />
                 <span className="text-xl font-bold text-foreground tracking-tight">
@@ -1370,6 +1372,9 @@ export default function LandingPage() {
                   <img
                     src="https://files.manuscdn.com/user_upload_by_module/session_file/110198424/sLgasntqXJoSfWmA.png"
                     alt="STS"
+                    width={24}
+                    height={24}
+                    loading="lazy"
                     className="w-6 h-6"
                   />
                   <span className="font-bold text-foreground">STS Futures</span>
