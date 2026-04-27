@@ -808,6 +808,12 @@ export const trades = mysqlTable(
       table.exitDate
     ),
     index("idx_trades_source").on(table.source),
+    // Composite indexes covering the post-isTest-audit query pattern.
+    // Every subscriber-visible getTrades() call now filters isTest = 0,
+    // so leading the index with isTest lets MySQL skip every test row
+    // without scanning. Dramatically faster on a 7,900-row table.
+    index("idx_trades_istest_strategy").on(table.isTest, table.strategyId),
+    index("idx_trades_istest_exit").on(table.isTest, table.exitDate),
   ]
 );
 
