@@ -51,6 +51,8 @@ const GettingStarted = lazy(() => import("./pages/GettingStarted"));
 const RiskManagementGuide = lazy(
   () => import("./pages/guides/RiskManagement")
 );
+const StsVsTopstep = lazy(() => import("./pages/vs/StsVsTopstep"));
+const StsVsCannon = lazy(() => import("./pages/vs/StsVsCannon"));
 
 // Loading fallback component
 function PageLoader() {
@@ -180,6 +182,28 @@ function Router() {
             <DashboardLayout>
               <Suspense fallback={<PageLoader />}>
                 <RiskManagementGuide />
+              </Suspense>
+            </DashboardLayout>
+          )}
+        />
+
+        <Route
+          path="/vs/topstep"
+          component={() => (
+            <DashboardLayout>
+              <Suspense fallback={<PageLoader />}>
+                <StsVsTopstep />
+              </Suspense>
+            </DashboardLayout>
+          )}
+        />
+
+        <Route
+          path="/vs/cannon"
+          component={() => (
+            <DashboardLayout>
+              <Suspense fallback={<PageLoader />}>
+                <StsVsCannon />
               </Suspense>
             </DashboardLayout>
           )}
