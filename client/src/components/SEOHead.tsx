@@ -355,4 +355,12 @@ export const SEO_CONFIG = {
     keywords:
       "STS Futures setup, first NQ signal, getting started futures signals, NQ futures first trade, futures signal service onboarding, what to do after subscribing STS",
   },
+  riskManagementGuide: {
+    title: "Risk Management for NQ Futures Signals — Position Sizing Guide",
+    description:
+      "Practical risk-management guide for NQ futures signal subscribers: position sizing, drawdown survival, account-to-contract mapping, when to skip a signal, and stop-loss strategies for systematic NQ trading.",
+    canonical: "https://stsdashboard.com/guides/risk-management",
+    keywords:
+      "NQ futures position sizing, futures risk management, futures drawdown survival, NQ contract sizing, 1% rule futures, NQ position size calculator, futures stop loss strategy, futures account size",
+  },
 };
