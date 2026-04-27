@@ -347,4 +347,12 @@ export const SEO_CONFIG = {
     canonical: "https://stsdashboard.com/demo",
     keywords: `NQ futures signal demo, STS Futures dashboard preview, trading signal example, NQ alert email sample, futures signal service walkthrough, ${KEYWORDS.core}`,
   },
+  gettingStarted: {
+    title: "Getting Started — Your First Week with STS Futures",
+    description:
+      "Step-by-step guide for new STS Futures subscribers: account setup, first signal, position sizing, paper trading, and what to expect in your first week of NQ futures signals.",
+    canonical: "https://stsdashboard.com/getting-started",
+    keywords:
+      "STS Futures setup, first NQ signal, getting started futures signals, NQ futures first trade, futures signal service onboarding, what to do after subscribing STS",
+  },
 };
