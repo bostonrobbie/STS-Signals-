@@ -269,6 +269,14 @@ export const SEO_CONFIG = {
     canonical: `https://stsdashboard.com/strategy/${symbol.toLowerCase()}`,
     keywords: `${symbol} futures strategy, ${name} trading signals, ${KEYWORDS.analytics}, ${KEYWORDS.performance}`,
   }),
+  status: {
+    title: "System Status | STS Futures",
+    description:
+      "Live status of STS Futures — dashboard, API, database, real-time notifications, and email service. Updated every 30 seconds.",
+    canonical: "https://stsdashboard.com/status",
+    keywords:
+      "STS Futures status, STS Futures uptime, STS Futures service status, is STS Futures down, NQ signal service status",
+  },
   // ── Legal pages ──────────────────────────────────────────────────────
   terms: {
     title: "Terms of Service | STS Futures",

@@ -45,6 +45,7 @@ const RiskDisclosure = lazy(() => import("./pages/RiskDisclosure"));
 // QADashboard available for future use
 // const QADashboard = lazy(() => import("./pages/QADashboard"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const Status = lazy(() => import("./pages/Status"));
 
 // Loading fallback component
 function PageLoader() {
@@ -132,6 +133,17 @@ function Router() {
             <Suspense fallback={<PageLoader />}>
               <Pricing />
             </Suspense>
+          )}
+        />
+
+        <Route
+          path="/status"
+          component={() => (
+            <DashboardLayout>
+              <Suspense fallback={<PageLoader />}>
+                <Status />
+              </Suspense>
+            </DashboardLayout>
           )}
         />
 

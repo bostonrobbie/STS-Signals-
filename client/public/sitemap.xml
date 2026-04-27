@@ -36,6 +36,14 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- System status page -->
+  <url>
+    <loc>https://stsdashboard.com/status</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+
   <!-- Legal Pages -->
   <url>
     <loc>https://stsdashboard.com/terms</loc>
