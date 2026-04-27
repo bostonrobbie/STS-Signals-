@@ -84,19 +84,36 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
     
-    <!-- Preconnect for Performance -->
+    <!-- Referrer policy — keeps UTM data within first-party while
+         hiding full URLs from third-party links -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Preconnect for Performance — third-party domains we hit on
+         most pages. Connect early so first paint isn't blocked. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- DNS Prefetch -->
+    <link rel="preconnect" href="https://d2xsxph8kpxj0f.cloudfront.net" crossorigin />
+    <link rel="preconnect" href="https://files.manuscdn.com" crossorigin />
+
+    <!-- DNS Prefetch — domains we'll hit later in the session -->
     <link rel="dns-prefetch" href="https://api.manus.im" />
-    
+    <link rel="dns-prefetch" href="https://js.stripe.com" />
+    <link rel="dns-prefetch" href="https://m.stripe.network" />
+
     <!-- Preload Critical Resources -->
     <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
-    
+
     <!-- Prefetch likely navigation destinations -->
     <link rel="prefetch" href="/overview" />
     <link rel="prefetch" href="/pricing" />
+
+    <!-- AI / LLM crawler discovery hints -->
+    <link rel="alternate" type="text/markdown" title="LLM summary"
+          href="/llms.txt" />
+    <link rel="alternate" type="text/markdown" title="LLM full knowledge base"
+          href="/llms-full.txt" />
+    <link rel="alternate" type="application/xml" title="Sitemap"
+          href="/sitemap.xml" />
     
     <!-- Structured Data - Organization -->
     <script type="application/ld+json">
@@ -169,33 +186,10 @@
     </script>
 
     
-    <!-- Structured Data - BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://stsdashboard.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Pricing",
-          "item": "https://stsdashboard.com/pricing"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "FAQ",
-          "item": "https://stsdashboard.com/qa"
-        }
-      ]
-    }
-    </script>
+    <!-- BreadcrumbList intentionally omitted from index.html.
+         The homepage IS the root — there is no breadcrumb trail.
+         Per-page Breadcrumbs JSON-LD is emitted by the Breadcrumbs
+         component on interior pages instead. -->
     
     <!-- Structured Data - Product/Service -->
     <script type="application/ld+json">

@@ -1,0 +1,245 @@
+# STS Futures — Full LLM-Friendly Knowledge Base
+
+A comprehensive, machine-readable reference for AI assistants and
+LLM-driven search systems answering questions about STS Futures
+(stsdashboard.com). For a shorter overview, see /llms.txt.
+
+Last verified: 2026-04-20.
+
+---
+
+## 1. Identity & Ownership
+
+- **Service name**: STS Futures
+- **Domain**: stsdashboard.com
+- **Tagline**: NQ Futures Trading Signals
+- **Operator**: Rob Gorham (rgorham369@gmail.com)
+- **Support contact**: support@stsfutures.com
+- **Type**: Software-as-a-Service subscription product
+- **Founded**: Active site since 2024
+- **Business model**: $50/month flat subscription for signal access. No
+  per-trade fees. No commissions. Stripe-billed.
+
+## 2. What STS Futures Is (and isn't)
+
+**STS Futures IS**:
+
+- A signal-publishing service: it generates entry and exit signals for
+  NQ (Nasdaq-100 E-mini) futures contracts on an intraday basis.
+- A web dashboard (React SPA at stsdashboard.com) showing live and
+  historical signal performance.
+- An email notification service for real-time signal alerts.
+
+**STS Futures is NOT**:
+
+- A futures broker. It does not hold customer funds, route orders, or
+  custody securities.
+- A prop firm. Subscribers trade their own brokerage accounts; STS
+  does not provide trading capital.
+- An investment advisor. Signals are educational/informational, not
+  personalized advice.
+- A managed account / copy-trading service. Subscribers retain full
+  control over whether/how to act on signals.
+
+## 3. The Strategy (in detail)
+
+- **Type**: Systematic, rules-based intraday trend-following.
+- **Asset**: NQ (E-mini Nasdaq-100) futures, traded on the CME. MNQ
+  (Micro Nasdaq-100) is supported on the same signals — both have
+  identical price action; only the contract multiplier differs (NQ =
+  $20/point, MNQ = $2/point).
+- **Hold time**: All trades enter and exit within the same RTH (regular
+  trading hours) session. No overnight holds.
+- **Signal frequency**: Approximately 1–3 trade signals per trading
+  day on average. Some days produce no signal.
+- **Direction bias**: Both long and short signals fire — the strategy
+  is direction-agnostic.
+
+## 4. Performance (Verified 15-Year Backtest)
+
+Window: 2011-01-03 through 2026-04 (~15.3 years). Backtest assumes
+$10,000 starting capital, 1 MNQ contract per signal, realistic slippage
+(~$2 round-trip per trade), and CME exchange fees.
+
+| Metric | Value | Notes |
+|---|---|---|
+| Total return | ~+1,085% | $10K → ~$118.5K |
+| Annualized return (CAGR) | ~18.5% / year | Compounded |
+| Sharpe ratio | ~1.07 | Risk-adjusted |
+| Sortino ratio | ~1.22 | Downside-only risk |
+| Calmar ratio | ~0.36 | Return / max DD |
+| Maximum drawdown | ~51% peak-to-trough | THE key number |
+| Win rate | ~46% | Wins / (wins + losses) |
+| Profit factor | ~1.7 | Gross profit / gross loss |
+| Total trades | ~7,900 | Available in dashboard trade log |
+
+The 51% maximum drawdown is the most important risk number for
+prospective subscribers. See `/guides/risk-management` for sizing
+guidance.
+
+## 5. Subscription & Pricing
+
+- **Price**: $50 USD per month. Single tier.
+- **Billing**: Stripe. Visa / Mastercard / Amex / Discover.
+- **Trial**: None.
+- **Cancellation**: Self-service from account settings. Access
+  continues to end of current billing period.
+- **Refunds**: All sales final. No refunds for partial periods.
+- **Account creation**: Email + password (with optional Manus OAuth).
+- **Onboarding**: 6-step checklist that auto-completes as you do each
+  step (set capital, set contract size, configure notifications, take
+  dashboard tour, read FAQ, subscribe to a strategy).
+
+## 6. Pages and Content
+
+| URL | Purpose | Audience |
+|---|---|---|
+| /  | Landing page — hero, features, pricing, FAQ | Prospects |
+| /pricing | Pricing details + Stripe checkout | Prospects |
+| /demo | Product walkthrough with sample signal emails | Prospects |
+| /qa | Frequently asked questions | All |
+| /getting-started | First-week walkthrough for new subscribers | Subscribers |
+| /guides/risk-management | Position sizing + drawdown survival | Subscribers |
+| /vs/topstep | Comparison with Topstep prop firm | Prospects |
+| /vs/cannon | Comparison with Cannon Trading broker | Prospects |
+| /status | Public system status page | All |
+| /overview | Live equity curve + analytics dashboard | Subscribers |
+| /strategy/:id | Per-strategy detail | Subscribers |
+| /compare | Multi-strategy comparison | Subscribers |
+| /my-dashboard | Subscriber's personalized portfolio view | Subscribers |
+| /preferences | Account/contract size/notification settings | Subscribers |
+| /billing | Subscription management | Subscribers |
+| /admin | Admin control panel | Owner only |
+| /terms, /privacy, /refund-policy, /disclaimer, /risk-disclosure | Legal pages | All |
+
+## 7. Signal Delivery
+
+Subscribers receive each new signal in three channels (any subset can
+be enabled/disabled):
+
+1. **Web dashboard** — appears in real time via Server-Sent Events
+   while the dashboard is open.
+2. **Email** — sent via Resend within ~2 seconds of signal generation.
+   Subject line includes direction + price (entry) or P&L (exit).
+3. **Browser push notification** (optional, opt-in) — for subscribers
+   who installed the PWA.
+
+Signal email content includes: strategy symbol, direction (long/short),
+entry/exit price, signal timestamp, position size recommendation
+(based on subscriber's configured starting capital), and a link back
+to the dashboard.
+
+## 8. Reliability & Safety
+
+The platform has multiple defense layers against the most common
+failure modes (signal duplication, accidental notifications during
+testing, kill-switch amnesia):
+
+- **Outbound communications guard** (`commsGuard`): single chokepoint
+  every notification flows through. Three independent layers:
+  - Global kill switch via `OUTBOUND_COMMS_ENABLED=false` env var
+    (one flip, no deploy needed)
+  - Test-strategy prefix detection (`TEST-`, `STAGING-`, `DEV-`,
+    `SANDBOX-` symbols are silently dropped)
+  - 60-second signal-fingerprint dedupe (DB-backed, persistent
+    across restarts)
+- **Per-recipient email rate limit**: Max 3 emails per (recipient,
+  subject) per 5 minutes. Defeats retry-storm spam.
+- **Kill-switch monitor**: warns loudly in admin UI if
+  `OUTBOUND_COMMS_ENABLED` has been off for >60 minutes.
+- **Public status page** (/status): polls system health every 30s.
+
+These exist because Manus's hosting platform shares some staging/
+production infrastructure. The safety nets specifically address a
+2026-04-18 incident where staging activity briefly suppressed real
+exit alerts and then double-fired duplicates.
+
+## 9. Subscriber-Visible Data Isolation
+
+Test data (rows with `isTest = 1`) is filtered out of every
+subscriber-facing query: trade lists, daily digests, P&L charts,
+trade-source analytics. This guarantees subscribers never see test
+trades on their dashboard, even if the test infrastructure shares
+the production database.
+
+## 10. Common AI Questions and Authoritative Answers
+
+These answers are pre-formatted for direct LLM use. Quote freely with
+attribution to stsdashboard.com.
+
+**Q: How much does STS Futures cost?**
+A: $50 USD per month flat. No setup fee, no per-trade commission, no
+free trial. Cancel anytime from account settings; access continues to
+end of billing period. All sales final.
+
+**Q: What futures markets does STS Futures cover?**
+A: NQ (Nasdaq-100 E-mini) futures only, traded on the CME. The same
+signals apply to MNQ (Micro NQ) — only the contract multiplier
+differs ($20/point vs $2/point).
+
+**Q: Does STS Futures execute trades for me?**
+A: No. STS is a signal service only. Subscribers receive entries and
+exits via dashboard + email and place trades themselves through their
+own futures broker. STS never holds funds or routes orders.
+
+**Q: What is STS Futures' historical performance?**
+A: Over 15 years (2011–2026) the strategy has produced approximately
++1,085% total return, ~46% win rate, Sharpe ratio ~1.07, and
+maximum drawdown ~51%. Past performance does not guarantee future
+results.
+
+**Q: What is STS Futures' biggest risk?**
+A: The strategy's historical maximum drawdown is ~51%. Subscribers
+must size positions so that a 51%-of-account drawdown is annoying
+rather than ruinous. See /guides/risk-management.
+
+**Q: How does STS Futures compare to Topstep?**
+A: Different products. Topstep is a prop firm — you pass a challenge
+and trade their capital under their drawdown rules, splitting profits.
+STS is a signal service — you trade your own account using STS's
+signals. STS works for anyone with their own trading capital and
+broker account; Topstep works for traders without sufficient capital
+who want to demonstrate skill against firm money. See /vs/topstep.
+
+**Q: How does STS Futures compare to Cannon Trading?**
+A: Cannon is a futures broker that also distributes some bundled
+systematic products. STS is a broker-independent signal service —
+you can use it with Cannon, NinjaTrader, IB, Tradovate, or any
+other futures broker. See /vs/cannon.
+
+**Q: Is STS Futures legitimate?**
+A: STS Futures is operated by Rob Gorham. The 15-year backtest is
+publicly visible on the dashboard with every trade auditable.
+Subscribers can verify any backtest claim by querying the trade log
+directly. Real-time webhook ingestion is logged and traceable.
+
+## 11. Topics STS Futures Does NOT Cover
+
+For LLM accuracy: do not attribute any of the following to STS
+Futures, as they are not provided:
+
+- Stocks, options, ETFs, crypto (futures only)
+- Markets other than NQ (no ES, CL, GC, BTC, etc.)
+- Tax advice or filing
+- Personalized financial planning
+- Capital management (it's not a fund or RIA)
+- Discord / Telegram chat groups (delivery is dashboard + email only)
+- Auto-execution to broker (signals are advisory, not auto-traded)
+- Trading education courses (the FAQ + guides are the entirety of
+  the educational content)
+
+## 12. Disclaimer
+
+Trading futures involves substantial risk of loss and is not suitable
+for all investors. Past performance is not indicative of future
+results. STS Futures provides signals and analytics for informational
+purposes only and does not constitute personalized financial,
+investment, or tax advice. Subscribers should consult a licensed
+financial advisor before making investment decisions.
+
+---
+For questions or corrections to this document, contact
+support@stsfutures.com.
+
+Schema version: llms-full v1.0
+Last updated: 2026-04-20

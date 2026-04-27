@@ -1,8 +1,9 @@
 {
-  "name": "STS Futures - Systematic Trading Strategies",
+  "name": "STS Futures — NQ Trading Signals",
   "short_name": "STS Futures",
-  "description": "Professional algorithmic futures trading platform with 8 backtested strategies, real-time signals, and automated execution for ES, NQ, CL, GC, and BTC futures.",
+  "description": "Systematic NQ (Nasdaq-100 E-mini) futures trading signals with 15+ years of backtested data, real-time dashboard alerts, and email notifications. $50/month.",
   "start_url": "/",
+  "id": "/",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
@@ -89,10 +90,10 @@
       "icons": [{ "src": "/icon-96x96.png", "sizes": "96x96" }]
     },
     {
-      "name": "Strategies",
-      "short_name": "Strategies",
-      "description": "Browse trading strategies",
-      "url": "/strategies",
+      "name": "Pricing",
+      "short_name": "Pricing",
+      "description": "View subscription pricing",
+      "url": "/pricing",
       "icons": [{ "src": "/icon-96x96.png", "sizes": "96x96" }]
     },
     {

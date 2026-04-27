@@ -1,10 +1,33 @@
 # Security Policy for STS Futures
-# https://sts-futures.com
+# https://stsdashboard.com
 
-Contact: mailto:security@sts-futures.com
-Expires: 2026-12-31T23:59:59.000Z
+Contact: mailto:support@stsfutures.com
+Expires: 2027-04-20T00:00:00.000Z
 Preferred-Languages: en
-Canonical: https://sts-futures.com/.well-known/security.txt
+Canonical: https://stsdashboard.com/.well-known/security.txt
+Acknowledgments: https://stsdashboard.com/security-acknowledgments
+Policy: https://stsdashboard.com/disclaimer
 
-# We appreciate responsible disclosure of security vulnerabilities.
-# Please report any security issues to the contact above.
+# Responsible disclosure
+#
+# We welcome reports of security vulnerabilities. Please email
+# support@stsfutures.com with:
+#   1. A clear description of the vulnerability
+#   2. Steps to reproduce
+#   3. Impact assessment (what an attacker could do)
+#   4. Any suggested mitigation
+#
+# We aim to acknowledge initial reports within 72 hours and to
+# provide a fix or detailed remediation plan within 30 days for
+# valid issues. Critical issues (e.g. affecting subscriber data
+# or signal delivery) are prioritized.
+#
+# Out of scope:
+#   - Volumetric DDoS attacks
+#   - Social engineering of staff or users
+#   - Issues already publicly disclosed
+#   - Vulnerabilities requiring physical access to the user's device
+#
+# We do not currently run a paid bounty program but acknowledge
+# valid reports publicly (with reporter consent) on the
+# acknowledgments page.
