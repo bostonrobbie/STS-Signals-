@@ -51,3 +51,16 @@ above never takes the site down — it just downgrades safety.
 | File | Purpose | Run once? |
 |---|---|---|
 | `0001_signal_fingerprints.sql` | Persistent dedupe table for commsGuard | Yes |
+| `0002_trades_istest_indexes.sql` | Composite (isTest, strategyId) + (isTest, exitDate) indexes on `trades`. Speeds up subscriber `getTrades()` queries (~120ms → <10ms) after the data-isolation audit forced isTest=0 to lead every filter. | Yes |
+
+## Pending apply on Manus prod
+
+As of 2026-04-26, both files above ship in `main` (commit `1f14b12`) but
+have **not** been applied to the Manus prod DB yet. Apply both, in
+order, the next time you have the Manus DB console open. Until applied:
+
+- `0001` → commsGuard falls back to in-memory dedupe (works, but a
+  Manus restart during a duplicate retry window would let one through)
+- `0002` → subscriber dashboard queries are ~10x slower than they need
+  to be (still correct, just slow)
+
