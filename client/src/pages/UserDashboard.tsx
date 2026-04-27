@@ -46,7 +46,7 @@ import {
 } from "@/components/ui/dialog";
 import { RiskDisclaimerModal } from "@/components/RiskDisclaimerModal";
 import { NotificationSettings } from "@/components/NotificationSettings";
-import OnboardingChecklist from "@/components/OnboardingChecklist";
+import SmartOnboardingChecklist from "@/components/SmartOnboardingChecklist";
 import { SubscriptionGate } from "@/components/SubscriptionGate";
 import { PortfolioPerformanceCenter } from "@/components/PortfolioPerformanceCenter";
 import { TimezoneIndicator } from "@/components/TimezoneIndicator";
@@ -116,14 +116,8 @@ export default function UserDashboard() {
   const [showSP500, setShowSP500] = useState(true);
   const [riskDisclaimerOpen, setRiskDisclaimerOpen] = useState(false);
 
-  // Check if user has dismissed onboarding
-  const showOnboarding =
-    // @ts-expect-error TS2339
-    user && !user.onboardingDismissed && !user.onboardingCompleted;
-
-  // Dismiss onboarding mutation
-  // @ts-expect-error TS2339
-  const dismissOnboardingMutation = trpc.auth.dismissOnboarding.useMutation();
+  // Onboarding visibility/dismiss logic now lives inside
+  // SmartOnboardingChecklist — see <SmartOnboardingChecklist /> below.
 
   // Fetch user subscriptions
   const {
@@ -577,29 +571,10 @@ export default function UserDashboard() {
             </Tabs>
           </div>
 
-          {/* Onboarding Checklist for new users */}
-          {showOnboarding && user?.subscriptionTier !== "free" && (
-            <OnboardingChecklist
-              items={[
-                {
-                  id: "strategies",
-                  title: "Select Your Strategies",
-                  description:
-                    "Choose which trading strategies to follow from our portfolio",
-                  href: "/my-dashboard?tab=discover",
-                  completed: (subscriptions?.length || 0) > 0,
-                },
-                {
-                  id: "notifications",
-                  title: "Configure Notifications",
-                  description: "Set up email and push alerts for trade signals",
-                  href: "/my-dashboard?tab=notifications",
-                  completed: false, // TODO: Check notification preferences
-                },
-              ]}
-              onDismiss={() => dismissOnboardingMutation.mutate()}
-            />
-          )}
+          {/* Onboarding Checklist — computes live completion state from
+              user prefs / subscriptions / notification prefs. Auto-hides
+              for free-tier, dismissed, or fully-completed users. */}
+          <SmartOnboardingChecklist />
 
           {/* Today's Trades Section - Always visible */}
           <Card className="bg-gradient-to-br from-blue-500/5 to-transparent border-blue-500/20">
