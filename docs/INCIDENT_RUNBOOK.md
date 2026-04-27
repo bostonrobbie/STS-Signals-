@@ -122,8 +122,20 @@ a signal for a trade that was already closed.
    duplicate notifications within a 60s window. If it didn't:
    - Signal fingerprints differ by even 1 cent / 1 second? Adjust
      bucketing.
-   - Server restarted mid-window, losing in-memory state? (known
-     limitation; not fixable without Redis-backed dedupe)
+   - The DB-backed table `signal_fingerprints` survives restart. If
+     it's missing, `drizzle/manual/0001_signal_fingerprints.sql` hasn't
+     been applied — the code falls back to in-memory dedupe which
+     resets on restart. Check the admin `/trpc/adminSafety.summary`
+     endpoint — `dedupe.tableExists: false` means the migration is
+     pending.
+   - If the table exists, query it:
+     ```sql
+     SELECT * FROM signal_fingerprints
+     WHERE strategySymbol = 'NQ_TREND_T3'
+     ORDER BY firstSeenAt DESC LIMIT 10;
+     ```
+     If the fingerprint for the duplicate signal isn't in there, the
+     insert probably raced or the price bucketing differs between calls.
 6. Clear the retry queue manually if needed:
    ```sql
    DELETE FROM webhook_retry_queue WHERE createdAt < NOW() - INTERVAL 1 HOUR;
@@ -233,6 +245,29 @@ WHERE createdAt > NOW() - INTERVAL 24 HOUR
 GROUP BY status;
 ```
 
+### Signal dedupe table health (is the safety net working?)
+```sql
+SELECT
+  COUNT(*) AS total,
+  SUM(CASE WHEN expiresAt < NOW() THEN 1 ELSE 0 END) AS expired,
+  MAX(firstSeenAt) AS most_recent_signal
+FROM signal_fingerprints;
+```
+- If `total = 0` after a known-active market hour → the dedupe isn't
+  writing. Either the table doesn't exist (migration pending) or the
+  commsGuard path isn't reaching it. Check commsGuard logs.
+- If `expired > 1000` → the 6h reaper isn't running. Check server
+  restart or investigate `reapExpiredFingerprints` call site.
+
+### Recent dedupe suppressions by strategy
+```sql
+SELECT strategySymbol, direction, signalType, COUNT(*) AS blocked
+FROM signal_fingerprints
+WHERE firstSeenAt > NOW() - INTERVAL 1 HOUR
+GROUP BY strategySymbol, direction, signalType
+ORDER BY blocked DESC;
+```
+
 ---
 
 ## Kill-switch reference card
@@ -245,6 +280,13 @@ GROUP BY status;
 
 All three are single-env-var changes in Manus config. No deploy
 required beyond the env var update.
+
+**Kill-switch stale warning:** after 60 minutes of
+`OUTBOUND_COMMS_ENABLED=false`, the server logs a ⚠️ STALE message
+every 10 minutes and `trpc.adminSafety.killSwitchStatus` returns
+`isStale: true`. Rob sees this on the admin dashboard banner.
+Never leave the switch off for days on accident — re-check whenever
+starting an admin session.
 
 ---
 

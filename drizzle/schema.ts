@@ -1225,6 +1225,54 @@ export const userPreferences = mysqlTable(
   table => [index("idx_user_preferences_user").on(table.userId)]
 );
 
+/**
+ * Persistent signal-fingerprint dedupe.
+ *
+ * Sister table to webhook_logs, but purpose-built for the commsGuard
+ * dedupe decision. Surviving server restarts is the whole point —
+ * the in-memory Map-based dedupe in commsGuard.ts resets on restart,
+ * and the original incident was partly caused by a retry queue
+ * replaying signals during a restart window.
+ *
+ * Insert with ON DUPLICATE KEY UPDATE on `fingerprint` — the row is
+ * claimed atomically by MySQL's unique-constraint check. A successful
+ * insert means "fresh signal, fire notifications." A duplicate-key
+ * error means "we've seen this exact fingerprint within the window."
+ *
+ * Rows older than `expiresAt` are swept by a scheduled job (the same
+ * janitor that cleans webhook_retry_queue).
+ */
+export const signalFingerprints = mysqlTable(
+  "signal_fingerprints",
+  {
+    id: int().autoincrement().notNull(),
+    fingerprint: varchar({ length: 200 }).notNull().unique(),
+    strategySymbol: varchar({ length: 50 }).notNull(),
+    direction: varchar({ length: 10 }).notNull(),
+    signalType: varchar({ length: 20 }).notNull(),
+    // Price stored as int (cents) to match the rest of the system
+    priceCents: int().notNull(),
+    // Minute-bucketed epoch (ts / 60_000) — makes time-window queries cheap
+    minuteBucket: int().notNull(),
+    firstSeenAt: timestamp({ mode: "string" })
+      .default("CURRENT_TIMESTAMP")
+      .notNull(),
+    // The server process that first claimed this fingerprint (for
+    // cross-process debugging if multiple replicas are writing)
+    claimedByHost: varchar({ length: 100 }),
+    // After this timestamp, the row is a no-op for dedupe and can be
+    // reaped. Set to firstSeenAt + 60s on insert.
+    expiresAt: timestamp({ mode: "string" }).notNull(),
+  },
+  table => [
+    index("idx_sig_fp_expires").on(table.expiresAt),
+    index("idx_sig_fp_strategy_seen").on(
+      table.strategySymbol,
+      table.firstSeenAt
+    ),
+  ]
+);
+
 // Type exports for insert operations
 export type InsertWebhookLog = typeof webhookLogs.$inferInsert;
 export type InsertOpenPosition = typeof openPositions.$inferInsert;
@@ -1247,3 +1295,5 @@ export type PaperPosition = typeof paperPositions.$inferSelect;
 export type PaperAccount = typeof paperAccounts.$inferSelect;
 export type UserPreferences = typeof userPreferences.$inferSelect;
 export type InsertUserPreferences = typeof userPreferences.$inferInsert;
+export type SignalFingerprint = typeof signalFingerprints.$inferSelect;
+export type InsertSignalFingerprint = typeof signalFingerprints.$inferInsert;

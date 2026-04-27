@@ -33,6 +33,11 @@ If the PR touches ANY of:
 - [ ] No column renames in `drizzle/schema.ts` (see contract §5)
 - [ ] New columns are nullable (don't break existing rows)
 - [ ] No new migration files without testing `drizzle-kit push` locally
+- [ ] If a new table was added: corresponding idempotent SQL exists in
+  `drizzle/manual/*.sql` AND the code path gracefully falls back when
+  the table isn't reachable (see `server/_core/commsGuard.ts` pattern)
+- [ ] Application of the manual SQL is planned as a post-merge step on
+  Manus's prod DB (see `drizzle/manual/README.md`)
 
 ### 4. Data integrity
 - [ ] Numbers in meta descriptions / llms.txt / about page match the
@@ -40,6 +45,9 @@ If the PR touches ANY of:
   canonical numbers)
 - [ ] Re-run the verification SQL from `DATA_INTEGRITY_AUDIT.md` §7 if
   the PR touches the trades / strategy tables
+- [ ] Any new query against `trades` / `open_positions` / `webhook_logs`
+  has an `isTest = 0` filter unless it's an admin tool with a documented
+  reason for needing test data (breach vector from the 2026-04-18 incident)
 
 ### 5. Type check
 - [ ] `pnpm check` passes locally (zero errors)
@@ -140,12 +148,14 @@ incident should be impossible.
 
 - [ ] 🔴 Manus Contract §5 not violated
 - [ ] 🔴 commsGuard wired for any notification change
-- [ ] 🔴 No forbidden schema changes
+- [ ] 🔴 No forbidden schema changes (new tables OK — include idempotent SQL in drizzle/manual/)
+- [ ] 🔴 Any new trade/position query has isTest=0 filter
 - [ ] 🔴 Data integrity numbers match
 - [ ] 🔴 `pnpm check` clean
 - [ ] 🔴 No stub modules committed (funnelTracking, useHomepageAnalytics)
 - [ ] 🟡 Staging OUTBOUND_COMMS_ENABLED=false if touching notifications
 - [ ] 🟡 sitemap.xml updated if new routes
+- [ ] 🟡 Manual migration applied on Manus prod DB (drizzle/manual/*.sql)
 - [ ] 🟢 Performance delta reviewed
 - [ ] 🟢 Accessibility checked
 ```

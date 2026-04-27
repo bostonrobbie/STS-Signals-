@@ -419,11 +419,29 @@ export async function getTrades(params: {
   startDate?: Date;
   endDate?: Date;
   source?: "csv_import" | "webhook" | "manual" | "all";
+  /**
+   * Include rows where `isTest = 1`. Default FALSE — subscriber-visible
+   * call sites must never see test trades. Admin debug tools that need
+   * to inspect test rows should opt in explicitly.
+   *
+   * Related: the 2026-04-18 incident runbook (§"shared DB breach")
+   * specifically warned that a subscriber-visible query missing an
+   * isTest filter is a leak vector. This default closes the hole.
+   */
+  includeTest?: boolean;
 }) {
   const db = await getDb();
   if (!db) return [];
 
   const conditions = [];
+
+  // SAFETY-NET: isTest filter is ALWAYS applied unless caller opts out.
+  // Test trades have isTest = 1 and must never appear on the customer
+  // dashboard. This matches the pattern already used by
+  // getWebhookLogs / getAllOpenPositions / getPositionStats.
+  if (!params.includeTest) {
+    conditions.push(eq(trades.isTest, 0));
+  }
 
   if (params.strategyIds && params.strategyIds.length > 0) {
     conditions.push(inArray(trades.strategyId, params.strategyIds));

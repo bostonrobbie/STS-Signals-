@@ -40,6 +40,8 @@ export async function getTradeSourceBreakdown(params: {
   strategyIds?: number[];
   startDate?: Date;
   endDate?: Date;
+  /** Include test trades. Default FALSE (subscriber-facing default). */
+  includeTest?: boolean;
 }): Promise<TradeSourceStats> {
   const db = await getDb();
   if (!db) {
@@ -52,6 +54,11 @@ export async function getTradeSourceBreakdown(params: {
 
   // Build conditions
   const conditions = [];
+
+  // SAFETY-NET: exclude test trades by default (matches getTrades).
+  if (!params.includeTest) {
+    conditions.push(eq(trades.isTest, 0));
+  }
 
   if (params.strategyIds && params.strategyIds.length > 0) {
     conditions.push(inArray(trades.strategyId, params.strategyIds));
@@ -169,7 +176,8 @@ export async function getWebhookSignalPerformance(params: {
   }
 
   // Build conditions for webhook trades only
-  const conditions = [eq(trades.source, "webhook")];
+  // SAFETY-NET: always exclude test trades from signal analytics.
+  const conditions = [eq(trades.source, "webhook"), eq(trades.isTest, 0)];
 
   if (params.strategyIds && params.strategyIds.length > 0) {
     conditions.push(inArray(trades.strategyId, params.strategyIds));
