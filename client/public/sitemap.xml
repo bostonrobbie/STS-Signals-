@@ -20,6 +20,14 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Demo - product walkthrough, high intent -->
+  <url>
+    <loc>https://stsdashboard.com/demo</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- FAQ / Q&A - high value for YMYL rich snippets -->
   <url>
     <loc>https://stsdashboard.com/qa</loc>

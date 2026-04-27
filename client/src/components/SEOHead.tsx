@@ -340,4 +340,11 @@ export const SEO_CONFIG = {
     keywords: "",
     noindex: true,
   },
+  demo: {
+    title: "Demo | See STS Futures Dashboard in Action — No Signup",
+    description:
+      "Walk through the STS Futures subscriber experience without signing up: real-time NQ signal dashboard, equity curve, drawdown, and the exact alert email we send when a signal fires.",
+    canonical: "https://stsdashboard.com/demo",
+    keywords: `NQ futures signal demo, STS Futures dashboard preview, trading signal example, NQ alert email sample, futures signal service walkthrough, ${KEYWORDS.core}`,
+  },
 };
